@@ -1,0 +1,56 @@
+img {
+  max-width: 100%;
+}
+body {
+  padding: 0;
+  background: #181818;
+}
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  background: url(../img/main.png) 0 0 repeat-y;
+  background-size: 45%;
+  color: white;
+  padding-top: 1px;
+}
+.contents {
+  margin: 10em 0 0 50%;
+  width: 45%;
+
+  /* test */
+  height: 800px;
+}
+
+header h1 {
+  padding: 0 0 0.5em 0;
+  border-bottom: 1px solid gray;
+}
+main {
+  margin: 2em 0;
+  border-bottom: 1px solid gray;
+}
+
+.entry-btn {
+  display: block;
+  width: 80%;
+  margin: 2em auto;
+}
+.regulation {
+  background: #2D2D2D;
+  padding: 0.4em 1em;
+  border-radius: 0.4em;
+}
+.summary {
+  font-size: 2em;
+  font-weight: bold;
+}
+.event-time {
+  color: #bbb625;
+}
+
+
+
+
+
+
