@@ -20,8 +20,46 @@
     <!--[if lt IE 7]>
         <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
-  
+<style>
+  .container {
+    position: relative;
+    border: 1px solid gray;
+  }
+  .menu {
+    position: fixed;
+    left: 10%;
+    top: 40%;
+    width: 400px;
+    font-size: 1.4em;
+  }
+  .list-group-item {
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  @media all and (max-width: 480px) {
+    .menu {
+      position: static;
+      width: 95%;
+      margin: 0 auto;
+      font-size: 1.2em;
+    }
+  }
+
+</style>
     <div class="container">
+
+      <nav class="menu">
+        <div class="list-group">
+          <!-- <a href="#" class="list-group-item active">
+            
+          </a> -->
+          <a href="#" class="list-group-item">大会概要</a>
+          <a href="#" class="list-group-item">大会ルール</a>
+          <a href="#" class="list-group-item">前夜祭</a>
+          <a href="#" class="list-group-item">アクセス</a>
+          <a href="#" class="list-group-item">スタッフ一覧</a>
+        </div>
+      </nav>
       <div class="contents">
         <header>
           <h1 class="title">JUDGEMENT DAY</h1>

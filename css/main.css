@@ -3,13 +3,13 @@ img {
 }
 body {
   padding: 0;
-  background: #181818;
+  background: #000000;
 }
 .container {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  background: url(../img/main.png) 0 0 repeat-y;
+  /*background: url(../img/main.png) 0 0 repeat-y;*/
   background-size: 45%;
   color: white;
   padding-top: 1px;
@@ -19,7 +19,7 @@ body {
   width: 45%;
 
   /* test */
-  height: 800px;
+  height: 3000px;
 }
 
 header h1 {
