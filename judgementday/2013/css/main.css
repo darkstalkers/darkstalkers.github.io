@@ -25,6 +25,7 @@ body {
   display: block;
   width: 100%;
   margin: 1em auto;
+  max-width: 400px;
 }
 .regulation {
   background: #2D2D2D;
