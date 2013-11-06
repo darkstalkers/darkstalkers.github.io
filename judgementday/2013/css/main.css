@@ -292,6 +292,7 @@ section h3 {
   }
   .entry-btn {
     width: 95%;
+    font-size: 1em;
   }
   .savior h3, .hunter h3  {
     padding: 15px 0 15px 108px;
