@@ -230,7 +230,9 @@ section h3 {
 
 .social {
   text-align: center;
-  margin: 1em 0 -2em;
+  margin: 2em 0 -5em;
+  width: 70%;
+  float: right;
 }
 .social ul {
   list-style: none;
@@ -290,5 +292,11 @@ section h3 {
   }
   .staff li .staff-info {
     width: 75%;
+  }
+  .social {
+    text-align: center;
+    margin: 1em 0 0;
+    width: 100%;
+    float: none;
   }
 }
