@@ -243,7 +243,42 @@ section h3 {
   display: inline-block;
 }
 
-@media all and (max-width: 480px) {
+
+@media all and (max-width: 800px) {
+  .menu {
+    margin-left: 0;
+    padding-top: 130px;
+    width: 230px;
+  }
+  .date {
+    font-size: 3em;
+    margin: 4em 0 0 -3em;
+  }
+  .contents {
+    margin-right: 0.5em;
+  }
+}
+@media all and (max-width: 600px) {
+  .menu {
+    width: 180px;
+    padding-top: 130px;
+    font-size: 1.1em;
+  }
+  .date {
+    font-size: 2.5em;
+    margin: 3.2em 0 0 -2em;
+  }
+  .contents {
+    margin-right: 0;
+  }
+}
+@media all and (max-height: 800px) {
+  .menu {
+    bottom: 0;
+  }
+}
+
+@media all and (max-width: 600px) {
   .title-logo {
     width: 100%;
   }
