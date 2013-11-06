@@ -43,10 +43,18 @@ body {
 .container {
   position: relative;
 }
-.menu {
-  /*position: fixed;*/
+.title-logo {
+  width: 100%;
+  overflow: hidden;
+}
+.logo {
   float: left;
-  margin: 1em 0 0 1em;
+  width: 60%;
+}
+.menu {
+  position: fixed;
+  bottom: 3em;
+  margin: -3em 0 0 1em;
   width: 300px;
   font-size: 1.4em;
   font-weight: bold;
@@ -73,34 +81,35 @@ body {
   margin-top: -15px;
 }
 .logo {
-  width: 60%;
+  width: 55%;
   margin: 0;
 }
 .logo img {
   width: 100%;
 }
 .date {
-  width: 60%;
+  float: left;
+  width: 40%;
   line-height: 1.4;
-  font-size: 5em;
+  font-size: 4em;
   font-weight: bold;
   color: #fff;
   text-align: center;
-  margin-top: -0.6em;
+  margin-top: 4em;
+  margin-left: -3em;
   text-shadow: 3px 3px 3px darkred;
 }
 .date span {
+  margin-left: -0.8em;
   font-size: 0.5em;
 }
 .place {
+  margin-left: -1em;
   font-size: 0.5em;
 }
-/*.date {
-  float: left;
-  width: 50%;
-}*/
 .game-logo {
-  width: 60%;
+  clear: both;
+  width: 80%;
 }
 .game-logo ul {
   list-style: none;
@@ -111,7 +120,7 @@ body {
 }
 .game-logo ul li {
   display: inline-block;
-  width: 25%;
+  width: 20%;
   padding: 0;
 }
 
@@ -132,15 +141,6 @@ body {
   text-align: center;
   padding-bottom: 0.5em;
   border-bottom: 1px solid black;
-}
-
-@media all and (max-width: 480px) {
-  .menu {
-    position: static;
-    width: 95%;
-    margin: 0 auto;
-    font-size: 1.2em;
-  }
 }
 
 footer {
@@ -226,4 +226,69 @@ section h3 {
   border-radius: 100px;
   /*border: 8px solid rgba(0, 0, 0, 0.05);*/
   /*box-shadow: 0 1px 2px #ffffff, 0 -1px 2px rgba(0, 0, 0, 0.5);*/
+}
+
+.social {
+  text-align: center;
+  margin: 1em 0 -2em;
+}
+.social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.social ul li {
+  display: inline-block;
+}
+
+@media all and (max-width: 480px) {
+  .title-logo {
+    width: 100%;
+  }
+  .logo {
+    width: 80%;
+  }
+  .date {
+    float: none;
+    width: 100%;
+    margin: 0;
+    font-size: 3em;
+  }
+  .place {
+    margin-top: -0.5em;
+  }
+  .game-logo {
+    width: 100%;
+  }
+  .game-logo ul li {
+    width: 30%;
+  }
+  .menu {
+    position: static;
+    width: 95%;
+    margin: 1em auto 0;
+    font-size: 1.2em;
+    padding: 0;
+    background: none;
+  }
+  .contents {
+    float: none;
+    width: 100%;
+    margin: 2em 0 0;
+  }
+  .contents > section {
+    padding: 0.5em;
+  }
+  .contents > section h3 {
+    font-size: 1.4em;
+  }
+  .entry-btn {
+    width: 95%;
+  }
+  .savior h3, .hunter h3  {
+    padding: 15px 0 15px 108px;
+  }
+  .staff li .staff-info {
+    width: 75%;
+  }
 }

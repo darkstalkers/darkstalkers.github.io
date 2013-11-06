@@ -8,8 +8,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Judgement Day</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Judgement Day 2013 ― 12月22日（日）GAME-NEWTON大山店にて開催。">
+    <meta property="og:title" content="Judement Day 2013">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://darkstalkers-federation.org/judgementday/2013/">
+    <meta property="og:image" content="http://darkstalkers-federation.org/judgementday/2013/img/ogp.jpg">
+    <meta property="og:description" content="Judgement Day 2013 ― 12月22日（日）GAME-NEWTON大山店にて開催。">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
 
@@ -29,7 +34,7 @@
           <div class="date">
             <p>
               <time datetime="2013-12-22">
-                2013. 12. 22
+                2013.12.22
                 <span>（日）</span>
               </time>
             </p>
@@ -42,9 +47,37 @@
             <li><img src="img/vh_logo.png" alt="Vimpire Hunter"></li>
           </ul>
         </div>
+
+        <!-- BEGIN: Social Buttons -->
+        <div class="social">
+          <ul>
+            <!-- Google+ -->
+            <li class="google">
+              <div class="g-plusone" data-href="http://darkstalkers-federation.org/judgementday/2013/" data-width="120"></div>
+            </li>
+            <!-- Facebook -->
+            <li class="facebook">
+              <div class="fb-like" data-href="http://darkstalkers-federation.org/judgementday/2013/" data-send="false" data-layout="button_count" data-width="120" data-show-faces="false"></div>
+            </li>
+            <!-- Twitter -->
+            <li class="twitter">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://darkstalkers-federation.org/judgementday/2013/" data-text="Judgement Day 2013" data-via="" data-lang="ja" data-hashtags="">ツイート</a>
+            </li>
+            <!-- Line -->
+            <span>
+            <script type="text/javascript" src="//media.line.naver.jp/js/line-button.js?v=20131101" ></script>
+            <script type="text/javascript">
+            new jp.naver.line.media.LineButton({"pc":false,"lang":"ja","type":"a"});
+            </script>
+            </span>
+          </ul>
+        </div>
+        <!-- END: Social Buttons -->
+
         <nav class="menu">
           <div class="list-group">
             <a href="#summary" class="list-group-item">大会概要</a>
+            <a href="#timetable" class="list-group-item">タイムテーブル</a>
             <a href="#regulation" class="list-group-item">大会ルール</a>
             <a href="#eve-of-fes" class="list-group-item">前夜祭</a>
             <a href="#access" class="list-group-item">アクセス</a>
@@ -53,9 +86,15 @@
         </nav>
       </header>
       <div class="contents">
-        <section id="summary">
+        <section id="summary" itemscope itemtype="http://schema.org/Event">
+          <meta itemprop="name" content="Judgement Day 2013">
+          <meta itemprop="startDate" content="2013-12-22T10:00+09">
+          <meta itemprop="endDate" content="2013-12-22T19:00+09">
           <h2>大会概要</h2>
           <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+          <p itemprop="location" itemscope itemtype="http://schema.org/Place">
+            <a itemprop="url" href="http://www.lsyoyaku.jp/" target="_blank"><span itemprop="name">GAME-NEWTON大山店</span></a><br>住所（<a href="#">マップ</a>）
+          参加費: ◯◯円
         </section>
         <section id="entry">
           <h2>エントリーについて</h2>
@@ -66,6 +105,10 @@
             <a class="btn btn-success btn-lg entry-btn" href="https://docs.google.com/forms/d/17TizsA0dfTrj7lMNGHEktX1QqiD4PY5gKk6njDXCsj4/">エントリー（ハンター）はこちら &raquo;</a>
             当日エントリーとか。
           </p>
+        </section>
+        <section id="timetable">
+          <h2>タイムテーブル</h2>
+          <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
         </section>
         <section id="regulation">
           <h2>大会ルール</h2>
@@ -123,6 +166,7 @@
         </section>
       </div>
       <footer>
+        <p>Illustrator by 押切蓮介</p>
         <small>&copy; Darkstalkers Federation</small>
       </footer>
     </div>
@@ -131,11 +175,24 @@
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <div id="fb-root"></div>
     <script>
-        var _gaq=[['_setAccount','UA-45452843-1'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src='//www.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
+      (function(d, s) {
+        var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.src = url; js.id = id;
+          fjs.parentNode.insertBefore(js, fjs);
+        };
+        load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk');
+        load('https://apis.google.com/js/plusone.js', 'gplus1js');
+        load('//platform.twitter.com/widgets.js', 'tweetjs');
+      }(document, 'script'));
+    </script>
+    <script>
+      var _gaq=[['_setAccount','UA-45452843-1'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src='//www.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
     </script>
   </body>
 </html>
