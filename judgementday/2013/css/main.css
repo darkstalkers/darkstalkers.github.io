@@ -279,10 +279,16 @@ section h3 {
     margin: 2em 0 0;
   }
   .contents > section {
-    padding: 0.5em;
+    padding: 0.8em;
+  }
+  .contents > section h2 {
+    font-size: 1.5em;
   }
   .contents > section h3 {
     font-size: 1.4em;
+  }
+  .contents > section ul {
+    margin-left: -1em;
   }
   .entry-btn {
     width: 95%;
