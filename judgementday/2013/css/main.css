@@ -97,7 +97,7 @@ body {
   text-align: center;
   margin-top: 4em;
   margin-left: -3em;
-  text-shadow: 3px 3px 3px darkred;
+  text-shadow: 1px 1px 2px #ce040e;
 }
 .date span {
   margin-left: -0.8em;
@@ -126,7 +126,7 @@ body {
 
 
 .contents > section {
-  background: #b8860b;
+  background: rgba(172, 134, 40, 0.8);
   padding: 1em;
   border-radius: 1em;
   margin-bottom: 2em;
@@ -141,6 +141,9 @@ body {
   text-align: center;
   padding-bottom: 0.5em;
   border-bottom: 1px solid black;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: -1px -1px #ce040e, 1px -1px #ce040e, -1px 1px #ce040e, 1px 1px #ce040e;
 }
 
 footer {
