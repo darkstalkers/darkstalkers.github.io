@@ -35,7 +35,6 @@
             <p>
               <time datetime="2013-12-22">
                 2013.12.22
-                <span>（日）</span>
               </time>
             </p>
             <p class="place">GAME-NEWTON 大山店</p>
@@ -77,10 +76,11 @@
         <nav class="menu">
           <div class="list-group">
             <a href="#summary" class="list-group-item">大会概要</a>
-            <a href="#timetable" class="list-group-item">タイムテーブル</a>
+            <a href="#entry" class="list-group-item">エントリー</a>
             <a href="#regulation" class="list-group-item">大会ルール</a>
+            <a href="#timetable" class="list-group-item">タイムテーブル</a>
             <a href="#eve-of-fes" class="list-group-item">前夜祭</a>
-            <a href="#access" class="list-group-item">アクセス</a>
+            <!-- <a href="#access" class="list-group-item">アクセス</a> -->
             <a href="#staff" class="list-group-item">スタッフ一覧</a>
           </div>
         </nav>
@@ -91,29 +91,40 @@
           <meta itemprop="startDate" content="2013-12-22T10:00+09">
           <meta itemprop="endDate" content="2013-12-22T19:00+09">
           <h2>大会概要</h2>
-          <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-          <p itemprop="location" itemscope itemtype="http://schema.org/Place">
-            <a itemprop="url" href="#" target="_blank"><span itemprop="name">GAME-NEWTON大山店</span></a><br>住所（<a href="#">マップ</a>）
-          参加費: ◯◯円
+          <p class="catchphrase">あの伝説のイベントが8年ぶりにリザレクション！審判の日に集結せよ！</p>
+          <p>2005年に開催されたヴァンパイアセイヴァー3on3大会【Judgement Day】が、開催タイトルにヴァンパイアハンターも加わり、装いも新たに始動します。発売から16年以上経過した現在でも進化を続けている2タイトルの最先端の戦場、ヴァンパイアプレイヤーコミュニティ年間最大規模イベントを目指し、それに相応しいライブ空間を提供します。</p>
+          <p>
+            <br>
+            TODO: 後でスタイリング<br>
+            イベント名称: Judgement Day<br>
+            開催日時: 2013年12月22日(日)<br>
+            ゲームタイトル: ヴァンパイアセイヴァー、ヴァンパイアハンター<br>
+            参加費: 1,500円<br>
+            会場: GAME-NEWTON大山店（アクセス）
+          </p> 
+          
+            
+          <!-- <p itemprop="location" itemscope itemtype="http://schema.org/Place">
+
+            <a itemprop="url" href="#" target="_blank"><span itemprop="name">GAME-NEWTON大山店</span></a><br>住所（<a href="#">マップ</a>） -->
+            
+
+
         </section>
         <section id="entry">
-          <h2>エントリーについて</h2>
-          <p>
-            セイヴァーは、ごにょごにょ。
-            <a class="btn btn-primary btn-lg entry-btn" href="https://docs.google.com/forms/d/1ktlrpBsppf7Is9kNFS2rVbkKeVL-U0s0hxOU7BGVSPQ/">エントリー（セイヴァー）はこちら &raquo;</a>
-            ハンターは、ごにょごにょ。
-            <a class="btn btn-success btn-lg entry-btn" href="https://docs.google.com/forms/d/17TizsA0dfTrj7lMNGHEktX1QqiD4PY5gKk6njDXCsj4/">エントリー（ハンター）はこちら &raquo;</a>
-            当日エントリーとか。
+          <h2>エントリー</h2>
+          <p>イベントのスムーズな進行のために事前エントリーにご協力ください。</p>
+          <p>セイヴァー部門の1人or2人チームでのエントリーも受け付けております。その場合、当日に3人チームになるように運営で斡旋を行います。
+            <div class="entry-btns">
+              <a class="btn btn-primary btn-lg entry-btn savior" href="https://docs.google.com/forms/d/1ktlrpBsppf7Is9kNFS2rVbkKeVL-U0s0hxOU7BGVSPQ/">エントリー</a>
+              <a class="btn btn-success btn-lg entry-btn hunter" href="https://docs.google.com/forms/d/17TizsA0dfTrj7lMNGHEktX1QqiD4PY5gKk6njDXCsj4/">エントリー</a>
+            </div>
           </p>
-        </section>
-        <section id="timetable">
-          <h2>タイムテーブル</h2>
-          <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
         </section>
         <section id="regulation">
           <h2>大会ルール</h2>
           <section class="savior">
-            <h3>ヴァンパイアセイヴァー（3on3）</h3>
+            <h3>セイヴァー部門（3on3）</h3>
             <ul>
               <li>スピード：ターボ3固定</li>
               <li>その他は工場出荷デフォルト設定</li>
@@ -123,7 +134,7 @@
             </ul>
           </section>
           <section class="hunter">
-            <h3>ヴァンパイアハンター（シングル）</h3>
+            <h3>ハンター部門（シングル）</h3>
             <ul>
               <li>スピード：ターボ2固定</li>
               <li>その他は工場出荷デフォルト設定</li>
@@ -134,17 +145,47 @@
           </section>
           <!-- <section class="caution">
             <h3>その他 注意事項</h3> -->
-            <p class="caution">※ コンパネの不具合が発生した場合はプレイを中断し、即座に運営へ申し出てください。対応後、再試合とします。試合終了後の申告については認めません。また、虚偽の申告をする等、故意に進行を妨げる行為をした場合は失格とします。</p>
+            <small class="caution">※ コンパネの不具合が発生した場合はプレイを中断し、即座に運営へ申し出てください。対応後、再試合とします。試合終了後の申告については認めません。また、虚偽の申告をする等、故意に進行を妨げる行為をした場合は失格とします。</small>
           <!-- </section> -->
         </section>
-        <section id="eve-of-fes">
+        <section id="timetable">
+          <h2>タイムテーブル</h2>
+          <p>当日は、10:00に開場、12:00より大会開始を予定しています。詳細は、別途お伝えします。</p>
+          <!-- <p>
+            <dl class="timetable">
+              <dt>10:00</dt>
+              <dd>開場</dd>
+              <dt>12:00</dt>
+              <dd>大会開始</dd>
+              <dt>19:00</dt>
+              <dd>終了</dd>
+            </dl>
+            <small>※ 詳細は、別途更新します。</small>
+          </p> -->
+        </section>
+        <section id="eve-of-fes" class="fes">
           <h2>前夜祭</h2>
-          <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+          <p>毎年恒例の年末大会【Vampire Darkstalkers Carnival 2013】を前夜祭として開催します！</p> 
+          <p>参加費：共通で300円（全タイトルでも1タイトルでも300円）</p>
+          <p class="fes-detail">
+            開催タイトルおよびタイムスケジュール
+            <ul>
+              <li>初代ヴァンパイア　14:00～<br>
+              形式：1on1シングルイリミネーショントーナメント</li>
+
+              <li>ヴァンパイアセイヴァー2　15:00～<br>
+              形式：1on1シングルイリミネーショントーナメント</li>
+              <li>ヴァンパイアセイヴァー　16:30～<br>
+              形式：紅白戦</li>
+            </ul>
+            <small>※ スケジュールは当日の進行状況により前後することをあらかじめご了承ください。</small>
+            <small>※ エントリー締切は開始時刻の15分前です。エントリー開始は各タイトル締切時間の30分前を目安にしてください。</small>
+          </p>
         </section>
-        <section id="access">
+        <!-- <section id="access">
           <h2>アクセス</h2>
-          <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-        </section>
+          <p></p>
+        </section> -->
         <section id="staff" class="staff">
           <h2>スタッフ一覧</h2>
           <ul class="staff-list">

@@ -109,10 +109,10 @@ a.list-group-item {
   margin-left: -3em;
   text-shadow: 0px 0px 10px red, 0px 0px 10px red;
 }
-.date span {
+/*.date span {
   margin-left: -0.8em;
   font-size: 0.5em;
-}
+}*/
 .place {
   margin-left: -1em;
   font-size: 0.5em;
@@ -137,7 +137,7 @@ a.list-group-item {
 
 .contents > section {
   background: rgba(0, 0, 0, 0.8);
-  padding: 1em;
+  padding: 2em;
   /* border-radius: 1em; */
   margin-bottom: 2em;
   color: #FFF;
@@ -152,11 +152,9 @@ a.list-group-item {
   margin-top: 10px;
   text-align: center;
   padding-bottom: 0.5em;
-  /* border-bottom: 1px solid black; */
   color: #fff;
   font-weight: bold;
   text-shadow: 0px 0px 10px red, 0px 0px 10px red;
-  /* text-shadow: -1px -1px #ce040e, 1px -1px #ce040e, -1px 1px #ce040e, 1px 1px #ce040e; */
 }
 
 footer {
@@ -196,7 +194,7 @@ section h3 {
 }
 .caution {
   margin: 1em;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   line-height: 1.5;
 }
 
@@ -258,7 +256,50 @@ section h3 {
 .social ul li {
   display: inline-block;
 }
-
+.entry-btns {
+  margin-top: 2em;
+}
+.entry-btn {
+  font-size: 1.4em;
+  position: relative;
+}
+.entry-btn:after {
+  display: inline-block;
+  content: '▲';
+  font-size: 1.1em;
+  position: absolute;
+  right: 16px;
+  margin-bottom: 2px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.entry-btn.savior:before, .entry-btn.hunter:before {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 16px;
+  content: '';
+  height: 46px;
+  width: 100px;
+  background: url(../img/vs_logo.png) no-repeat;
+  background-size: contain;
+  z-index: 999;
+}
+.entry-btn.hunter:before {
+  background: url(../img/vh_logo.png) no-repeat;
+  background-size: contain;
+}
+.catchphrase {
+  font-weight: bold;
+  font-size: 1.4em;
+  margin-bottom: 1.4em;
+}
+p {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
 
 @media all and (max-width: 800px) {
   .menu {
@@ -343,7 +384,7 @@ section h3 {
   }
   .entry-btn {
     width: 95%;
-    font-size: 1em;
+    /*font-size: 1em;*/
   }
   .savior h3, .hunter h3  {
     padding: 15px 0 15px 108px;
@@ -357,4 +398,54 @@ section h3 {
     width: 90%;
     float: none;
   }
+  p {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+}
+
+.timetable {
+  font-size: 1.2em;
+  border: 1px solid lightgray;
+  border-right-width: 0;
+  border-left-width: 0;
+  overflow: hidden;
+  width: 95%;
+  margin: 0 auto;
+}
+.timetable dd {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px dotted lightgray;
+}
+.timetable dd:last-child {
+  border-bottom-width: 0;
+}
+.timetable dt {
+  clear: both;
+  float: left;
+  width: 30%;
+  text-align: center;
+}
+.timetable dd {
+  padding: 0.5em 0 0.5em 30%;
+}
+.timetable dt {
+  padding: 0.5em 0;
+}
+.fes ul li{
+  margin-bottom: 1em;
+}
+.fes ul {
+  margin-bottom: 2em;
+}
+.fes small {
+  display: block;
+}
+.fes-detail {
+  text-decoration: underline;
+  margin: 2em 0;
+}
+small {
+  font-size: 1em;
 }
