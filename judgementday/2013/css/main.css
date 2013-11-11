@@ -495,3 +495,24 @@ small {
     padding: 0.2em 0 0.2em 1.5em;
   }
 }
+
+.after-party {
+  margin-top: 2em;
+}
+.after-party b {
+  font-weight: normal;
+  text-decoration: underline;
+}
+.after-party small {
+  margin-top: 1em;
+  display: block;
+}
+.after-party-title {
+  font-size: 1.1em;
+  /*font-weight: bold;*/
+  display: block;
+  margin-bottom: 1em;
+}
+.staff li .staff-info .staff-description {
+  margin-top: 0.5em;
+}
