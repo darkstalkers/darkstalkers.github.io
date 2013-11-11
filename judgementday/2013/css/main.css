@@ -60,6 +60,7 @@ body {
 .title-logo {
   width: 100%;
   overflow: hidden;
+  margin-left: 15%; /* temp */
 }
 .logo {
   float: left;
@@ -73,7 +74,7 @@ body {
   font-size: 1.4em;
   font-weight: bold;
   padding-top: 200px;
-  background: url(../img/menu_logo.png) 50% 0 no-repeat;
+  /*background: url(../img/menu_logo.png) 50% 0 no-repeat;*/
   background-size: 80%;
 }
 .list-group-item {
@@ -137,18 +138,20 @@ a.list-group-item {
 }
 .game-logo {
   clear: both;
-  width: 80%;
+  /*width: 80%; temp*/
+  width: 100%;
 }
 .game-logo ul {
   list-style: none;
-  margin: -1em 0 0 0;
+  /*margin: -1em 0 0 0; temp*/
+  margin: -1em 0 0 4em;
   padding: 0;
   overflow: hidden;
   text-align: center;
 }
 .game-logo ul li {
   display: inline-block;
-  width: 18%;
+  width: 20%;
   padding: 0;
 }
 
@@ -401,24 +404,29 @@ small {
   }
 }
 
-@media all and (max-height: 800px) {
+/*@media all and (max-height: 800px) {
   .menu {
     bottom: 0;
   }
-}
+}temp*/
 
 /* for mobile */
 @media all and (max-width: 600px) {
   .title-logo {
     width: 100%;
   }
+  .title-logo { /*temp*/
+    margin: 0;
+  }
   .logo {
-    width: 80%;
+    /*width: 80%; temp*/
+    width: 100%;
   }
   .date {
     float: none;
     width: 100%;
-    margin: 0;
+    /*margin: 0; temp*/
+    margin: -0.5em 0 0;
     font-size: 4em;
     text-align: center;
   }
@@ -429,8 +437,11 @@ small {
     width: 100%;
     margin-top: 0.5em;
   }
+  .game-logo ul {
+    margin: 0;
+  }
   .game-logo ul li {
-    width: 25%;
+    width: 40%;
   }
   .menu {
     position: static;
@@ -492,7 +503,7 @@ small {
     margin-left: 0.5em;
   }
   .event-summary dd {
-    padding: 0.2em 0 0.2em 1.5em;
+    padding: 0.2em 0 0.2em 0.9em;
   }
 }
 
@@ -515,4 +526,7 @@ small {
 }
 .staff li .staff-info .staff-description {
   margin-top: 0.5em;
+}
+.staff li {
+  margin-bottom: 2em;
 }
