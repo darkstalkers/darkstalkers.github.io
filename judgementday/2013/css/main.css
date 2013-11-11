@@ -27,6 +27,20 @@ body {
   margin: 1em auto;
   max-width: 400px;
 }
+.entry-btn.savior {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #82bee9), color-stop(100%, #458dcb));
+  background: -webkit-linear-gradient(top, #82bee9, #458dcb);
+  background: -moz-linear-gradient(top, #82bee9, #458dcb);
+  background: -o-linear-gradient(top, #82bee9, #458dcb);
+  background: linear-gradient(to bottom, #82bee9, #458dcb);
+}
+.entry-btn.hunter {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #85e185), color-stop(100%, #5eba5e));
+  background: -webkit-linear-gradient(top, #85e185, #5eba5e);
+  background: -moz-linear-gradient(top, #85e185, #5eba5e);
+  background: -o-linear-gradient(top, #85e185, #5eba5e);
+  background: linear-gradient(to bottom, #85e185, #5eba5e);
+}
 .regulation {
   background: #2D2D2D;
   padding: 0.4em 1em;
@@ -93,29 +107,33 @@ a.list-group-item {
 .logo {
   width: 55%;
   margin: 0;
+  box-sizing: border-box;
 }
 .logo img {
   width: 100%;
 }
 .date {
-  float: left;
-  width: 40%;
+  display: inline-block;
+  /*float: left;*/
+  /*width: 45%;*/
   line-height: 1.4;
-  font-size: 4em;
+  font-size: 6em;
   font-weight: bold;
   color: #fff;
-  text-align: center;
-  margin-top: 4em;
-  margin-left: -3em;
+  text-align: right;
+  margin-top: 2.8em;
+  margin-left: -2em;
   text-shadow: 0px 0px 10px red, 0px 0px 10px red;
 }
-/*.date span {
-  margin-left: -0.8em;
+.date .year {
   font-size: 0.5em;
-}*/
+  margin-right: -0.2em;
+}
 .place {
-  margin-left: -1em;
-  font-size: 0.5em;
+  font-weight: normal;
+  text-align: right;
+  font-size: 0.3em;
+  margin-top: -1.6em;
 }
 .game-logo {
   clear: both;
@@ -123,14 +141,14 @@ a.list-group-item {
 }
 .game-logo ul {
   list-style: none;
-  margin: 0;
+  margin: -1em 0 0 0;
   padding: 0;
   overflow: hidden;
   text-align: center;
 }
 .game-logo ul li {
   display: inline-block;
-  width: 20%;
+  width: 18%;
   padding: 0;
 }
 
@@ -163,15 +181,6 @@ footer {
   clear: both;
   text-align: center;
 }
-
-/*.list-group-item:first-child {
-  border-top-right-radius: 1em;
-  border-top-left-radius: 1em;
-}
-.list-group-item:last-child {
-  border-bottom-right-radius: 1em;
-  border-bottom-left-radius: 1em;
-}*/
 
 section > section {
   padding: 1em;
@@ -301,40 +310,104 @@ p {
   line-height: 1.5;
 }
 
-@media all and (max-width: 800px) {
+.timetable {
+  font-size: 1.2em;
+  border: 1px solid gray;
+  border-right-width: 0;
+  border-left-width: 0;
+  overflow: hidden;
+  width: 95%;
+  margin: 2em auto;
+}
+.timetable dd {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px dotted gray;
+}
+.timetable dd:last-child {
+  border-bottom-width: 0;
+}
+.timetable dt {
+  clear: both;
+  float: left;
+  width: 30%;
+  text-align: center;
+}
+.timetable dd {
+  padding: 0.5em 0 0.5em 30%;
+}
+.timetable dt {
+  padding: 0.5em 0;
+}
+.fes ul li{
+  margin-bottom: 1em;
+}
+.fes ul {
+  margin-bottom: 2em;
+}
+.fes small {
+  display: block;
+}
+.fes-detail {
+  text-decoration: underline;
+  margin: 2em 0;
+}
+small {
+  font-size: 1em;
+}
+.event-summary {
+  font-size: 1.1em;
+  overflow: hidden;
+  width: 100%;
+  margin: 2em 0;
+}
+.event-summary dt {
+  display: block;
+  clear: both;
+  float: left;
+  width: 7em;
+  padding: 0.2em 0;
+  font-weight: normal;
+  position: relative;
+}
+.event-summary dt:after {
+  position: absolute;
+  right: -1.5em;
+  width: 1em;
+  height: 1em;
+  content: ':';
+}
+.event-summary dd {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.2em 0 0.2em 8.5em;
+}
+
+/* for tablet */
+@media all and (max-width: 960px) {
   .menu {
     margin-left: 0;
     padding-top: 130px;
     width: 230px;
   }
   .date {
-    font-size: 3em;
-    margin: 4em 0 0 -3em;
+    font-size: 4em;
+    margin: 2.5em 0 0 -2em;
   }
   .contents {
     margin-right: 0.5em;
   }
 }
-@media all and (max-width: 600px) {
-  .menu {
-    width: 180px;
-    padding-top: 130px;
-    font-size: 1.1em;
-  }
-  .date {
-    font-size: 2.5em;
-    margin: 3.2em 0 0 -2em;
-  }
-  .contents {
-    margin-right: 0;
-  }
-}
+
 @media all and (max-height: 800px) {
   .menu {
     bottom: 0;
   }
 }
 
+/* for mobile */
 @media all and (max-width: 600px) {
   .title-logo {
     width: 100%;
@@ -346,16 +419,18 @@ p {
     float: none;
     width: 100%;
     margin: 0;
-    font-size: 3em;
+    font-size: 4em;
+    text-align: center;
   }
   .place {
-    margin-top: -0.5em;
+    text-align: center;
   }
   .game-logo {
     width: 100%;
+    margin-top: 0.5em;
   }
   .game-logo ul li {
-    width: 30%;
+    width: 25%;
   }
   .menu {
     position: static;
@@ -402,50 +477,21 @@ p {
     font-size: 1em;
     line-height: 1.5;
   }
-}
-
-.timetable {
-  font-size: 1.2em;
-  border: 1px solid lightgray;
-  border-right-width: 0;
-  border-left-width: 0;
-  overflow: hidden;
-  width: 95%;
-  margin: 0 auto;
-}
-.timetable dd {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border-bottom: 1px dotted lightgray;
-}
-.timetable dd:last-child {
-  border-bottom-width: 0;
-}
-.timetable dt {
-  clear: both;
-  float: left;
-  width: 30%;
-  text-align: center;
-}
-.timetable dd {
-  padding: 0.5em 0 0.5em 30%;
-}
-.timetable dt {
-  padding: 0.5em 0;
-}
-.fes ul li{
-  margin-bottom: 1em;
-}
-.fes ul {
-  margin-bottom: 2em;
-}
-.fes small {
-  display: block;
-}
-.fes-detail {
-  text-decoration: underline;
-  margin: 2em 0;
-}
-small {
-  font-size: 1em;
+  .timetable {
+    font-size: 1em;
+  }
+  .event-summary {
+    font-size: 1em;
+  }
+  .event-summary dt {
+    float: none;
+    width: 100%;
+  }
+  .event-summary dt:after {
+    position: static;
+    margin-left: 0.5em;
+  }
+  .event-summary dd {
+    padding: 0.2em 0 0.2em 1.5em;
+  }
 }
