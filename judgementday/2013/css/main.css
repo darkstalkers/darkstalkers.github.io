@@ -523,3 +523,7 @@ small {
 .staff li {
   margin-bottom: 2em;
 }
+
+#twitter-widget-1 {
+  width: 100%;
+}
