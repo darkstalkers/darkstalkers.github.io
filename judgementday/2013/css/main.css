@@ -386,6 +386,34 @@ small {
   padding: 0.2em 0 0.2em 8.5em;
 }
 
+.after-party {
+  margin-top: 2em;
+}
+.after-party b {
+  font-weight: normal;
+  text-decoration: underline;
+}
+.after-party small {
+  margin-top: 1em;
+  display: block;
+}
+.after-party-title {
+  font-size: 1.1em;
+  /*font-weight: bold;*/
+  display: block;
+  margin-bottom: 1em;
+}
+.staff li .staff-info .staff-description {
+  margin-top: 0.5em;
+}
+.staff li {
+  margin-bottom: 2em;
+}
+
+#twitter-widget-1 {
+  width: 100%;
+}
+
 /* for tablet */
 @media all and (max-width: 960px) {
   .menu {
@@ -498,32 +526,10 @@ small {
   .event-summary dd {
     padding: 0.2em 0 0.2em 0.9em;
   }
-}
-
-.after-party {
-  margin-top: 2em;
-}
-.after-party b {
-  font-weight: normal;
-  text-decoration: underline;
-}
-.after-party small {
-  margin-top: 1em;
-  display: block;
-}
-.after-party-title {
-  font-size: 1.1em;
-  /*font-weight: bold;*/
-  display: block;
-  margin-bottom: 1em;
-}
-.staff li .staff-info .staff-description {
-  margin-top: 0.5em;
-}
-.staff li {
-  margin-bottom: 2em;
-}
-
-#twitter-widget-1 {
-  width: 100%;
+  #twitter-widget-1 {
+    max-height: 400px;
+  }
+  section > section {
+    padding: 0;
+  }
 }
