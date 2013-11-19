@@ -696,3 +696,7 @@ small {
   left: 50%;
   margin: -14px 0 0 -14px;
 }
+/* bootstrap adjust */
+.nav-tabs>li {
+  margin-bottom: -2px;
+}
