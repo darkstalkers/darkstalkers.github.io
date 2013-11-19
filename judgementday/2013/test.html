@@ -79,7 +79,6 @@
             <a href="#entry" class="list-group-item">エントリー</a>
             <a href="#timeline" class="list-group-item">最新情報</a>
             <a href="#regulation" class="list-group-item">大会ルール</a>
-            <a href="#entry-list" class="list-group-item">参加者一覧</a>
             <a href="#timetable" class="list-group-item">タイムテーブル</a>
             <a href="#eve-of-fes" class="list-group-item">前夜祭</a>
             <a href="#staff" class="list-group-item">スタッフ一覧</a>
@@ -111,18 +110,51 @@
         </section>
         <section id="entry">
           <h2>エントリー</h2>
-          <p>当日エントリーも受け付けますが、イベントのスムーズな進行のために是非とも事前エントリーにご協力ください。セイヴァー部門の1人or2人チームでのエントリーも受け付けております。その場合、当日に3人チームになるように運営で斡旋を行います。
-            <div class="entry-btns">
-              <a target="_blank" class="btn btn-primary btn-lg entry-btn savior" href="https://docs.google.com/forms/d/1ktlrpBsppf7Is9kNFS2rVbkKeVL-U0s0hxOU7BGVSPQ/viewform">エントリー</a>
-              <a target="_blank" class="btn btn-success btn-lg entry-btn hunter" href="https://docs.google.com/forms/d/17TizsA0dfTrj7lMNGHEktX1QqiD4PY5gKk6njDXCsj4/viewform">エントリー</a>
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#home" data-toggle="tab" class="single-line">エントリー</a></li>
+            <li><a href="#savior" data-toggle="tab" id="tab-button-savior">エントリー状況<span class="detail">(セイヴァー部門)</span></a></li>
+            <li><a href="#hunter" data-toggle="tab" id="tab-button-hunter">エントリー状況<span class="detail">(ハンター部門)</span></a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+              <p>当日エントリーも受け付けますが、イベントのスムーズな進行のために是非とも事前エントリーにご協力ください。セイヴァー部門の1人or2人チームでのエントリーも受け付けております。その場合、当日に3人チームになるように運営で斡旋を行います。
+                <div class="entry-btns">
+                  <a target="_blank" class="btn btn-primary btn-lg entry-btn savior" href="https://docs.google.com/forms/d/1ktlrpBsppf7Is9kNFS2rVbkKeVL-U0s0hxOU7BGVSPQ/viewform">エントリー</a>
+                  <a target="_blank" class="btn btn-success btn-lg entry-btn hunter" href="https://docs.google.com/forms/d/17TizsA0dfTrj7lMNGHEktX1QqiD4PY5gKk6njDXCsj4/viewform">エントリー</a>
+                </div>
+              </p>
+              <p class="after-party">
+                <span class="after-party-title">打ち上げについて</span>
+                大会終了後に打ち上げを行います。当日の20:30開始で、会費は3,000円〜4,000円程度を予定しています。お気軽にご参加ください！　お申込みは、<a href="https://docs.google.com/forms/d/1_shLzsWioxlkvlnkD2dywV8Nkww_7Ab2AU--We9yVxI/viewform">こちら</a>から。
+                会費は、当日受付時に集めさせて頂きます。また、<b>予約の関係で、打ち上げの参加お申込みは11月末までとさせて頂きます</b>。
+                <small>※ 選手としてエントリーされる方は、エントリーフォームからそのままお申込み頂けます。</small>
+              </p>
             </div>
-          </p>
-          <p class="after-party">
-            <span class="after-party-title">打ち上げについて</span>
-            大会終了後に打ち上げを行います。当日の20:30開始で、会費は3,000円〜4,000円程度を予定しています。お気軽にご参加ください！　お申込みは、<a href="https://docs.google.com/forms/d/1_shLzsWioxlkvlnkD2dywV8Nkww_7Ab2AU--We9yVxI/viewform">こちら</a>から。
-            会費は、当日受付時に集めさせて頂きます。また、<b>予約の関係で、打ち上げの参加お申込みは11月末までとさせて頂きます</b>。
-            <small>※ 選手としてエントリーされる方は、エントリーフォームからそのままお申込み頂けます。</small>
-          </p>
+            <div class="tab-pane" id="savior">
+              <div class="loading">
+                <img src="img/ajax-loader.gif" alt="loading...">
+              </div>
+              <section class="savior">
+                <div id="savior-entry-list">
+                  <ul>
+                    <!-- inject items -->
+                  </ul>
+                </div>
+              </section>
+            </div>
+            <div class="tab-pane" id="hunter">
+              <div class="loading">
+                <img src="img/ajax-loader.gif" alt="loading...">
+              </div>
+              <section class="hunter">
+                <div id="hunter-entry-list">
+                  <ul>
+                    <!-- inject items -->
+                  </ul>
+                </div>
+              </section>
+            </div>
+          </div>
         </section>
         <section id="timeline">
           <h2>最新情報</h2>
@@ -155,25 +187,6 @@
             <h3>その他 注意事項</h3> -->
             <small class="caution">※ コンパネの不具合が発生した場合はプレイを中断し、即座に運営へ申し出てください。対応後、再試合とします。試合終了後の申告については認めません。また、虚偽の申告をする等、故意に進行を妨げる行為をした場合は失格とします。</small>
           <!-- </section> -->
-        </section>
-        <section id="entry-list">
-          <h2>エントリー状況</h2>
-          <section class="savior">
-            <h3><a href="#savior-entry-list" data-toggle="collapse">セイヴァー</a></h3>
-            <div id="savior-entry-list" class="collapse in">
-              <ul>
-                <!-- inject items -->
-              </ul>
-            </div>
-          </section>
-          <section class="hunter">
-            <h3><a href="#hunter-entry-list" data-toggle="collapse">ハンター部門</a></h3>
-            <div id="hunter-entry-list" class="collapse in">
-              <ul>
-                <!-- inject items -->
-              </ul>
-            </div>
-          </section>
         </section>
         <section id="timetable">
           <h2>タイムテーブル</h2>

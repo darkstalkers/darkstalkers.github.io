@@ -6,6 +6,7 @@ $(document).on('click', 'a.list-group-item', function(e){
   $('body').animate({scrollTop: to}, 300);
 });
 
+
 (function(){
   var SAVIOR_URL = "https://spreadsheets.google.com/feeds/list/0ApM3hVNg5vDBdDQwS3R3RlpvWHc2bUtzRHl5N1ZaLXc/od6/public/basic?alt=json&callback=?",
       SAVIOR_IMAGES_PATH = 'img/savior/',
@@ -43,18 +44,25 @@ $(document).on('click', 'a.list-group-item', function(e){
         'ザベル': 'img_h_zabel_50x50.jpg'
       };
 
+  $(document).on('shown',function(){
+    console.log(1);
+  });
   // セイヴァー
-  // $.getJSON(SAVIOR_URL, function(data){
-  //   if ( data && data.feed ) {
-  //     displayToSavior(parse(data.feed.entry));
-  //   }
-  // });
+  $('#tab-button-savior').one('click', function (e) {
+    $.getJSON(SAVIOR_URL, function(data){
+      if ( data && data.feed ) {
+        displayToSavior(parse(data.feed.entry));
+      }
+    });
+  });
 
   // ハンター
-  $.getJSON(HUNTER_URL, function(data){
-    if ( data && data.feed ) {
-      displayToHunter(parse(data.feed.entry));
-    }
+  $('#tab-button-hunter').one('click', function (e) {
+    $.getJSON(HUNTER_URL, function(data){
+      if ( data && data.feed ) {
+        displayToHunter(parse(data.feed.entry));
+      }
+    });
   });
 
   function parse(entries) {
@@ -95,6 +103,7 @@ $(document).on('click', 'a.list-group-item', function(e){
       // console.log(record);
       data.push(record);
     }
+    $('#savior .loading').hide();
     $('#savior-entry-list-item').tmpl(data).appendTo('#savior-entry-list > ul');
   }
 
@@ -111,6 +120,8 @@ $(document).on('click', 'a.list-group-item', function(e){
       // console.log(record);
       data.push(record);
     }
+    $('#hunter .loading').hide();
     $('#hunter-entry-list-item').tmpl(data).appendTo('#hunter-entry-list > ul');
   }
 })();
+

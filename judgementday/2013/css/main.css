@@ -539,7 +539,7 @@ small {
 .team-name {
   font-size: 1.2em;
   font-weight: bold;
-  text-shadow: 0px 0px 10px red, 0px 0px 10px red;
+  text-shadow: 0px 0px 6px red, 0px 0px 6px red;
 }
 .player-name {
   font-size: 0.9em;
@@ -609,7 +609,47 @@ small {
   font-size: 0.8em;
   font-weight: bold;
   text-shadow: none;
-  min-width: 2.5em;
+  min-width: 3em;
+}
+
+.hidden {
+  display: none;
+}
+
+.nav-tabs {
+  border-bottom: 1px dotted #5E4743;
+}
+.tab-content {
+  margin-top: 1.5em;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  color: #fff;
+  cursor: default;
+  background-color: #000;
+  border: 1px solid #5E4743;
+  border-bottom-color: transparent;
+}
+.nav>li>a {
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0px 0px 6px red, 0px 0px 6px red;
+  font-size: 1.1em;
+  padding: 6px 0;
+}
+.nav-tabs>li {
+  width: 33.3333%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+}
+.detail {
+  font-size: 0.9em;
+  display: block;
+}
+.nav>li>a.single-line {
+  padding: 16px 0;
 }
 
 /* for mobile */
@@ -621,8 +661,38 @@ small {
   .member-list p {
     padding-left: 0;
   }
+  .nav>li>a.single-line {
+    padding: 13px 0;
+  }
 }
 
-.hidden {
-  display: none;
+@media all and (max-width: 480px) {
+  .nav>li>a {
+    font-size: 0.8em;
+    padding: 6px 0;
+  }
+  .detail {
+    /*display: inline;*/
+    font-size: 0.8em;
+  }
+}
+
+/* override bootstrap */
+@media (max-width: 600px) {
+  .contents > section ul {
+  margin-left: 0;
+  }
+}
+
+.loading {
+  width: 100%;
+  height: 140px;
+  position: relative;
+}
+.loading img {
+  width: 28px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -14px 0 0 -14px;
 }
