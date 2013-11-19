@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Judgement Day 2013</title>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, userscalable=no">
     <meta name="description" content="Judgement Day 2013 ― 12月22日（日）GAME-NEWTON大山店にて開催。">
     <meta property="og:title" content="Judement Day 2013">
     <meta property="og:type" content="website">
@@ -15,6 +15,7 @@
     <meta property="og:image" content="http://darkstalkers-federation.org/judgementday/2013/img/ogp.png">
     <meta property="og:description" content="Judgement Day 2013 ― 12月22日（日）GAME-NEWTON大山店にて開催。">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap-theme.min.css"> -->
     <link rel="stylesheet" href="css/main.css">
 
     <!--[if lt IE 9]>
@@ -109,18 +110,51 @@
         </section>
         <section id="entry">
           <h2>エントリー</h2>
-          <p>当日エントリーも受け付けますが、イベントのスムーズな進行のために是非とも事前エントリーにご協力ください。セイヴァー部門の1人or2人チームでのエントリーも受け付けております。その場合、当日に3人チームになるように運営で斡旋を行います。
-            <div class="entry-btns">
-              <a target="_blank" class="btn btn-primary btn-lg entry-btn savior" href="https://docs.google.com/forms/d/1ktlrpBsppf7Is9kNFS2rVbkKeVL-U0s0hxOU7BGVSPQ/viewform">エントリー</a>
-              <a target="_blank" class="btn btn-success btn-lg entry-btn hunter" href="https://docs.google.com/forms/d/17TizsA0dfTrj7lMNGHEktX1QqiD4PY5gKk6njDXCsj4/viewform">エントリー</a>
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#home" data-toggle="tab" class="single-line">エントリー</a></li>
+            <li><a href="#savior" data-toggle="tab" id="tab-button-savior">エントリー状況<span class="detail">(セイヴァー部門)</span></a></li>
+            <li><a href="#hunter" data-toggle="tab" id="tab-button-hunter">エントリー状況<span class="detail">(ハンター部門)</span></a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+              <p>当日エントリーも受け付けますが、イベントのスムーズな進行のために是非とも事前エントリーにご協力ください。セイヴァー部門の1人or2人チームでのエントリーも受け付けております。その場合、当日に3人チームになるように運営で斡旋を行います。
+                <div class="entry-btns">
+                  <a target="_blank" class="btn btn-primary btn-lg entry-btn savior" href="https://docs.google.com/forms/d/1ktlrpBsppf7Is9kNFS2rVbkKeVL-U0s0hxOU7BGVSPQ/viewform">エントリー</a>
+                  <a target="_blank" class="btn btn-success btn-lg entry-btn hunter" href="https://docs.google.com/forms/d/17TizsA0dfTrj7lMNGHEktX1QqiD4PY5gKk6njDXCsj4/viewform">エントリー</a>
+                </div>
+              </p>
+              <p class="after-party">
+                <span class="after-party-title">打ち上げについて</span>
+                大会終了後に打ち上げを行います。当日の20:30開始で、会費は3,000円〜4,000円程度を予定しています。お気軽にご参加ください！　お申込みは、<a href="https://docs.google.com/forms/d/1_shLzsWioxlkvlnkD2dywV8Nkww_7Ab2AU--We9yVxI/viewform">こちら</a>から。
+                会費は、当日受付時に集めさせて頂きます。また、<b>予約の関係で、打ち上げの参加お申込みは11月末までとさせて頂きます</b>。
+                <small>※ 選手としてエントリーされる方は、エントリーフォームからそのままお申込み頂けます。</small>
+              </p>
             </div>
-          </p>
-          <p class="after-party">
-            <span class="after-party-title">打ち上げについて</span>
-            大会終了後に打ち上げを行います。当日の20:30開始で、会費は3,000円〜4,000円程度を予定しています。お気軽にご参加ください！　お申込みは、<a href="https://docs.google.com/forms/d/1_shLzsWioxlkvlnkD2dywV8Nkww_7Ab2AU--We9yVxI/viewform">こちら</a>から。
-            会費は、当日受付時に集めさせて頂きます。また、<b>予約の関係で、打ち上げの参加お申込みは11月末までとさせて頂きます</b>。
-            <small>※ 選手としてエントリーされる方は、エントリーフォームからそのままお申込み頂けます。</small>
-          </p>
+            <div class="tab-pane" id="savior">
+              <div class="loading">
+                <img src="img/ajax-loader.gif" alt="loading...">
+              </div>
+              <section class="savior">
+                <div id="savior-entry-list">
+                  <ul>
+                    <!-- inject items -->
+                  </ul>
+                </div>
+              </section>
+            </div>
+            <div class="tab-pane" id="hunter">
+              <div class="loading">
+                <img src="img/ajax-loader.gif" alt="loading...">
+              </div>
+              <section class="hunter">
+                <div id="hunter-entry-list">
+                  <ul>
+                    <!-- inject items -->
+                  </ul>
+                </div>
+              </section>
+            </div>
+          </div>
         </section>
         <section id="timeline">
           <h2>最新情報</h2>
@@ -266,7 +300,49 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+    <script src="js/vendor/jquery.tmpl.min.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
+    <script id="savior-entry-list-item" type="text/x-jquery-tmpl">
+      <li>
+        <p class="team-name"><span class="entry-no">${entry_no}</span> ${チーム名}</p>
+        <ul class="member-list">
+          <li class="${hidden1}">
+            <img src="${chara1_img}" alt="${使用キャラ}" class="chara-img">
+            <p>
+              <b class="player-name">${プレイヤーネーム}</b><br>
+              <span class="player-chara">${使用キャラ}</span><br>
+              <span class="player-comment">${コメント}</span>
+            </p>
+          </li>
+          <li class="${hidden2}">
+            <img src="${chara2_img}" alt="${使用キャラ_2}" class="chara-img">
+            <p>
+              <b class="player-name">${プレイヤーネーム_2}</b><br>
+              <span class="player-chara">${使用キャラ_2}</span><br>
+              <span class="player-comment">${コメント_2}</span>
+            </p>
+          </li>
+          <li class="${hidden3}">
+            <img src="${chara3_img}" alt="${使用キャラ_3}" class="chara-img">
+            <p>
+              <b class="player-name">${プレイヤーネーム_3}</b><br>
+              <span class="player-chara">${使用キャラ_3}</span><br>
+              <span class="player-comment">${コメント_3}</span>
+            </p>
+          </li>
+        </ul>
+      </li>
+    </script>
+    <script id="hunter-entry-list-item" type="text/x-jquery-tmpl">
+      <li>
+        <p class="team-name"><span class="entry-no">${entry_no}</span>${プレイヤーネーム}</p>
+        <img src="${chara_img}" alt="${使用キャラ}" class="chara-img">
+        <p>
+          <span class="player-chara">${使用キャラ}</span><br>
+          <span class="player-comment">${コメント}</span>
+        </p>
+      </li>
+    </script>
     <script src="js/main.js"></script>
     <div id="fb-root"></div>
     <script>
