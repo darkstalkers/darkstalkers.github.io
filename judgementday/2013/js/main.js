@@ -32,7 +32,7 @@ $(document).on('click', 'a.list-group-item', function(e){
       HUNTER_IMAGES_FILES = {
         'オルバス': 'img_h_aulbath_50x50.jpg',
         'ビシャモン': 'img_h_bishamon_50x50.jpg',
-        'ドノバン': 'img_h_donovan_50x50.jpg',
+        'ドノヴァン': 'img_h_donovan_50x50.jpg',
         'デミトリ': 'img_h_demitri_50x50.jpg',
         'フェリシア': 'img_h_felicia_50x50.jpg',
         'ガロン': 'img_h_gallon_50x50.jpg',
