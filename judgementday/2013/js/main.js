@@ -103,6 +103,7 @@ $(document).on('click', 'a.list-group-item', function(e){
       // console.log(record);
       data.push(record);
     }
+    data = data.reverse();
     $('#savior .loading').hide();
     $('#savior-entry-list-item').tmpl(data).appendTo('#savior-entry-list > ul');
   }
@@ -120,6 +121,7 @@ $(document).on('click', 'a.list-group-item', function(e){
       // console.log(record);
       data.push(record);
     }
+    data = data.reverse();
     $('#hunter .loading').hide();
     $('#hunter-entry-list-item').tmpl(data).appendTo('#hunter-entry-list > ul');
   }
