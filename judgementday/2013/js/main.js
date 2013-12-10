@@ -41,7 +41,8 @@ $(document).on('click', 'a.list-group-item', function(e){
         'パイロン': 'img_h_pyron_50x50.jpg',
         'サスカッチ': 'img_h_sasquatch_50x50.jpg',
         'ビクトル': 'img_h_victor_50x50.jpg',
-        'ザベル': 'img_h_zabel_50x50.jpg'
+        'ザベル': 'img_h_zabel_50x50.jpg',
+        'フォボス': 'img_h_phobos_50x50.jpg'
       };
 
   $(document).on('shown',function(){
