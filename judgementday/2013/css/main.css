@@ -659,6 +659,7 @@ small {
   width: 80%;
   max-width: 320px;
   background: white;
+  padding: 0.5em;
 }
 #live span {
   display: block;
