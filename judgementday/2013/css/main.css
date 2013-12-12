@@ -601,7 +601,7 @@ small {
 .member-list p {
   line-height: 1.2;
   padding-left: 66px;
-  margin-top: -0.3em;
+  /*margin-top: -0.3em;*/
 }
 .entry-no {
   display: inline-block;
