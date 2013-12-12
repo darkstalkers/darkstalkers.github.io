@@ -102,13 +102,13 @@ $(document).on('click', 'a.list-group-item', function(e){
       record.chara3_img = SAVIOR_IMAGES_PATH + SAVIOR_IMAGES_FILES[record['使用キャラ_3']];
       record.entry_no = 'No.' + (++entryNo);
 
-      if ( !record['コメント'] ) {
+      if ( record['コメント'] ) {
         record['コメント'] = record['コメント'].replace('&comma;',',');
       }
-      if ( !record['コメント_2'] ) {
+      if ( record['コメント_2'] ) {
         record['コメント_2'] = record['コメント_2'].replace('&comma;',',');
       }
-      if ( !record['コメント_3'] ) {
+      if ( record['コメント_3'] ) {
         record['コメント_3'] = record['コメント_3'].replace('&comma;',',');
       }
       // console.log(record);
