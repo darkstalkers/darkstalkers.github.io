@@ -77,6 +77,7 @@
           <div class="list-group">
             <a href="#summary" class="list-group-item">大会概要</a>
             <a href="#entry" class="list-group-item">エントリー</a>
+            <a href="#live" class="list-group-item">ライブ配信</a>
             <a href="#timeline" class="list-group-item">最新情報</a>
             <a href="#regulation" class="list-group-item">大会ルール</a>
             <a href="#timetable" class="list-group-item">タイムテーブル</a>
@@ -157,6 +158,14 @@
             </div>
           </div>
         </section>
+        <section id="live">
+          <h2>ライブ配信</h2>
+          <p>
+            <img src="img/nc12295.png" alt="ニコニコ生放送">
+            <span>12月22日12:00より、ジャッジメントデイ本戦の配信を、ニコ生公式で放送いたします！<br>全国各地より集結するダークストカーズの王となるのは果たして誰なのか？審判の日が迫る…！</span>
+            <iframe height="176" src="http://live.nicovideo.jp/embed/lv162216899" scrolling="no" style="border:solid 1px #CCC;" frameborder="0"><a href="http://live.nicovideo.jp/watch/lv162216899">ヴァンパイアセイヴァー3on3＆ヴァンパイアハンター1on1大会　【Judgement Day】</a></iframe>
+          </p>
+        </section>
         <section id="timeline">
           <h2>最新情報</h2>
           <a class="twitter-timeline" href="https://twitter.com/JudgementDay_1" data-widget-id="400171431914246145">@JudgementDay_1 からのツイート</a>
@@ -167,19 +176,15 @@
         </section>
         <section id="regulation">
           <h2>大会ルール</h2>
-          <section class="savior">
-            <h3>セイヴァー部門（3on3）</h3>
-            <ul>
-              <li>スピード：ターボ3固定</li>
-              <li>その他は工場出荷デフォルト設定</li>
-              <li>使用キャラの変更不可</li>
-              <li>特定技によるガード不能バグについては、広く認知されているので制限はありません</li>
-              <li>ゲーム続行不能になるバグの利用は禁止（アナカリスの無敵状態は可）</li>
-            </ul>
-          </section>
+          <ul>
+            <li>ジャンケン（セイヴァーはチームの代表者による）を行い、勝利した側がコンパネ選択権（1Por2P）を得る</li>
+            <li>コンパネの不具合が発生した場合はプレイを中断し、即座に運営へ申し出てください。対応後、再試合とします。試合終了後の申告については認めません。また、虚偽の申告をする等、故意に進行を妨げる行為をした場合は失格とします</li>
+            <li>ダブルKOは再試合とします</li>
+          </ul>
           <section class="hunter">
             <h3>ハンター部門（シングル）</h3>
             <ul>
+              <li>1on1シングルマッチ</li>
               <li>スピード：ターボ2固定</li>
               <li>その他は工場出荷デフォルト設定</li>
               <li>使用キャラの変更不可</li>
@@ -187,23 +192,65 @@
               <li>ゲーム続行不能になるバグの利用は禁止</li>
             </ul>
           </section>
-          <!-- <section class="caution">
-            <h3>その他 注意事項</h3> -->
-            <small class="caution">※ コンパネの不具合が発生した場合はプレイを中断し、即座に運営へ申し出てください。対応後、再試合とします。試合終了後の申告については認めません。また、虚偽の申告をする等、故意に進行を妨げる行為をした場合は失格とします。</small>
-          <!-- </section> -->
+          <section class="savior">
+            <h3>セイヴァー部門（3on3）</h3>
+            <ul>
+              <li>3on3チームマッチ</li>
+              <li>スピード：ターボ3固定</li>
+              <li>その他は工場出荷デフォルト設定</li>
+              <li>使用キャラの変更不可</li>
+              <li>特定技によるガード不能バグについては、広く認知されているので制限はありません。ただしゲーム続行不能になるバグの利用は禁止（アナカリスの無敵状態は可）</li>
+              <li>試合開始前に先鋒の選手を審判に申告する。その後の変更は認められません</li>
+              <li>勝ち抜き戦とし、中堅以降の順序は自由に決定できます</li>
+            </ul>
+          </section>
+          <section class="">
+            <h3>大会進行の流れ</h3>
+            <p>○予選ブロック</p>
+            <ul>
+              <li>1ブロック3枠のリーグ戦or4枠の変則トーナメントを行います</li>
+              <li>組み合わせはセイヴァーはくじ引きを行い、選ばれた順番に好きなブロックを指定（K-1方式）。ハンターは運営側で抽選を行い決定</li>
+              <li>1位のみが予選通過となります。リーグ戦で勝敗数が並んだ場合は再戦を行い、もう一度並んだ場合は各チーム代表者1名を選出して再戦。再度並んだ場合は前回とは別の代表者を選出して再戦します</li>
+              <li>2位はプレーオフへ進みます</li>
+            </ul>
+            <p>○プレーオフ</p>
+            <ul>
+              <li>決勝進出できる枠数および形式（リーグorトーナメント）は参加人数により変動します</li>
+            </ul>
+            <p>○決勝トーナメント</p>
+            <ul>
+              <li>8枠のシングルイリミネーショントーナメント</li>
+              <li>組み合わせはくじ引きを行い、くじの番号順に対戦相手チームを指名（待ちはできません）</li>
+              <li>指名された側は1回限り拒否権を行使できます</li>
+              <li>指名を拒否されたチームは指名順最後尾に移動します</li>
+            </ul>
+            <small>※ 参加人数が多くなった場合は変更になる可能性があります</small>
+          </section>
         </section>
         <section id="timetable">
           <h2>タイムテーブル</h2>
           <p>
             <dl class="timetable">
-              <dt>10:00〜</dt>
-              <dd>開場（当日エントリー受付開始）</dd>
-              <dt>12:00〜</dt>
-              <dd>大会開始</dd>
-              <dt>〜20:00</dt>
-              <dd>大会終了</dd>
+              <dt>10:00</dt>
+              <dd>開場および事前エントリー確認および当日エントリー受付開始</dd>
+              <dt>12:00</dt>
+              <dd>セイヴァー予選ブロック組み合わせ抽選</dd>
+              <dt>12:30</dt>
+              <dd>セイヴァー予選開始</dd>
+              <dt>15:30</dt>
+              <dd>セイヴァープレーオフ<br>（ハンター予選ブロック組み合わせ抽選）</dd>
+              <dt>16:30</dt>
+              <dd>ハンター予選開始</dd>
+              <dt>18:00</dt>
+              <dd>ハンタープレーオフ</dd>
+              <dt>18:30</dt>
+              <dd>ハンター決勝トーナメント</dd>
+              <dt>19:00</dt>
+              <dd>セイヴァー決勝トーナメント</dd>
+              <dt>20:00</dt>
+              <dd>表彰式～終了</dd>
             </dl>
-            <small>※ 詳細は、別途お知らせします。</small>
+            <small>※スケジュールは当日の進行状況により、変更となる場合があります。</small>
           </p>
         </section>
         <section id="eve-of-fes" class="fes">

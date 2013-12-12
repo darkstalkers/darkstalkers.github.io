@@ -652,6 +652,23 @@ small {
   padding: 16px 0;
 }
 
+#live p {
+  text-align: center;
+}
+#live img {
+  width: 80%;
+  max-width: 320px;
+  background: white;
+}
+#live span {
+  display: block;
+  margin: 1em 0;
+}
+#live iframe {
+  width: 100%;
+  max-width: 320px;
+}
+
 /* for mobile */
 @media all and (max-width: 600px) {
   .member-list li, #hunter-entry-list ul li {
