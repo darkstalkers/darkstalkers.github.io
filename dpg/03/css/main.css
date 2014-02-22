@@ -15,7 +15,10 @@ body {
 .contents {
   /*margin: 6em 1em 0 0;*/
 }
-
+.event-date .event-final {
+  font-size: 0.4em;
+  margin-bottom: -1em;
+}
 .summary {
   font-size: 2em;
   font-weight: bold;
@@ -55,7 +58,7 @@ body {
   color: #fff;
   text-align: right;
   /*margin-top: 2.8em;*/
-  margin-left: 0.5em;
+  margin-left: 0.8em;
   text-shadow: 0px 0px 10px red, 0px 0px 10px red;
 }
 .event-date .year {
@@ -73,7 +76,7 @@ p.place {
 }
 .game-logo {
   width: 20%;
-  min-width: 160px;
+  min-width: 120px;
   max-width: 300px;
 }
 .catch-title {
@@ -271,6 +274,41 @@ small {
 
 /* for mobile */
 @media all and (max-width: 480px) {
+  .catch-title {
+    font-size: 1.4em !important;
+  }
+  .catchphrase {
+    font-size: 1.5em;
+  }
+  .contents {
+    /*margin: 0.2em;*/
+    width: 100%;
+  }
+  .contents > section {
+    padding: 0.8em;
+  }
+  .event-info {
+    margin: -1em 0 0;
+  }
+  .event-date {
+    font-size: 2.4em;
+  }
+  p {
+    font-size: 1em;
+  }
+  section > section {
+    padding: 0.5em;
+  }
+  .contents > section h2 {
+    padding-bottom: 0;
+  }
+  section > ul {
+    padding-left: 1em;
+  }
+  .event-date .event-final {
+    font-size: 0.4em;
+    margin-bottom: -0.5em;
+  }
 }
 
 
