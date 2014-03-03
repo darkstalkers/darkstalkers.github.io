@@ -1,7 +1,11 @@
 (function(){
   console.log(1);
   var body = document.body;
-  window.addEventListener('scroll', function(e){
-    body.style.backgroundPosition = '0 ' + parseInt(window.scrollY / 1.5) + 'px';
-  }, false);
+  if ( window.innerWidth > 600 ) {
+    window.addEventListener('scroll', function(e){
+      body.style.backgroundPosition = '50% ' + parseInt(window.scrollY / 1.5) + 'px';
+    }, false);
+  } else {
+    body.style.backgroundAttachment = 'fixed';
+  }
 })();
