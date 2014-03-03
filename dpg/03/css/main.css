@@ -41,7 +41,7 @@ body {
 .event-info {
   overflow: hidden;
   text-align: center;
-  margin: -3em 0 1em;
+  margin: -3em 25% 0 1em;
 }
 .event-info div {
   /*float: right;*/
@@ -75,8 +75,8 @@ p.place {
   margin-top: -1em;
 }
 .game-logo {
-  width: 20%;
-  min-width: 120px;
+  width: 25%;
+  min-width: 100px;
   max-width: 300px;
 }
 .catch-title {
@@ -97,7 +97,7 @@ p.place {
 }
 
 .contents > section {
-  /*background: rgba(0, 0, 0, 0.8);*/
+  background: rgba(0, 0, 0, 0.6);
   padding: 2em;
   /* border-radius: 1em; */
   margin-bottom: 2em;
@@ -288,10 +288,11 @@ small {
     padding: 0.8em;
   }
   .event-info {
-    margin: -1em 0 0;
+    margin: -1em 25% 0 0;
   }
   .event-date {
     font-size: 2.4em;
+    margin-left: 0.2em;
   }
   p {
     font-size: 1em;
@@ -315,4 +316,16 @@ small {
 .elimi-date {
   font-size: 1.6em;
   margin: 0 0.6em 0 0.2em;
+}
+
+a, a:visited {
+  color: lightblue;
+}
+
+body {
+  background-image: url(../img/background.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-attachment: local;
+  background-size: contain;
 }
