@@ -326,8 +326,8 @@ body {
   background-image: url(../img/background.png);
   background-repeat: no-repeat;
   background-position: 50% 0;
-  background-attachment: local;
-  background-size: contain;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .box {
