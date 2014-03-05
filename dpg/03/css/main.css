@@ -329,3 +329,71 @@ body {
   background-attachment: local;
   background-size: contain;
 }
+
+.box {
+  display: none;
+  max-width: 960px;
+}
+
+.fancybox-skin {
+  border-radius: 0;
+  border: 1px solid #5E4743;
+  background: #000;
+  color: #fff;
+}
+.fancybox-skin h3 {
+  padding: 0 0 0.5em;
+  border-bottom: 1px dotted #5E4743;
+  border-top: none;
+  font-size: 1.4em;
+  margin-bottom: 16px;
+}
+.fancybox-skin strong {
+  text-shadow: 0px 0px 10px red, 0px 0px 10px red;
+  font-size: 1.2em;
+}
+dl {
+  margin: 0 0 1em;
+}
+dt {
+  clear: both;
+  float: left;
+  padding: 5px 5px 0px 0;
+  width: auto;
+}
+dd {
+  padding: 5px 0px 0px 15%;
+  margin-left: 0;
+}
+
+.photo ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.photo ul li {
+  float: left;
+  width: 32%;
+  margin: 0 0 1% 1%;
+}
+.photo ul li:nth-child(3n+1) {
+  margin-left: 0;
+}
+.photo ul li {
+
+}
+.photo img {
+  border: 6px solid #ddd;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* for mobile */
+@media all and (max-width: 480px) {
+  .photo ul li {
+    float: left;
+    width: 100%;
+    margin: 0 0 0.5em 0;
+  }
+}

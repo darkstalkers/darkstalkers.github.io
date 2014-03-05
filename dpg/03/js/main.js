@@ -1,5 +1,4 @@
 (function(){
-  console.log(1);
   var body = document.body;
   if ( window.innerWidth > 600 ) {
     window.addEventListener('scroll', function(e){
@@ -8,4 +7,11 @@
   } else {
     body.style.backgroundAttachment = 'fixed';
   }
+
+  $('.fancybox').fancybox({
+    beforeShow: function(){
+      // 
+    }
+  });
+
 })();
