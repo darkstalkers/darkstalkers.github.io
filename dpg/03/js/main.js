@@ -5,7 +5,7 @@
       body.style.backgroundPosition = '50% ' + (- parseInt(window.scrollY / 1.5)) + 'px';
     }, false);
   } else {
-    // body.style.backgroundAttachment = 'fixed';
+    body.style.backgroundSize = 'contain';
   }
 
   $('.fancybox').fancybox({
