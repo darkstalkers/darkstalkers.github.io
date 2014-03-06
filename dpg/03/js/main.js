@@ -14,9 +14,7 @@
           images = target.find('img[data-src]');
       for (var i = 0, n = images.length; i < n; i++ ) {
         var img = images[i];
-        if ( !img.src ) {
-          img.src = img.getAttribute('data-src');
-        }
+        img.src = img.getAttribute('data-src');
       }
     }
   });
