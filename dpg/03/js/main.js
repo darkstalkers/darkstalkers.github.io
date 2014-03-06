@@ -1,8 +1,10 @@
 (function(){
   var bg = document.querySelector('.container');
   if ( window.innerWidth > 600 ) {
-    window.addEventListener('scroll', function(e){
-      bg.style.backgroundPosition = '50% ' + (- parseInt(window.scrollY / 1.5)) + 'px';
+    // var rate = (window.innerHeight / bg.scrollHeight) *10;
+    // console.log(rate);
+    bg.addEventListener('scroll', function(e){
+      bg.style.backgroundPosition = '50% ' + (- parseInt(bg.scrollTop / 2.5)) + 'px';
     }, false);
   } else {
     bg.style.backgroundSize = 'contain';
