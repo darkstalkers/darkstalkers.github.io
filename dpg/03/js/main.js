@@ -1,11 +1,11 @@
 (function(){
-  var body = document.body;
+  var bg = document.querySelector('.container');
   if ( window.innerWidth > 600 ) {
     window.addEventListener('scroll', function(e){
-      body.style.backgroundPosition = '50% ' + (- parseInt(window.scrollY / 1.5)) + 'px';
+      bg.style.backgroundPosition = '50% ' + (- parseInt(window.scrollY / 1.5)) + 'px';
     }, false);
   } else {
-    body.style.backgroundSize = 'contain';
+    bg.style.backgroundSize = 'contain';
   }
 
   $('.fancybox').fancybox({
