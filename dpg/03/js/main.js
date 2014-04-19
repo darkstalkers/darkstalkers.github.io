@@ -1,8 +1,7 @@
 (function(){
+  // smooth scroll
   var bg = document.querySelector('.container');
   if ( window.innerWidth > 600 ) {
-    // var rate = (window.innerHeight / bg.scrollHeight) *10;
-    // console.log(rate);
     bg.addEventListener('scroll', function(e){
       bg.style.backgroundPosition = '50% ' + (- parseInt(bg.scrollTop / 2.5)) + 'px';
     }, false);
@@ -10,6 +9,7 @@
     bg.style.backgroundSize = 'contain';
   }
 
+  // popup window and images lazy load.
   $('.fancybox').fancybox({
     beforeShow: function(){
       var target = $(document.querySelector(this.href)),
