@@ -482,6 +482,7 @@ dd {
 }
 .result-box .others span {
   font-size: 1em;
+  font-weight: normal;
 }
 .result-box .others strong {
   text-shadow: none;
@@ -500,10 +501,6 @@ dd {
     float: left;
     width: 100%;
     margin: 0 0 0.5em 0;
-  }
-  .final-result img {
-    /*float: none;
-    width: 60%;*/
   }
   .result-box .champion, .result-box .others {
     width: 100%;
