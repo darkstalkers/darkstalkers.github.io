@@ -23,9 +23,10 @@ a, a:visited {
   text-shadow: 0 0 16px red, 0 0 16px red;
   color: #fff;
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 0;
   text-align: center;
+  margin-top: -11em;
 }
 .main h1 {
   font-size: 6em;
@@ -82,7 +83,7 @@ small {
 /* for mobile*/
 @media all and (max-width: 480px) {
 .main {
-  top: 20%;
+  margin-top: -7em;
 }
 .main h1 {
   font-size: 2em;
@@ -99,6 +100,9 @@ small {
 }
 .twitter-icon img {
   width: 2em;
+}
+.social ul {
+  margin-top: 0;
 }
 .social li {
   margin: 0 0.2em;

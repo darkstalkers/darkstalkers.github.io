@@ -19,19 +19,18 @@
     });
   }, 500);
 
-  $(document.body).bind("click",function(e) {
+  $(document.body).bind('click',function(e) {
     ripple(e.pageX, e.pageY);
   });
 
   function ripple(x, y){
     new Ripple({
-        target: ".container",
         x: x,
         y: y,
         size: width-10,
         count: 1,
         width: 1,
-        color: "rgb(204, 48, 48)",
+        color: 'rgb(204, 48, 48)',
         zIndex: 30,
         shadow: '0 0 6px rgb(204, 48, 48)',
         duration: 2000
