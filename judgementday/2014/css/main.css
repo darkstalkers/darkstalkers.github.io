@@ -72,9 +72,11 @@ small {
 .fb_iframe_widget span {
   vertical-align: inherit !important;
 }
-
 .fb-like-button-container {
   max-height: 20px;
+}
+.twitter {
+  width: 100px;
 }
 
 /* for mobile*/
