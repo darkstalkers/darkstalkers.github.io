@@ -20,6 +20,16 @@
   $(document.body).bind('click',function(e) {
     ripple(e.pageX, e.pageY);
   });
+  $(document.body).bind('touchmove',function(e) {
+    e.preventDefault();
+    var touches = e.originalEvent.touches;
+    var l = touches.length;
+    for (var i = 0; i < l; ++i) {
+      var touch = touches[i];
+      ripple(touch.pageX, touch.pageY);
+    }
+    
+  });
 
   function ripple(x, y){
     new Ripple({
