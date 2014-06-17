@@ -448,6 +448,8 @@ dd {
 .comment {
   text-align: left;
   padding-top: 0;
+  max-width: 760px;
+  margin: 0 auto;
 }
 .comment h3 {
   margin-top: 0.6em;
