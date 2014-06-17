@@ -59,6 +59,7 @@ footer {
 }
 .social li {
   display: inline-block;
+  margin: 0 0.1em;
 }
 small {
   font-size: 1em;
