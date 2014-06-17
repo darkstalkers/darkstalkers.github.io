@@ -15,6 +15,7 @@
   });
   function ripple(x, y){
     new Ripple({
+        target: ".container",
         x: x,
         y: y,
         size: width,
@@ -22,7 +23,7 @@
         width: 1,
         color: "rgb(204, 48, 48)",
         zIndex: 30,
-        shadow: '0 0 6px red',
+        shadow: '0 0 6px rgb(204, 48, 48)',
         duration: 2000
     });
   }
