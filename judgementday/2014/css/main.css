@@ -59,7 +59,7 @@ footer {
 }
 .social li {
   display: inline-block;
-  margin: 0 0.1em;
+  margin: 0 0.2em;
 }
 small {
   font-size: 1em;
@@ -92,6 +92,9 @@ small {
 }
 .twitter-icon img {
   width: 2em;
+}
+.social li {
+  margin: 0 0.1em;
 }
 
 }
