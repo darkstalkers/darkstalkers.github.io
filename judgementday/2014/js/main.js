@@ -15,7 +15,7 @@
         'slow'
       );
     });
-  }, 500);
+  }, 700);
 
   $(document.body).bind('click',function(e) {
     ripple(e.pageX, e.pageY);
