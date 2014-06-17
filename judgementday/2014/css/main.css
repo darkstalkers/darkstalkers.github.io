@@ -1,0 +1,90 @@
+img {
+  max-width: 100%;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+body {
+  background: #000;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+}
+h1, time {
+  font-family: 'IM Fell Great Primer', "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+}
+a, a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+.main {
+  width: 100%;
+  text-shadow: 0 0 16px red, 0 0 16px red;
+  color: #fff;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  text-align: center;
+}
+.main h1 {
+  font-size: 6em;
+  text-align: center;
+  margin: 0;
+}
+.main time {
+  font-size: 8em;
+}
+.main time span {
+  font-size: 0.5em;
+}
+.message {
+  margin-top: 4em;
+  text-shadow: none;
+  font-size: 1.4em;
+}
+.twitter-icon img {
+  margin-bottom: -0.6em;
+  margin-left: 0.5em;
+}
+footer {
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  padding: 0.5em;
+  background-color: #222;
+  background-color: rgba(100, 100, 100, .2);
+  color: #ccc;
+  text-align: center;
+}
+.social li {
+  display: inline-block;
+}
+small {
+  font-size: 1em;
+}
+
+/* for mobile*/
+@media all and (max-width: 480px) {
+.main {
+  top: 20%;
+}
+.main h1 {
+  font-size: 2em;
+}
+.main time {
+  font-size: 5em;
+}
+.message {
+  margin-top: 2em;
+  font-size: 0.9em;
+}
+small {
+  font-size: 0.9em;
+}
+.twitter-icon img {
+  width: 2em;
+}
+
+}
+/* end for mobile*/

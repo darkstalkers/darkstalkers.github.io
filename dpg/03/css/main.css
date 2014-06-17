@@ -5,6 +5,9 @@ body {
   padding: 0;
   margin: 0;
   background: #000;
+  font-family: "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+}
+.event-date {
   font-family: Arial, Helvetica, sans-serif;
 }
 .container {
