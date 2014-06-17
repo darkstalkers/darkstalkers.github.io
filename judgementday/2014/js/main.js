@@ -21,7 +21,7 @@
         target: ".container",
         x: x,
         y: y,
-        size: width,
+        size: width-10,
         count: 1,
         width: 1,
         color: "rgb(204, 48, 48)",
