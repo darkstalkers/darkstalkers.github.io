@@ -9,6 +9,7 @@ body {
   background: #000;
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  overflow: hidden;
 }
 h1, time {
   font-family: 'IM Fell Great Primer', "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
@@ -48,7 +49,7 @@ a, a:visited {
 }
 footer {
   width: 100%;
-  z-index: 1;
+  z-index: 999;
   position: fixed;
   bottom: 0;
   padding: 0.5em;
@@ -67,9 +68,6 @@ small {
 
 .fb_iframe_widget span {
   vertical-align: inherit !important;
-}
-.google {
-  width: 80px;
 }
 
 /* for mobile*/

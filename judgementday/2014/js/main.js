@@ -10,8 +10,6 @@
     $('.main').fadeIn(2500);
   }, 500);
 
-
-
   $(document.body).bind("click",function(e) {
     ripple(e.pageX, e.pageY);
   });
@@ -22,7 +20,7 @@
         size: width,
         count: 1,
         width: 1,
-        color: "rgba(255,0,0,0.5)",
+        color: "rgb(204, 48, 48)",
         zIndex: 30,
         shadow: '0 0 6px red',
         duration: 2000
