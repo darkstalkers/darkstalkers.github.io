@@ -64,6 +64,13 @@ small {
   font-size: 1em;
 }
 
+.fb_iframe_widget span {
+  vertical-align: inherit !important;
+}
+.google {
+  width: 80px;
+}
+
 /* for mobile*/
 @media all and (max-width: 480px) {
 .main {
