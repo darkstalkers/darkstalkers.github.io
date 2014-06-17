@@ -104,6 +104,10 @@ small {
 .social li {
   margin: 0 0.1em;
 }
+footer {
+  max-height: 91px;
+  overflow: hidden;
+}
 
 }
 /* end for mobile*/
