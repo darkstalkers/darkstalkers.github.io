@@ -464,6 +464,7 @@ dd {
   max-width: 560px;
   margin: 0 auto;
   overflow: hidden;
+  padding-top: 0;
 }
 .result-box .champion {
   float: left;
