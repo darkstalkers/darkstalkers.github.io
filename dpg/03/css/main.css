@@ -445,15 +445,72 @@ dd {
   text-align: center;
 }
 
+.comment {
+  text-align: left;
+}
+.comment p {
+  text-align: left;
+  font-size: 0.9em;
+  margin-bottom: 0.6em;
+  line-height: 1.3;
+}
+.comment img {
+  float: left;
+  width: 180px;
+  margin: 0 1em 1em 0;
+}
+.result-box {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.result-box .champion {
+  float: left;
+  width: 50%;
+}
+.result-box .others {
+  float: right;
+  width: 50%;
+  font-weight: bold;
+  padding-top: 1.6em;
+}
+.result-box .others p {
+  text-align: left;
+  margin: 0;
+  line-height: 1.3;
+}
+.result-box .others span {
+  font-size: 1em;
+}
+.result-box .others strong {
+  text-shadow: none;
+}
+
+.for-mobile {
+  display: none;
+}
+
 /* for mobile */
 @media all and (max-width: 480px) {
+  .for-mobile {
+    display: inherit;
+  }
   .photo ul li {
     float: left;
     width: 100%;
     margin: 0 0 0.5em 0;
   }
   .final-result img {
+    /*float: none;
+    width: 60%;*/
+  }
+  .result-box .champion, .result-box .others {
+    width: 100%;
     float: none;
-    width: 60%;
+    padding: 0;
+  }
+  .result-box .others p {
+    text-align: center;
   }
 }
