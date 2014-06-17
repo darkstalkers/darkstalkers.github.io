@@ -3,7 +3,7 @@
   var left = Math.floor(width / 2);
   var top  = Math.floor($(window).height() / 2);
 
-  $(document.body).width(width);
+  $('.container').width(width);
 
   var main = $('.main');
   main[0].style.cssText = 'display: none';
