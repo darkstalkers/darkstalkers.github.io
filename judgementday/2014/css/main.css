@@ -52,11 +52,14 @@ footer {
   z-index: 999;
   position: fixed;
   bottom: 0;
-  padding: 0.5em;
+  padding: 1em 0;
   background-color: #222;
   background-color: rgba(100, 100, 100, .2);
   color: #ccc;
   text-align: center;
+}
+.social {
+  display: none; /* js */
 }
 .social li {
   display: inline-block;
@@ -72,12 +75,6 @@ small {
 
 .fb-like-button-container {
   max-height: 20px;
-}
-
-html, body, .container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
 
 /* for mobile*/
@@ -102,12 +99,12 @@ small {
   width: 2em;
 }
 .social li {
-  margin: 0 0.1em;
+  margin: 0 0.2em;
 }
-footer {
+/*footer {
   max-height: 91px;
   overflow: hidden;
-}
+}*/
 
 }
 /* end for mobile*/

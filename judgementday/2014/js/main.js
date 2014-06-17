@@ -9,11 +9,18 @@
   main[0].style.cssText = 'display: none';
   setTimeout(function(){
     ripple(left, top);
-    $('.main').fadeIn(2500);
+    $('.main').fadeIn(2500, function(){
+      $('.social').animate({
+          height: 'toggle',
+          display: 'block'
+        },
+        'slow'
+      );
+    });
   }, 500);
 
   $(document.body).bind("click",function(e) {
-    // ripple(e.pageX, e.pageY);
+    ripple(e.pageX, e.pageY);
   });
 
   function ripple(x, y){
