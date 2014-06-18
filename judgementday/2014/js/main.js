@@ -23,7 +23,7 @@
     ripple(e.pageX, e.pageY);
   });
   $(document.body).bind('touchmove',function(e) {
-    e.preventDefault();
+    // e.preventDefault();
     var touches = e.originalEvent.touches;
     var l = touches.length;
     for (var i = 0; i < l; ++i) {

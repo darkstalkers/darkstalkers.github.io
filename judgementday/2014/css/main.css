@@ -26,7 +26,8 @@ a, a:visited {
   top: 50%;
   left: 0;
   text-align: center;
-  margin-top: -11em;
+  /*margin-top: -11em;*/
+  margin-top: -18em;
 }
 .main h1 {
   font-size: 6em;
@@ -40,7 +41,8 @@ a, a:visited {
   font-size: 0.5em;
 }
 .message {
-  margin-top: 4em;
+  /*margin-top: 4em;*/
+  margin-top: 3em;
   text-shadow: none;
   font-size: 1.4em;
 }
@@ -88,12 +90,28 @@ html, body, .container {
   overflow: hidden;
   position: relative;
 }
+.icons {
+  margin-top: 3em;
+}
+.icons .savior {
+  width: 30%;
+  max-width: 200px;
+}
+.icons span {
+  display: inline-block;
+  text-shadow: none;
+  font-size: 3em;
+  margin-left: 1em;
+  position: relative;
+  top: -0.9em;
+}
 
 
 /* for mobile*/
 @media all and (max-width: 480px) {
 .main {
-  margin-top: -7.5em;
+  /*margin-top: -7.5em;*/
+  margin-top: -9em;
 }
 .main h1 {
   font-size: 2em;
@@ -116,6 +134,15 @@ small {
 }
 .social li {
   margin: 0 0.2em;
+}
+
+.icons {
+  margin-top: 2em;
+}
+.icons span {
+  font-size: 1.3em;
+  margin-left: 0.5em;
+  top: -1.1em;
 }
 /*footer {
   max-height: 91px;
