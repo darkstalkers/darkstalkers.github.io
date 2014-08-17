@@ -23,6 +23,7 @@ body {
 }
 .contents {
   /*margin: 6em 1em 0 0;*/
+  max-width: 1080px;
 }
 .event-date .event-final {
   font-size: 0.4em;
@@ -645,6 +646,66 @@ a.list-group-item {
   z-index: 999;
 }
 
+.team-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-shadow: 0px 0px 6px red, 0px 0px 6px red;
+}
+.player-name {
+  font-size: 0.9em;
+}
+.player-chara {
+  font-size: 0.8em;
+  color: #FFCC00;
+}
+.player-comment {
+  font-size: 0.8em;
+}
+.chara-img {
+  float: left;
+  margin-right: 1em;
+}
+#savior-entry-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#savior-entry-list > ul > li {
+  padding-top: 1em;
+}
+
+
+.member-list {
+  border-bottom: 1px dotted #5E4743;
+  overflow: hidden;
+  clear:both;
+}
+.member-list li {
+  margin: 0;
+  padding: 0.2em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 33.3333%;
+  min-height: 5em;
+}
+.member-list p {
+  line-height: 1.2;
+  padding-left: 66px;
+  /*margin-top: -0.3em;*/
+}
+.entry-no {
+  display: inline-block;
+  color: gray;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-shadow: none;
+  min-width: 3em;
+}
+
+
 /* for mobile */
 @media all and (max-width: 480px) {
   .for-mobile {
@@ -735,5 +796,13 @@ a.list-group-item {
   .entry-btn {
     width: 80%;
     font-size: 0.8em;
+  }
+
+  .member-list li, #hunter-entry-list ul li {
+    float: none;
+    width: 100%;
+  }
+  .member-list p {
+    padding-left: 0;
   }
 }

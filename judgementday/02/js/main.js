@@ -18,5 +18,10 @@
     bg.style.backgroundSize = 'contain';
   }
 
+  // Entry list
+  $(window).load(function (e) {
+    $('#savior .loading').hide();
+    $('#savior-entry-list-item').tmpl(savior).appendTo('#savior-entry-list > ul');
+  });
 
 })();

@@ -62,9 +62,9 @@
         <div class="social">
           <ul>
             <!-- Google+ -->
-            <!-- <li class="google">
-              <div class="g-plusone" data-href="http://darkstalkers-federation.org/dpg/03/" data-width="120"></div>
-            </li> -->
+            <li class="google">
+              <div class="g-plusone" data-href="http://darkstalkers-federation.org/judgementday/02/" data-width="120"></div>
+            </li>
             <!-- Facebook -->
             <li class="facebook">
               <div class="fb-like" data-href="http://darkstalkers-federation.org/judgementday/02/" data-send="false" data-layout="button_count" data-width="120" data-show-faces="false"></div>
@@ -121,20 +121,19 @@
             </div>
             <section>
               <h3>エントリー状況</h3>
-              <p>準備中です。</p>
-            </section>
-            <div class="tab-pane" id="savior">
-              <div class="loading">
-                <img src="img/ajax-loader.gif" alt="loading...">
-              </div>
-              <section class="savior">
-                <div id="savior-entry-list">
-                  <ul>
-                    <!-- inject items -->
-                  </ul>
+              <div id="savior">
+                <div class="loading">
+                  <img src="img/ajax-loader.gif" alt="loading...">
                 </div>
-              </section>
-            </div>
+                <section class="savior">
+                  <div id="savior-entry-list">
+                    <ul>
+                      <!-- inject items -->
+                    </ul>
+                  </div>
+                </section>
+              </div>
+            </section>
           </div>
         </section>
 
@@ -314,6 +313,39 @@
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+    <script src="js/vendor/jquery.tmpl.min.js"></script>
+    <script id="savior-entry-list-item" type="text/x-jquery-tmpl">
+      <li>
+        <p class="team-name"><span class="entry-no">${entry_no}</span> ${チーム名}</p>
+        <ul class="member-list">
+          <li class="${hidden1}">
+            <img src="${chara1_img}" alt="${使用キャラ}" class="chara-img">
+            <p>
+              <b class="player-name">${プレイヤーネーム}</b><br>
+              <span class="player-chara">${使用キャラ}</span><br>
+              <span class="player-comment">${コメント}</span>
+            </p>
+          </li>
+          <li class="${hidden2}">
+            <img src="${chara2_img}" alt="${使用キャラ_2}" class="chara-img">
+            <p>
+              <b class="player-name">${プレイヤーネーム_2}</b><br>
+              <span class="player-chara">${使用キャラ_2}</span><br>
+              <span class="player-comment">${コメント_2}</span>
+            </p>
+          </li>
+          <li class="${hidden3}">
+            <img src="${chara3_img}" alt="${使用キャラ_3}" class="chara-img">
+            <p>
+              <b class="player-name">${プレイヤーネーム_3}</b><br>
+              <span class="player-chara">${使用キャラ_3}</span><br>
+              <span class="player-comment">${コメント_3}</span>
+            </p>
+          </li>
+        </ul>
+      </li>
+    </script>
+    <script src="js/data.js"></script>
     <script src="js/main.js"></script>
     <div id="fb-root"></div>
     <script>
