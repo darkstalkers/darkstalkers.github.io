@@ -806,3 +806,7 @@ a.list-group-item {
     padding-left: 0;
   }
 }
+
+.facebook .fb-like > span {
+  vertical-align: inherit !important;
+} 
