@@ -21,7 +21,8 @@
   // Entry list
   $(window).load(function (e) {
     $('#savior .loading').hide();
-    $('#savior-entry-list-item').tmpl(savior).appendTo('#savior-entry-list > ul');
+    $('#savior-entry-list-item').tmpl(savior.data).appendTo('#savior-entry-list > ul');
+    $('#savior-entry-single-tmpl').tmpl(savior.single).appendTo('#savior-entry-single > ul');
   });
 
 })();

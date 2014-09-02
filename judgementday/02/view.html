@@ -83,6 +83,7 @@
 
   function displayToSavior(records) {
     var data = [],
+        single = [],
         entryNo = 0;
     for ( var i = 0, len = records.length; i < len; i++ ) {
       var record = records[i];
@@ -101,7 +102,6 @@
       record.chara1_img = SAVIOR_IMAGES_PATH + SAVIOR_IMAGES_FILES[record['使用キャラ']];
       record.chara2_img = SAVIOR_IMAGES_PATH + SAVIOR_IMAGES_FILES[record['使用キャラ_2']];
       record.chara3_img = SAVIOR_IMAGES_PATH + SAVIOR_IMAGES_FILES[record['使用キャラ_3']];
-      record.entry_no = 'No.' + (++entryNo);
 
       if ( record['コメント'] ) {
         record['コメント'] = record['コメント'].replace('&comma;',',');
@@ -113,10 +113,21 @@
         record['コメント_3'] = record['コメント_3'].replace('&comma;',',');
       }
       // console.log(record);
-      data.push(record);
+
+      if ( !record['プレイヤーネーム_2'] && !record['プレイヤーネーム_3'] ) {
+        single.push(record);
+      } else {
+        record.entry_no = 'No.' + (++entryNo);
+        data.push(record);  
+      }
     }
     data = data.reverse();
-    $('#savior').text('var savior = ' + $('#savior').text() + JSON.stringify(data) + ';');
+    single = single.reverse();
+    var d = {
+      data: data,
+      single: single
+    };
+    $('#savior').text('var savior = ' + $('#savior').text() + JSON.stringify(d) + ';');
     // $('#savior .loading').hide();
     // $('#savior-entry-list-item').tmpl(data).appendTo('#savior-entry-list > ul');
   }

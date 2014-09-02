@@ -705,6 +705,14 @@ a.list-group-item {
   min-width: 3em;
 }
 
+#savior-entry-single ul {
+  list-style: none;
+  margin: 2em 0 0;
+  padding: 0;
+}
+#savior-entry-single ul li {
+  min-height: 88px;
+}
 
 /* for mobile */
 @media all and (max-width: 480px) {
@@ -809,4 +817,4 @@ a.list-group-item {
 
 .facebook .fb-like > span {
   vertical-align: inherit !important;
-} 
+}

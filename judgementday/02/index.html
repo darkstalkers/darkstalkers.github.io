@@ -126,13 +126,21 @@
                 <div class="loading">
                   <img src="img/ajax-loader.gif" alt="loading...">
                 </div>
-                <section class="savior">
+                <!-- <section class="savior"> -->
                   <div id="savior-entry-list">
                     <ul>
                       <!-- inject items -->
                     </ul>
                   </div>
-                </section>
+                <!-- </section> -->
+              </div>
+            </section>
+            <section>
+              <h3 style="border: none;">シングルエントリー（斡旋希望）</h3>
+              <div id="savior-entry-single">
+                <ul class="member-list">
+                  <!-- inject items -->
+                </ul>
               </div>
             </section>
           </div>
@@ -384,6 +392,16 @@
             </p>
           </li>
         </ul>
+      </li>
+    </script>
+    <script id="savior-entry-single-tmpl" type="text/x-jquery-tmpl">
+      <li>
+        <img src="${chara1_img}" alt="${使用キャラ}" class="chara-img">
+        <p>
+          <b class="player-name">${プレイヤーネーム}</b><br>
+          <span class="player-chara">${使用キャラ}</span><br>
+          <span class="player-comment">${コメント}</span>
+        </p>
       </li>
     </script>
     <script src="js/data.js"></script>
