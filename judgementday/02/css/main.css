@@ -714,6 +714,46 @@ a.list-group-item {
   min-height: 88px;
 }
 
+dt {
+  display: block;
+  clear: both;
+  float: left;
+  width: 7em;
+  padding: 0.2em 0;
+  font-weight: normal;
+  position: relative;
+}
+dt:after {
+  position: absolute;
+  right: -1.5em;
+  width: 1em;
+  height: 1em;
+  content: ':';
+}
+dd {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.2em 0 0.2em 8.5em;
+}
+.party-summary {
+  margin-left: 1em;
+}
+.party-summary dt {
+  width: 3em;
+}
+.party-summary dd {
+  padding-left: 5em;
+}
+#summary p {
+  font-size: 1.2em;
+}
+.event-summary {
+  border-top: 1px solid #5E4743;
+  padding-top: 2em;
+}
+
 /* for mobile */
 @media all and (max-width: 480px) {
   .for-mobile {
