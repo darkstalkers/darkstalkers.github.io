@@ -853,6 +853,12 @@ dd {
   .member-list p {
     padding-left: 0;
   }
+  .party-summary {
+    margin-left: 0;
+  }
+  #summary p {
+    font-size: 1em;
+  }
 }
 
 .facebook .fb-like > span {
