@@ -860,7 +860,7 @@ dd {
     font-size: 1em;
   }
   .event-title {
-    margin-bottom: 1em;
+    margin-bottom: 1em !important;
   }
 }
 
