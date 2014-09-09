@@ -107,13 +107,14 @@
       record.chara3_img = SAVIOR_IMAGES_PATH + SAVIOR_IMAGES_FILES[record['使用キャラ_3']];
 
       if ( record['コメント'] ) {
-        record['コメント'] = record['コメント'].replace('&comma;',',');
+        record['コメント'] = record['コメント'].replace('&comma;',',').replace('&#58;',':');
+        console.log(record['コメント']);
       }
       if ( record['コメント_2'] ) {
-        record['コメント_2'] = record['コメント_2'].replace('&comma;',',');
+        record['コメント_2'] = record['コメント_2'].replace('&comma;',',').replace('&#58;',':');
       }
       if ( record['コメント_3'] ) {
-        record['コメント_3'] = record['コメント_3'].replace('&comma;',',');
+        record['コメント_3'] = record['コメント_3'].replace('&comma;',',').replace('&#58;',':');
       }
       // console.log(record);
 
