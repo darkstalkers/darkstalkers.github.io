@@ -21,8 +21,10 @@
   // Entry list
   $(window).load(function (e) {
     $('#savior .loading').hide();
-    $('#savior-entry-list-item').tmpl(savior.data).appendTo('#savior-entry-list > ul');
-    $('#savior-entry-single-tmpl').tmpl(savior.single).appendTo('#savior-entry-single > ul');
+    $('#savior-entry-list-item').tmpl(savior.trio).appendTo('#savior-entry-list > ul');
+    $('#savior-entry-list-item').tmpl(savior.pair).appendTo('#savior-entry-pair > ul');
+    $('#savior-entry-list-item').tmpl(savior.solo).appendTo('#savior-entry-solo > ul');
+    $('#savior-entry-single-tmpl').tmpl(savior.free).appendTo('#savior-entry-single > ul');
   });
 
 })();

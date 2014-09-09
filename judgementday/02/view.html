@@ -82,13 +82,16 @@
   }
 
   function displayToSavior(records) {
-    var data = [],
-        single = [],
+    var trio = [],
+        solo = [],
+        pair = [],
+        free = [],
         entryNo = 0;
     for ( var i = 0, len = records.length; i < len; i++ ) {
       var record = records[i];
-      if ( record['公開'] !== '1' ) {
-        continue;
+      if ( record['公開'] !== '0' ) {
+        entryNo++;
+        record.entry_no = 'No.' + entryNo;
       }
       if ( !record['チーム名'] ) {
         record['チーム名'] = '未定'; //default
@@ -114,20 +117,28 @@
       }
       // console.log(record);
 
-      if ( !record['プレイヤーネーム_2'] && !record['プレイヤーネーム_3'] ) {
-        single.push(record);
-      } else {
-        record.entry_no = 'No.' + (++entryNo);
-        data.push(record);  
+      if ( record['公開'] == 0 ) {
+        free.push(record);
+      } else if ( record['公開'] == 1 ) {
+        solo.push(record);
+      } else if ( record['公開'] == 2 ) {
+        pair.push(record);
+      } else if ( record['公開'] == 3 ) {
+        trio.push(record);
       }
     }
-    data = data.reverse();
-    single = single.reverse();
-    var d = {
-      data: data,
-      single: single
+    free = free.reverse();
+    solo = solo.reverse();
+    pair = pair.reverse();
+    trio = trio.reverse();
+    var data = {
+      free: free,
+      solo: solo,
+      pair: pair,
+      trio: trio
     };
-    $('#savior').text('var savior = ' + $('#savior').text() + JSON.stringify(d) + ';');
+    console.log(data);
+    $('#savior').text('var savior = ' + $('#savior').text() + JSON.stringify(data) + ';');
     // $('#savior .loading').hide();
     // $('#savior-entry-list-item').tmpl(data).appendTo('#savior-entry-list > ul');
   }

@@ -665,12 +665,12 @@ a.list-group-item {
   float: left;
   margin-right: 1em;
 }
-#savior-entry-list ul {
+#savior-entry-list ul, #savior-entry-solo ul, #savior-entry-pair ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-#savior-entry-list > ul > li {
+#savior-entry-list > ul > li, #savior-entry-solo > ul > li, #savior-entry-pair > ul > li {
   padding-top: 1em;
 }
 
