@@ -730,6 +730,9 @@ dt:after {
   height: 1em;
   content: ':';
 }
+.timetable dt:after {
+  display: none;
+}
 dd {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

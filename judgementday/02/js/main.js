@@ -24,7 +24,11 @@
     $('#savior-entry-list-item').tmpl(savior.trio).appendTo('#savior-entry-list > ul');
     $('#savior-entry-list-item').tmpl(savior.pair).appendTo('#savior-entry-pair > ul');
     $('#savior-entry-list-item').tmpl(savior.solo).appendTo('#savior-entry-solo > ul');
-    $('#savior-entry-single-tmpl').tmpl(savior.free).appendTo('#savior-entry-single > ul');
+    if ( savior.free.length !== 0 ) {
+      $('#savior-entry-single-tmpl').tmpl(savior.free).appendTo('#savior-entry-single > ul');  
+    } else {
+      $('#savior-entry-single').parent().hide();
+    }
   });
 
 })();
