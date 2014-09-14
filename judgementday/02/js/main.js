@@ -20,6 +20,12 @@
 
   // Entry list
   $(window).load(function (e) {
+
+    // order asc
+    savior.trio = savior.trio.reverse();
+    savior.pair = savior.pair.reverse();
+    savior.solo = savior.solo.reverse();
+
     $('#savior .loading').hide();
 
     // trio
