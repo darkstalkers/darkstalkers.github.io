@@ -21,11 +21,23 @@
   // Entry list
   $(window).load(function (e) {
     $('#savior .loading').hide();
+
+    // trio
     $('#savior-entry-list-item').tmpl(savior.trio).appendTo('#savior-entry-list > ul');
-    $('#savior-entry-list-item').tmpl(savior.pair).appendTo('#savior-entry-pair > ul');
+
+    // pair
+    if ( savior.pair.length !== 0 ) {
+      $('#savior-entry-list-item').tmpl(savior.pair).appendTo('#savior-entry-pair > ul');
+    } else {
+      $('#savior-entry-pair').parent().hide();
+    }
+
+    // solo
     $('#savior-entry-list-item').tmpl(savior.solo).appendTo('#savior-entry-solo > ul');
+
+    // free
     if ( savior.free.length !== 0 ) {
-      $('#savior-entry-single-tmpl').tmpl(savior.free).appendTo('#savior-entry-single > ul');  
+      $('#savior-entry-single-tmpl').tmpl(savior.free).appendTo('#savior-entry-single > ul');
     } else {
       $('#savior-entry-single').parent().hide();
     }
