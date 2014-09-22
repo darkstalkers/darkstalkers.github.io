@@ -21,32 +21,50 @@
   // Entry list
   $(window).load(function (e) {
 
-    // order asc
-    savior.trio = savior.trio.reverse();
-    savior.pair = savior.pair.reverse();
-    savior.solo = savior.solo.reverse();
+    $(".fancybox, .fancybox").fancybox();
+    
+    var isDisp = false,
+        dispBtn = $('#disp');
+    dispBtn.click(function(e){
+      e.preventDefault();
+      if ( isDisp ) {
+        dispBtn.text('エントリーリストを表示する');
+        isDisp = false;
+      } else {
+        dispBtn.text('エントリーリストを非表示にする');
+        isDisp = true;
+      }
+      $('.tab-content').animate({ height: 'toggle' });
+      
+    });
 
-    $('#savior .loading').hide();
+
+    // order asc
+    // savior.trio = savior.trio.reverse();
+    // savior.pair = savior.pair.reverse();
+    // savior.solo = savior.solo.reverse();
+
+    // $('#savior .loading').hide();
 
     // trio
-    $('#savior-entry-list-item').tmpl(savior.trio).appendTo('#savior-entry-list > ul');
+    // $('#savior-entry-list-item').tmpl(savior.trio).appendTo('#savior-entry-list > ul');
 
     // pair
-    if ( savior.pair.length !== 0 ) {
-      $('#savior-entry-list-item').tmpl(savior.pair).appendTo('#savior-entry-pair > ul');
-    } else {
-      $('#savior-entry-pair').parent().hide();
-    }
+    // if ( savior.pair.length !== 0 ) {
+    //   $('#savior-entry-list-item').tmpl(savior.pair).appendTo('#savior-entry-pair > ul');
+    // } else {
+    //   $('#savior-entry-pair').parent().hide();
+    // }
 
     // solo
-    $('#savior-entry-list-item').tmpl(savior.solo).appendTo('#savior-entry-solo > ul');
+    // $('#savior-entry-list-item').tmpl(savior.solo).appendTo('#savior-entry-solo > ul');
 
     // free
-    if ( savior.free.length !== 0 ) {
-      $('#savior-entry-single-tmpl').tmpl(savior.free).appendTo('#savior-entry-single > ul');
-    } else {
-      $('#savior-entry-single').parent().hide();
-    }
+    // if ( savior.free.length !== 0 ) {
+    //   $('#savior-entry-single-tmpl').tmpl(savior.free).appendTo('#savior-entry-single > ul');
+    // } else {
+    //   $('#savior-entry-single').parent().hide();
+    // }
   });
 
 })();

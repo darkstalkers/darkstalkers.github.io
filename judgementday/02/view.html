@@ -86,6 +86,7 @@
         solo = [],
         pair = [],
         free = [],
+        characters = {},
         entryNo = 0;
     for ( var i = 0, len = records.length; i < len; i++ ) {
       var record = records[i];
@@ -105,6 +106,32 @@
       record.chara1_img = SAVIOR_IMAGES_PATH + SAVIOR_IMAGES_FILES[record['使用キャラ']];
       record.chara2_img = SAVIOR_IMAGES_PATH + SAVIOR_IMAGES_FILES[record['使用キャラ_2']];
       record.chara3_img = SAVIOR_IMAGES_PATH + SAVIOR_IMAGES_FILES[record['使用キャラ_3']];
+
+      var cname = "";
+      if ( record['使用キャラ'] ) {
+        cname = record['使用キャラ'];
+        if ( !characters[cname] ) {
+          characters[cname] = 1;
+        } else {
+          characters[cname]++
+        }
+      }
+      if ( record['使用キャラ_2'] ) {
+        cname = record['使用キャラ_2'];
+        if ( !characters[cname] ) {
+          characters[cname] = 1;
+        } else {
+          characters[cname]++
+        }
+      }
+      if ( record['使用キャラ_3'] ) {
+        cname = record['使用キャラ_3'];
+        if ( !characters[cname] ) {
+          characters[cname] = 1;
+        } else {
+          characters[cname]++
+        }
+      }
 
       if ( record['コメント'] ) {
         record['コメント'] = record['コメント'].replace('&comma;',',').replace('&#58;',':');
@@ -136,7 +163,10 @@
       free: free,
       solo: solo,
       pair: pair,
-      trio: trio
+      trio: trio,
+      analytics: {
+        characters: characters
+      }
     };
     console.log(data);
     $('#savior').text('var savior = ' + $('#savior').text() + JSON.stringify(data) + ';');

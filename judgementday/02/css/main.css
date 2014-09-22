@@ -527,7 +527,8 @@ dd {
   border-left: 1px solid #5E4743;
   text-align: center;
   float: left;
-  width: 14.285714285714286%;
+  width: 12.5%;
+  padding: 10px 0;
 }
 a.list-group-item {
   color: #fff;
@@ -757,12 +758,124 @@ dd {
   padding-top: 2em;
 }
 
+#result {
+  overflow: hidden;
+}
+
+#result > section {
+  padding: 0;
+  overflow: hidden;
+  clear: both;
+}
+/*#result .winner {
+  padding-bottom: 2em;
+  border-bottom: 1px solid #5E4743;
+}*/
+#result > section {
+  padding-bottom: 1em;
+  border-bottom: 1px solid #5E4743;
+}
+#result > section:last-child {
+  border-bottom: none;
+}
+#result h3 {
+  padding: 0;
+}
+#result .member-list {
+  padding: 0;
+  border-bottom-width: 0;
+  list-style: none;
+  clear: none;
+  width: 60%;
+}
+#result .member-list li {
+  width: 100%;
+  padding-left: 2em;
+  margin-bottom: 1.2em;
+
+}
+#result .team-name {
+  border-top: 1px;
+  font-size: 2em;
+}
+#result .result-photo {
+  width: 40%;
+  float: left;
+}
+#result .player-name {
+  margin-right: 1em;
+  text-shadow: 0px 0px 6px red, 0px 0px 6px red;
+}
+#result section h3 {
+  border-top: none;
+}
+.thumb {
+  width: 100%;
+  max-width: 640px;
+}
+
+.tournament {
+  text-align: center;
+}
+
+.thumb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.thumb-list li {
+  max-width: 11.11111111111111%;
+  float: left;
+  margin: 0.5%;
+}
+
+.thumb-list li img {
+  width: 100%;
+}
+
+.result-summary {
+  text-align: center;
+  font-size: 1.5em;
+}
+.num {
+  font-size: 2em;
+}
+.ranking {
+  font-size: 0.9em;
+}
+#result .archive h3 {
+  font-weight: normal;
+  text-align: center;
+}
+
+.announce {
+  text-shadow: 0px 0px 10px red, 0px 0px 10px red;
+}
+
+.tab-button {
+  text-align: center;
+}
+#disp {
+  border: 2px solid #5E4743;
+  background-color: transparent;
+  color: white;
+}
+
 /* for mobile */
 @media all and (max-width: 480px) {
+  .result-summary {
+    margin-top: 1em;
+    font-size: 1em;
+  }
   .for-mobile {
     display: inherit;
   }
-  
+  .list-group {
+    border-bottom: 1px solid #5E4743;
+    border-right: 1px solid #5E4743;
+    overflow: hidden;
+  }
   .list-group-item:first-child {
     /*height: 57.5px*/
   }
@@ -781,7 +894,7 @@ dd {
     /*font-size: 0.5em;*/
     line-height: 1.2;
     font-size: 0.6em;
-    padding: 0.1em;
+    padding: 0.2em;
   }
   .event-info {
     margin: -3.6em -0.2em 0 0;
@@ -827,15 +940,15 @@ dd {
   .event-summary {
     font-size: 1em;
   }
-  .event-summary dt {
+  .event-summary dt, .flat dt {
     float: none;
     width: 100%;
   }
-  .event-summary dt:after {
+  .event-summary dt:after, .flat dt:after {
     position: static;
     margin-left: 0.5em;
   }
-  .event-summary dd {
+  .event-summary dd, .flat dd {
     padding: 0.2em 0 0.2em 0.9em;
   }
   #twitter-widget-1 {
@@ -864,6 +977,25 @@ dd {
   }
   .event-title {
     margin-bottom: 1em !important;
+  }
+
+  #result .team-name {
+    margin-top: 1em;
+    font-size: 1.6em;
+  }
+  #result .member-list {
+    width: 100%;
+  }
+  #result .member-list li {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  #result .result-photo {
+    width: 100%;
+    margin-bottom: 1.5em;
+  }
+  #result .winner {
+    padding-bottom: 0;
   }
 }
 
