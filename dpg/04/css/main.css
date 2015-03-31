@@ -299,7 +299,7 @@ small {
     font-size: 1.3em;
   }
   .contents {
-    /*margin: 0.2em;*/
+    margin: 2em 0.2em 0;
     width: 100%;
   }
   .contents > section {
