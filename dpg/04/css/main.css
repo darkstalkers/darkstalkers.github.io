@@ -528,13 +528,13 @@ dd {
     padding-right: 0;
   }
   .container {
-    background-position: right 30%;
+    background-position: right 15%;
     background-size: 80%;
   }
   .game-logo {
     margin-left: 1em;
   }
   .event-info {
-    margin-right: 0;
+    margin: 5.6em 0 0 0;
   }
 }
