@@ -2,13 +2,102 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>Judgement Day 2013</title>
+    <title>Judgement Day Data</title>
   </head>
   <body>
-    <output id="hunter"></output>
-    <output id="savior"></output>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+        <section id="entry">
+          <h2>エントリー</h2>
+          <!-- <div class="tab-button">
+            <a href="#" class="btn btn-primary btn-lg" id="disp">エントリーリストを表示する</a>
+          </div> -->
+          <!-- <div class="tab-content" style="display: none;"> -->
+          <!-- <div class="tab-content"> -->
+            <section>
+              <h3>エントリー状況</h3>
+              <div id="savior">
+                <!-- <div class="loading">
+                  <img src="img/ajax-loader.gif" alt="loading...">
+                </div> -->
+                <section class="savior">
+                  <div id="savior-entry-list">
+                    <ul>
+                      <!-- inject items -->
+                    </ul>
+                </div>
+                </section>
+              </div>
+            </section>
+            <section>
+              <h3 style="border: none; margin-top: 1.2em;">2人チーム</h3>
+              <div id="savior-entry-pair">
+                <ul>
+                  <!-- inject items -->
+                </ul>
+              </div>
+            </section>
+            <section>
+              <h3 style="border: none; margin-top: 1.2em;">1人チーム</h3>
+              <div id="savior-entry-solo">
+                <ul>
+                  <!-- inject items -->
+                </ul>
+              </div>
+            </section>
+            <section>
+              <h3 style="border: none;">斡旋希望</h3>
+              <div id="savior-entry-single">
+                <ul class="member-list">
+                  <!-- inject items -->
+                </ul>
+              </div>
+            </section>
+          <!-- </div> -->
+        </section>
+
+    <script src="js/vendor/jquery-1.10.1.min.js"></script>
+    <script src="js/vendor/jquery.tmpl.min.js"></script>
+    <script id="savior-entry-list-item" type="text/x-jquery-tmpl">
+<li>
+<p class="team-name"><span class="entry-no">${entry_no}</span> ${チーム名}</p>
+<ul class="member-list">
+<li class="${hidden1}">
+<img src="${chara1_img}" alt="${使用キャラ}" class="chara-img">
+<p>
+<b class="player-name">${プレイヤーネーム}</b><br>
+<span class="player-chara">${使用キャラ}</span><br>
+<span class="player-comment">${コメント}</span>
+</p>
+</li>
+<li class="${hidden2}">
+<img src="${chara2_img}" alt="${使用キャラ_2}" class="chara-img">
+<p>
+<b class="player-name">${プレイヤーネーム_2}</b><br>
+<span class="player-chara">${使用キャラ_2}</span><br>
+<span class="player-comment">${コメント_2}</span>
+</p>
+</li>
+<li class="${hidden3}">
+<img src="${chara3_img}" alt="${使用キャラ_3}" class="chara-img">
+<p>
+<b class="player-name">${プレイヤーネーム_3}</b><br>
+<span class="player-chara">${使用キャラ_3}</span><br>
+<span class="player-comment">${コメント_3}</span>
+</p>
+</li>
+</ul>
+</li>
+    </script>
+    <script id="savior-entry-single-tmpl" type="text/x-jquery-tmpl">
+<li>
+<img src="${chara1_img}" alt="${使用キャラ}" class="chara-img">
+<p>
+<b class="player-name">${プレイヤーネーム}</b><br>
+<span class="player-chara">${使用キャラ}</span><br>
+<span class="player-comment">${コメント}</span>
+</p>
+</li>
+    </script>
     <script>
 (function(){
   var SAVIOR_URL = "https://spreadsheets.google.com/feeds/list/0ApM3hVNg5vDBdG4xa1ZSVks2SmtXMk0yQm8zaXlRVlE/od6/public/basic?alt=json&callback=?",
@@ -58,15 +147,6 @@
     });
   // });
 
-  // ハンター
-  // $('#tab-button-hunter').one('click', function (e) {
-    // $.getJSON(HUNTER_URL, function(data){
-    //   if ( data && data.feed ) {
-    //     displayToHunter(parse(data.feed.entry));
-    //   }
-    // });
-  // });
-
   function parse(entries) {
     var records = [];
     for ( var i = 0, len = entries.length; i < len; i++ ) {
@@ -90,6 +170,7 @@
         entryNo = 0;
     for ( var i = 0, len = records.length; i < len; i++ ) {
       var record = records[i];
+      console.log(record);
       if ( record['公開'] !== '0' ) {
         entryNo++;
         record.entry_no = 'No.' + entryNo;
@@ -135,7 +216,6 @@
 
       if ( record['コメント'] ) {
         record['コメント'] = record['コメント'].replace('&comma;',',').replace('&#58;',':');
-        console.log(record['コメント']);
       }
       if ( record['コメント_2'] ) {
         record['コメント_2'] = record['コメント_2'].replace('&comma;',',').replace('&#58;',':');
@@ -159,7 +239,7 @@
     solo = solo.reverse();
     pair = pair.reverse();
     trio = trio.reverse();
-    var data = {
+    var savior = {
       free: free,
       solo: solo,
       pair: pair,
@@ -168,33 +248,36 @@
         characters: characters
       }
     };
-    console.log(data);
-    $('#savior').text('var savior = ' + $('#savior').text() + JSON.stringify(data) + ';');
+    console.log(savior);
+    // $('#savior').text('var savior = ' + $('#savior').text() + JSON.stringify(data) + ';');
+
+    // trio
+    $('#savior-entry-list-item').tmpl(savior.trio).appendTo('#savior-entry-list > ul');
+
+    // pair
+    if ( savior.pair.length !== 0 ) {
+      $('#savior-entry-list-item').tmpl(savior.pair).appendTo('#savior-entry-pair > ul');
+    } else {
+      $('#savior-entry-pair').parent().hide();
+    }
+
+    // solo
+    if ( savior.solo.length !== 0 ) {
+      $('#savior-entry-list-item').tmpl(savior.solo).appendTo('#savior-entry-solo > ul');
+    } else {
+      $('#savior-entry-solo').parent().hide();
+    }
+    
+
+    // free
+    if ( savior.free.length !== 0 ) {
+      $('#savior-entry-single-tmpl').tmpl(savior.free).appendTo('#savior-entry-single > ul');
+    } else {
+      $('#savior-entry-single').parent().hide();
+    }
+    
     // $('#savior .loading').hide();
     // $('#savior-entry-list-item').tmpl(data).appendTo('#savior-entry-list > ul');
-  }
-
-  function displayToHunter(records) {
-    var data = [],
-        entryNo = 0;
-    for ( var i = 0, len = records.length; i < len; i++ ) {
-      var record = records[i];
-      if ( record['公開'] !== '1' ) {
-        continue;
-      }
-      record.chara_img = HUNTER_IMAGES_PATH + HUNTER_IMAGES_FILES[record['使用キャラ']];
-      record.entry_no = 'No.' + (++entryNo);
-
-      if ( record['コメント'] ) {
-        record['コメント'] = record['コメント'].replace('&comma;',',');
-      }
-      
-      // console.log(record);
-      data.push(record);
-
-    }
-    data = data.reverse();
-    $('#hunter').text('var hunter = ' + $('#hunter').text() + JSON.stringify(data) + ';');
   }
 })();
     </script>
