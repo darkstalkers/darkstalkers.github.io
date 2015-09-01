@@ -171,7 +171,7 @@
     for ( var i = 0, len = records.length; i < len; i++ ) {
       var record = records[i];
       console.log(record);
-      if ( record['公開'] !== '0' ) {
+      if ( record['公開'] == '1' || record['公開'] == '2' || record['公開'] == '3' ) {
         entryNo++;
         record.entry_no = 'No.' + entryNo;
       }
