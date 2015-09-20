@@ -1153,7 +1153,10 @@ a.entry-btn, a:visited.entry-btn{
 .pv {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
+  /*padding-top: 56.25%;*/
+}
+.pv > div {
+  width: 280px !important;
 }
 .pv iframe {
   position: absolute;
