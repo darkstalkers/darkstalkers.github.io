@@ -1141,6 +1141,10 @@ a.entry-btn, a:visited.entry-btn{
   width: 90% !important;
 }
 
+#timetable .active {
+  color: #fff;
+  text-shadow: 0px 0px 10px red, 0px 0px 10px red;
+}
 
 /*.pv {
   max-width: 490px;
