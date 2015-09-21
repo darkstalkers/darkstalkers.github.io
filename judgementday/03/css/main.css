@@ -1142,9 +1142,14 @@ a.entry-btn, a:visited.entry-btn{
 }
 
 
-.pv {
+/*.pv {
   max-width: 490px;
   margin: 1em auto;
+}*/
+.pv {
+  max-width: 620px;
+  margin: 2em auto 1em;
+  text-align: center;
 }
 
 
@@ -1159,9 +1164,9 @@ a.entry-btn, a:visited.entry-btn{
   width: 280px !important;
 }
 .pv iframe {
-  position: absolute;
+/*  position: absolute;
   top: 0;
-  right: 0;
+  right: 0;*/
   width: 100% !important;
   height: 100% !important;
 }
