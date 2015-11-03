@@ -11,9 +11,16 @@
   // smooth scroll
   var bg = document.querySelector('.container');
   if ( window.innerWidth > 600 ) {
-    bg.addEventListener('scroll', function(e){
-      bg.style.backgroundPosition = '0 ' + ((- parseInt(bg.scrollTop / 5.5))-200) + 'px';
-    }, false);
+    console.log(navigator.userAgent);
+    if ( navigator.userAgent.match(/Chrome\/(46|47|48)/) ) {
+      bg.style.backgroundAttachment = 'initial';
+      bg.style.backgroundSize = 'initial';
+      bg.style.position = 'static';
+    } else {
+      bg.addEventListener('scroll', function(e){
+        bg.style.backgroundPosition = '0 ' + ((- parseInt(bg.scrollTop / 5.5))-200) + 'px';
+      }, false);
+    }
   } else {
     bg.style.backgroundSize = 'contain';
   }
