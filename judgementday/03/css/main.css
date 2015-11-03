@@ -750,12 +750,20 @@ dd {
   margin-bottom: 1.2em;
 
 }
+#result .winner+section .member-list {
+  width: 70%;
+  margin: 5em 0;
+}
+#result .winner+section .member-list li {
+  width: 33.333333%;
+}
 #result .team-name {
   border-top: 1px;
   font-size: 2em;
 }
 #result .result-photo {
-  width: 40%;
+  width: 260px;
+  margin-right: 1em;
   float: left;
 }
 #result .player-name {
@@ -776,8 +784,13 @@ dd {
 
 .thumb-list {
   list-style: none;
-  margin: 0;
+  margin: 0.5em 0;
   padding: 0;
+  overflow: hidden;
+}
+
+.thumb-list+small {
+  color: #ddd;
 }
 
 .thumb-list li {
@@ -1175,4 +1188,9 @@ a.entry-btn, a:visited.entry-btn{
   width: 100% !important;
   height: 100% !important;
 }
+}
+
+
+#savior-entry-list ul li:last-child .member-list {
+  border: none;
 }

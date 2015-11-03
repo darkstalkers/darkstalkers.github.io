@@ -37,7 +37,7 @@
   // Entry list
   $(window).load(function (e) {
 
-    // $(".fancybox, .fancybox").fancybox();
+    $(".fancybox, .fancybox").fancybox();
     
     // var isDisp = false,
     //     dispBtn = $('#disp');
