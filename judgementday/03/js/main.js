@@ -11,7 +11,6 @@
   // smooth scroll
   var bg = document.querySelector('.container');
   if ( window.innerWidth > 600 ) {
-    console.log(navigator.userAgent);
     if ( navigator.userAgent.match(/Chrome\/(46|47|48)/) ) {
       bg.style.backgroundAttachment = 'initial';
       bg.style.backgroundSize = 'initial';
