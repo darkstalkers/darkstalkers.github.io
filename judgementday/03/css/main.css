@@ -750,13 +750,13 @@ dd {
   margin-bottom: 1.2em;
 
 }
-#result .winner+section .member-list {
+/*#result .winner+section .member-list {
   width: 70%;
   margin: 5em 0;
 }
 #result .winner+section .member-list li {
   width: 33.333333%;
-}
+}*/
 #result .team-name {
   border-top: 1px;
   font-size: 2em;
