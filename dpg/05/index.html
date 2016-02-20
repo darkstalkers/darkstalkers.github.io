@@ -64,7 +64,7 @@
             </a>
           </li>
           <li class="twitter-btn-icon">
-            <a title="ツイートする" href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fdarkstalkers-federation.org%2Fdpg%2F05%2F&text=Devil's%20Playground%205%20%E3%83%BC%E3%83%B4%E3%82%A1%E3%83%B3%E3%83%91%E3%82%A4%E3%82%A2%E3%82%BB%E3%82%A4%E3%83%B4%E3%82%A1%E3%83%BC%20%E3%82%B7%E3%83%B3%E3%82%B0%E3%83%AB%E6%9C%80%E5%BC%B7%E6%B1%BA%E5%AE%9A%E6%88%A6&hashtags=DPG5&tw_p=tweetbutton" onclick="var t=this.href,n=550,r=420,e='scrollbars=yes,resizable=yes,toolbar=no,location=yes',i=screen.height,o=screen.width,a=Math.round(o/2-n/2),u=0;i>r&&(u=Math.round(i/2-r/2)),window.open(t,null,e+',width='+n+',height='+r+',left='+a+',top='+u);return false;" class="twitter-btn-icon-link">
+            <a title="ツイートする" href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fdarkstalkers-federation.org%2Fdpg%2F05%2F&text=Devil's%20Playground%205%20%E3%83%BC%E3%83%B4%E3%82%A1%E3%83%B3%E3%83%91%E3%82%A4%E3%82%A2%E3%82%BB%E3%82%A4%E3%83%B4%E3%82%A1%E3%83%BC%20%E3%82%B7%E3%83%B3%E3%82%B0%E3%83%AB%E6%9C%80%E5%BC%B7%E6%B1%BA%E5%AE%9A%E6%88%A6&hashtags=DPG5&tw_p=tweetbutton" onclick="var t=this.href,n=550,r=420,e='scrollbars=yes,resizable=yes,toolbar=no,location=yes',i=screen.height,o=screen.width,a=Math.round(o/2-n/2),u=0;i>r&&(u=Math.round(i/2-r/2)),window.open(t,null,e+',width='+n+',height='+r+',left='+a+',top='+u);return false;">
               <span class="icon-twitter"></span>
             </a>
           </li>
@@ -454,16 +454,16 @@
     <script src="js/main.js"></script>
     <div id="fb-root"></div>
     <script>
-      // (function(d, s) {
-      //   var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
-      //     if (d.getElementById(id)) {return;}
-      //     js = d.createElement(s); js.src = url; js.id = id;
-      //     fjs.parentNode.insertBefore(js, fjs);
-      //   };
-      //   load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk');
-      //   load('https://apis.google.com/js/platform.js', 'gplus1js');
-      //   load('//platform.twitter.com/widgets.js', 'tweetjs');
-      // }(document, 'script'));
+      (function(d, s) {
+        var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.src = url; js.id = id;
+          fjs.parentNode.insertBefore(js, fjs);
+        };
+        // load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk');
+        // load('https://apis.google.com/js/platform.js', 'gplus1js');
+        load('//platform.twitter.com/widgets.js', 'tweetjs');
+      }(document, 'script'));
     </script>
     <script>
       var _gaq=[['_setAccount','UA-45452843-1'],['_trackPageview']];
