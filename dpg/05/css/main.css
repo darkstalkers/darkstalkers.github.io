@@ -1213,11 +1213,11 @@ dd {
   }
 }
 
-.sns-buttons a.twitter-btn-icon-link {
+.sns-buttons a.share__button--twitter {
   background-color: #55acee;
 }
 
-.sns-buttons a.facebook-btn-icon-link {
+.sns-buttons a.share__button--facebook {
   background-color: #3c5a99;
 }
 

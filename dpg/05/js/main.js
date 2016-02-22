@@ -89,5 +89,28 @@
   //   $('#savior-entry-single').parent().hide();
   // }
   // });
+
+  const windowOpen = (url, width, height) => {
+    let screenWidth = screen.width;
+    let screenHeight = screen.height;
+    let left = Math.round(screenWidth / 2 - width / 2);
+    let top = 0;
+    if (screenHeight > height) {
+      top = Math.round(screenHeight / 2 - height / 2);
+    }
+    let options = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes,' + `width=${ width },height=${ height },left=${ left },top=${ top }`;
+    window.open(url, null, options);
+  };
+
+  $('.share__button--facebook').on('click', function (e) {
+    e.preventDefault();
+    windowOpen(this.href, 550, 600);
+    return false;
+  });
+  $('.share__button--twitter').on('click', function (e) {
+    e.preventDefault();
+    windowOpen(this.href, 550, 350);
+    return false;
+  });
 })();
 //# sourceMappingURL=main.js.map
