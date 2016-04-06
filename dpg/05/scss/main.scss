@@ -415,8 +415,7 @@ a, a:visited {
 
 }
 .photo img {
-  border: 6px solid #ddd;
-  -webkit-box-sizing: border-box;
+  // border: 6px solid #ddd;
   box-sizing: border-box;
 }
 
@@ -1101,4 +1100,19 @@ dd {
 }
 .sns-buttons a.share__button--facebook {
   background-color: #3c5a99;
+}
+
+.result {
+  border: 1px solid rgba(#5E4743, 0.8) !important;
+  line-height: 1;
+  dl {
+    margin: 0 0 0 10px;
+    dt, dd {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+  .photo {
+    margin-top: 8px;
+  }
 }
