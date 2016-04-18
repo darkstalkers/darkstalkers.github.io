@@ -46,7 +46,9 @@
   // Entry list
   $(window).load(function (e) {
 
-    $(".fancybox, .fancybox").fancybox();
+    $(".fancybox, .fancybox").fancybox({
+      padding: 10
+    });
 
     // var isDisp = false,
     //     dispBtn = $('#disp');
