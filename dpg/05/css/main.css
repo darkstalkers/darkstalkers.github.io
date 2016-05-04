@@ -462,9 +462,8 @@ a, a:visited {
   margin: 0 0 1% 1%;
 }
 
-.photo ul li:nth-child(3n+1) {
-  margin-left: 0;
-  clear: both;
+.photo .column-4 li {
+  width: 24%;
 }
 
 .photo img {
