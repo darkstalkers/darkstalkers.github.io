@@ -1119,3 +1119,107 @@ dd {
     margin-top: 8px;
   }
 }
+
+section h3 {
+  padding: 0.5em 0 0;
+  border-top: 1px dotted #5E4743;
+  text-shadow: 0px 0px 10px red, 0px 0px 10px red;
+}
+
+.result-box .champion, .result-box .others {
+  width: 100%;
+  float: none;
+  padding: 0;
+  text-align: center;
+}
+
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.entries li {
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 25%;
+  overflow: hidden;
+  text-align: left;
+  margin-bottom: 8px;
+}
+@media (max-width: 768px) {
+  .entries li {
+    width: 50%;
+  }
+}
+.entries li img {
+  width: 50px;
+  height: 50px;
+  float: left;
+  padding: 0 8px 8px 0;
+}
+.entries li p {
+  font-size: 16px;
+  text-align: left;
+}
+.entries li span {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.result-box {
+  .champion {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    @media (max-width: 768px) {
+      flex-flow: column;
+    }
+    .player, .image {
+      flex: 1;
+    }
+    .image {
+      width: 100%;
+    }
+  }
+  .others {
+    margin-top: 2em;
+    p, .chara {
+      text-align: center;
+    }
+    p {
+      font-size: 1.3em;
+    }
+    .chara {
+      font-size: 0.8em;
+      display: inline-block;
+      margin-top: 12px;
+    }
+  }
+  section h3 {
+    font-size: 1.8em;
+    margin-bottom: 0.6em;
+  }
+}
+
+.final-photo {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    li {
+      width: 25%;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 8px;
+      a {
+        // display: inline-block;
+        // width: 100%;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

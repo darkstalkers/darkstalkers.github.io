@@ -1237,4 +1237,131 @@ dd {
   margin-top: 8px;
 }
 
+section h3 {
+  padding: 0.5em 0 0;
+  border-top: 1px dotted #5E4743;
+  text-shadow: 0px 0px 10px red, 0px 0px 10px red;
+}
+
+.result-box .champion, .result-box .others {
+  width: 100%;
+  float: none;
+  padding: 0;
+  text-align: center;
+}
+
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.entries li {
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 25%;
+  overflow: hidden;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .entries li {
+    width: 50%;
+  }
+}
+
+.entries li img {
+  width: 50px;
+  height: 50px;
+  float: left;
+  padding: 0 8px 8px 0;
+}
+
+.entries li p {
+  font-size: 16px;
+  text-align: left;
+}
+
+.entries li span {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.result-box .champion {
+  overflow: hidden;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 768px) {
+  .result-box .champion {
+    -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+}
+
+.result-box .champion .player, .result-box .champion .image {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.result-box .champion .image {
+  width: 100%;
+}
+
+.result-box .others {
+  margin-top: 2em;
+}
+
+.result-box .others p, .result-box .others .chara {
+  text-align: center;
+}
+
+.result-box .others p {
+  font-size: 1.3em;
+}
+
+.result-box .others .chara {
+  font-size: 0.8em;
+  display: inline-block;
+  margin-top: 12px;
+}
+
+.result-box section h3 {
+  font-size: 1.8em;
+  margin-bottom: 0.6em;
+}
+
+.final-photo ul {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.final-photo ul li {
+  width: 25%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 8px;
+}
+
+.final-photo ul li a img {
+  max-width: 100%;
+}
+
 /*# sourceMappingURL=main.css.map */
