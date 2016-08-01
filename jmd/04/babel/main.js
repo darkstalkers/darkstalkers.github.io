@@ -4,7 +4,8 @@
   var con = $('body');
   $(document).on('click', '.gnav a', function(e){
     e.preventDefault();
-    var to = $($(this).attr('href')).position().top + con.scrollTop() - 5;
+    var to = $($(this).attr('href')).position().top - 5;
+    // console.log($(this).attr('href'), to);
     con.animate({scrollTop: to}, 300);
   });
 
