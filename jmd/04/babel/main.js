@@ -14,7 +14,7 @@
   var bg = document.querySelector('body');
   if ( window.innerWidth < 600 ) {
     window.addEventListener('scroll', function(e){
-      let diff =  100 - (bg.scrollTop / 50);
+      var diff =  100 - (bg.scrollTop / 50);
       if (diff < 0) {
         diff = 0;
       }

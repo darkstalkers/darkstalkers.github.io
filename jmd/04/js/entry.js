@@ -471,8 +471,8 @@ $(function () {
       return false;
     }
     if (!isMediation) {
-      for (let i = 1; i < 3; i++) {
-        let num = i + 1;
+      for (var i = 1; i < 3; i++) {
+        var num = i + 1;
         if ($(`#member${ num }-name`).val() || $(`#member${ num }-character`).prop('selectedIndex') !== 0 || $(`#member${ num }-comment`).val() || $(`#member${ num }-region`).prop('selectedIndex') !== 0 || $(`#member${ num }-env`).prop('selectedIndex') !== 0 || $(`#member${ num }-history`).val() || $(`#member${ num }-join-ok`).prop('checked') || $(`#member${ num }-join-ng`).prop('checked')) {
           if ($(`#member${ num }-name`).val().length === 0) {
             showMessage('danger', `${ num }人目のプレイヤー名を入力してください`);
@@ -518,8 +518,8 @@ $(function () {
       members: []
     };
 
-    for (let i = 0; i < 3; i++) {
-      let num = i + 1;
+    for (var i = 0; i < 3; i++) {
+      var num = i + 1;
       if ($(`#member${ num }-name`).val()) {
         data.members.push({
           name: $(`#member${ num }-name`).val(),
@@ -543,15 +543,15 @@ $(function () {
   function setFormData(entry, key) {
     $('#key').val(key || '');
 
-    for (let i = 0; i < entry.members.length; i++) {
-      let num = i + 1;
+    for (var i = 0; i < entry.members.length; i++) {
+      var num = i + 1;
       $(`#member${ num }-name`).val(entry.members[i].name);
       $(`#member${ num }-character`).val(entry.members[i].character);
       $(`#member${ num }-comment`).val(entry.members[i].comment);
       $(`#member${ num }-region`).val(entry.members[i].region);
       $(`#member${ num }-env`).val(entry.members[i].env);
       $(`#member${ num }-history`).val(entry.members[i].history);
-      let after = entry.members[i].after;
+      var after = entry.members[i].after;
       if (after) {
         if (after == 1) {
           $(`#member${ num }-join-ok`).prop('checked', true);
@@ -734,7 +734,7 @@ $(function () {
   }
   var upCountTask;
   function updateTotalCount() {
-    let totalCount = 0;
+    var totalCount = 0;
     teams.forEach(team => {
       team.members.forEach(member => {
         if (member.name) {
@@ -886,14 +886,14 @@ $(function () {
     if (!len) {
       len = 3;
     }
-    for (let i = 0; i < len; i++) {
-      let member = data.members[i];
+    for (var i = 0; i < len; i++) {
+      var member = data.members[i];
       if (!member) {
         member = {};
       }
       member.name = member.name || '';
       member.comment = member.comment || '';
-      let character = charas[member.character];
+      var character = charas[member.character];
       if (!character) {
         character = charaBlank;
       }

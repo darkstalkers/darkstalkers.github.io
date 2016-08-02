@@ -69,7 +69,7 @@ gulp.task('build', ['styles', 'scripts']);
 
 gulp.task('serve', ['build'], () => {
   // args, options, livereload
-  let server = gulpLiveServer.static('./', 8080);
+  let server = gulpLiveServer.static('./', 8081);
   server.start();
   watching = true;
   $.watch(
