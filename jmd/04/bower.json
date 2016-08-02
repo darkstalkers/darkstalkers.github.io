@@ -19,7 +19,7 @@
   "dependencies": {
     "jquery": "~2.2.0",
     "fancybox": "~2.1.5",
-    "bootstrap": "~3.3.6",
+    "bootstrap": "~3.3.7",
     "js-md5": "^2.3.0",
     "jquery-tmpl": "*"
   }
