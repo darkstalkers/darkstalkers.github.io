@@ -60,7 +60,9 @@ gulp.task('scripts', () => {
     .pipe($.cached('babel'))
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe($.babel())
+    .pipe($.babel({
+      presets: ['es2015']
+    }))
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest(JS_DIR));
 });

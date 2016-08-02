@@ -1,3 +1,5 @@
+'use strict';
+
 (function () {
 
   // anchor links
@@ -10,7 +12,7 @@
   });
 
   // smooth scroll
-  const top = 10; // %
+  var top = 10; // %
   var bg = document.querySelector('body');
   if (window.innerWidth < 600) {
     window.addEventListener('scroll', function (e) {
@@ -18,7 +20,7 @@
       if (diff < 0) {
         diff = 0;
       }
-      bg.style.backgroundPosition = `${ diff }% 0`;
+      bg.style.backgroundPosition = diff + '% 0';
     }, false);
   }
 

@@ -1,3 +1,5 @@
+'use strict';
+
 $(function () {
   var REGIONS = ['北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県', '新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県', '三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県', '鳥取県', '島根県', '岡山県', '広島県', '山口県', '徳島県', '香川県', '愛媛県', '高知県', '福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'];
 
@@ -471,15 +473,15 @@ $(function () {
       return false;
     }
     if (!isMediation) {
-      for (var i = 1; i < 3; i++) {
-        var num = i + 1;
-        if ($(`#member${ num }-name`).val() || $(`#member${ num }-character`).prop('selectedIndex') !== 0 || $(`#member${ num }-comment`).val() || $(`#member${ num }-region`).prop('selectedIndex') !== 0 || $(`#member${ num }-env`).prop('selectedIndex') !== 0 || $(`#member${ num }-history`).val() || $(`#member${ num }-join-ok`).prop('checked') || $(`#member${ num }-join-ng`).prop('checked')) {
-          if ($(`#member${ num }-name`).val().length === 0) {
-            showMessage('danger', `${ num }人目のプレイヤー名を入力してください`);
+      for (var _i = 1; _i < 3; _i++) {
+        var num = _i + 1;
+        if ($('#member' + num + '-name').val() || $('#member' + num + '-character').prop('selectedIndex') !== 0 || $('#member' + num + '-comment').val() || $('#member' + num + '-region').prop('selectedIndex') !== 0 || $('#member' + num + '-env').prop('selectedIndex') !== 0 || $('#member' + num + '-history').val() || $('#member' + num + '-join-ok').prop('checked') || $('#member' + num + '-join-ng').prop('checked')) {
+          if ($('#member' + num + '-name').val().length === 0) {
+            showMessage('danger', num + '人目のプレイヤー名を入力してください');
             return false;
           }
-          if ($(`#member${ num }-character`).prop('selectedIndex') === 0) {
-            showMessage('danger', `${ num }人目の使用キャラを選択してください`);
+          if ($('#member' + num + '-character').prop('selectedIndex') === 0) {
+            showMessage('danger', num + '人目の使用キャラを選択してください');
             return false;
           }
         }
@@ -518,17 +520,17 @@ $(function () {
       members: []
     };
 
-    for (var i = 0; i < 3; i++) {
-      var num = i + 1;
-      if ($(`#member${ num }-name`).val()) {
+    for (var _i2 = 0; _i2 < 3; _i2++) {
+      var num = _i2 + 1;
+      if ($('#member' + num + '-name').val()) {
         data.members.push({
-          name: $(`#member${ num }-name`).val(),
-          character: $(`#member${ num }-character`).val(),
-          comment: $(`#member${ num }-comment`).val().replace(/[\n\r]/g, ''),
-          region: $(`#member${ num }-region`).val(),
-          env: $(`#member${ num }-env`).val() || '',
-          history: $(`#member${ num }-history`).val() || '',
-          after: $(`input[name=member${ num }-after]:checked`).val() || ''
+          name: $('#member' + num + '-name').val(),
+          character: $('#member' + num + '-character').val(),
+          comment: $('#member' + num + '-comment').val().replace(/[\n\r]/g, ''),
+          region: $('#member' + num + '-region').val(),
+          env: $('#member' + num + '-env').val() || '',
+          history: $('#member' + num + '-history').val() || '',
+          after: $('input[name=member' + num + '-after]:checked').val() || ''
         });
       }
     }
@@ -543,20 +545,20 @@ $(function () {
   function setFormData(entry, key) {
     $('#key').val(key || '');
 
-    for (var i = 0; i < entry.members.length; i++) {
-      var num = i + 1;
-      $(`#member${ num }-name`).val(entry.members[i].name);
-      $(`#member${ num }-character`).val(entry.members[i].character);
-      $(`#member${ num }-comment`).val(entry.members[i].comment);
-      $(`#member${ num }-region`).val(entry.members[i].region);
-      $(`#member${ num }-env`).val(entry.members[i].env);
-      $(`#member${ num }-history`).val(entry.members[i].history);
-      var after = entry.members[i].after;
+    for (var _i3 = 0; _i3 < entry.members.length; _i3++) {
+      var num = _i3 + 1;
+      $('#member' + num + '-name').val(entry.members[_i3].name);
+      $('#member' + num + '-character').val(entry.members[_i3].character);
+      $('#member' + num + '-comment').val(entry.members[_i3].comment);
+      $('#member' + num + '-region').val(entry.members[_i3].region);
+      $('#member' + num + '-env').val(entry.members[_i3].env);
+      $('#member' + num + '-history').val(entry.members[_i3].history);
+      var after = entry.members[_i3].after;
       if (after) {
         if (after == 1) {
-          $(`#member${ num }-join-ok`).prop('checked', true);
+          $('#member' + num + '-join-ok').prop('checked', true);
         } else {
-          $(`#member${ num }-join-ng`).prop('checked', true);
+          $('#member' + num + '-join-ng').prop('checked', true);
         }
       }
     }
@@ -735,15 +737,15 @@ $(function () {
   var upCountTask;
   function updateTotalCount() {
     var totalCount = 0;
-    teams.forEach(team => {
-      team.members.forEach(member => {
+    teams.forEach(function (team) {
+      team.members.forEach(function (member) {
         if (member.name) {
           totalCount++;
         }
       });
     });
-    singles.forEach(team => {
-      team.members.forEach(member => {
+    singles.forEach(function (team) {
+      team.members.forEach(function (member) {
         if (member.name) {
           totalCount++;
         }
@@ -877,7 +879,7 @@ $(function () {
     return str.slice(-len);
   }
 
-  const charaBlank = {
+  var charaBlank = {
     name: '',
     image: 'blank.png'
   };
@@ -886,20 +888,20 @@ $(function () {
     if (!len) {
       len = 3;
     }
-    for (var i = 0; i < len; i++) {
-      var member = data.members[i];
+    for (var _i4 = 0; _i4 < len; _i4++) {
+      var member = data.members[_i4];
       if (!member) {
         member = {};
       }
       member.name = member.name || '';
       member.comment = member.comment || '';
-      var character = charas[member.character];
-      if (!character) {
-        character = charaBlank;
+      var _character = charas[member.character];
+      if (!_character) {
+        _character = charaBlank;
       }
-      member.charaName = character.name;
-      member.charaIcon = character.image;
-      data.members[i] = member;
+      member.charaName = _character.name;
+      member.charaIcon = _character.image;
+      data.members[_i4] = member;
     }
     return data;
   }
