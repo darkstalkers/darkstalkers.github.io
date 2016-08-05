@@ -411,6 +411,7 @@ $(function(){
     comfirmDelete(function(e){
       e.preventDefault();
       var isMediation = $('#type-single').prop('checked');
+      var dataRef;
       if (isMediation) {
         dataRef = singlesRef.child(key);
         dataRef.set(null, onComplete);
