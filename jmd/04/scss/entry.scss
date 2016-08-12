@@ -515,3 +515,18 @@ label {
     margin: 1em 0;
   }
 }
+
+#region-count {
+  -webkit-column-count: 2;
+}
+
+.region-name {
+  display: inline-block;
+  width: 4.5em;
+}
+
+.region-count {
+  display: inline-block;
+  width: 2em;
+  text-align: right;
+}
