@@ -46,7 +46,7 @@
             <li><a href="#volunteers" class="close-ignore">　運営ボランティア募集</a></li>
             <li><a href="#archive" class="close-ignore">　アーカイブ（過去大会）</a></li>
             <li><a href="#after" class="close-ignore">　前夜祭・後夜祭</a></li>
-            <!-- <li><a href="#party" class="close-ignore">　打ち上げについて</a></li> -->
+            <li><a href="#party" class="close-ignore">　打ち上げについて</a></li>
             <li><a href="#staff" class="close-ignore">スタッフ一覧</a></li>
           </ul>
         </nav>
@@ -263,7 +263,7 @@
   </section>
 
   <section id="mediation-list">
-    <h3>エントリー（斡旋希望）<small class="updated-at pull-right">更新日時: <span class="single-last-updated-at"></span></small></h3>
+    <h3>エントリー（斡旋希望・参加表明）<small class="updated-at pull-right">更新日時: <span class="single-last-updated-at"></span></small></h3>
     <ul id="singles" class="singles">
     </ul>
   </section>
@@ -275,7 +275,7 @@
       <dl class="dl-horizontal">
         <dt>チームエントリー</dt>
         <dd class="team-entry-count">0</dd>
-        <dt>エントリー（斡旋希望）</dt>
+        <dt>エントリー（斡旋希望・参加表明）</dt>
         <dd class="single-entry-count">0</dd>
       </dl>
     </div>
@@ -455,10 +455,10 @@
               <li>レギュレーション：本戦と同様</li>
             </ul> -->
           </section>
-          <!-- <section id="party">
+          <section id="party">
             <h3>打ち上げについて</h3>
             <p class="after-party">
-              大会終了後にイベント会場を飲み会モードに転換し、その場で打ち上げを行います。筐体や家庭用も解放しますので、自由に遊んでいただいて結構です。お申込みは、<a href="https://docs.google.com/forms/d/1OAJ7GiIibxOoe7-6AzKxXndsen2mnPDCKwMV9qCzKRs/viewform">こちら</a>から（選手としてエントリーされる方は、エントリーフォームからそのままお申込み頂けます）。会費は、当日受付時に集めさせて頂きます。お気軽にご参加ください！
+              大会終了後にイベント会場を飲み会モードに転換し、その場で打ち上げを行います。筐体や家庭用も解放しますので、自由に遊んでいただいて結構です。お申込みは、<a href="https://docs.google.com/forms/d/e/1FAIpQLSfGQdSw65Qs06pgFPaN2eEYDBjTKNMVqZAS7nSwrPq4fcLS2Q/viewform">こちら</a>から（選手としてエントリーされる方は、エントリーフォームからそのままお申込み頂けます）。会費は、当日受付時に集めさせて頂きます。お気軽にご参加ください！
             </p>
             <dl class="party-summary">
               <dt>場所</dt>
@@ -466,10 +466,11 @@
               <dt>時間</dt>
               <dd>大会終了後から2時間</dd>
               <dt>会費</dt>
-              <dd>お一人様3,000円（ピザビュッフェ＋飲み放題）</dd>
+              <dd>未定</dd>
+              <!-- <dd>お一人様3,000円（ピザビュッフェ＋飲み放題）</dd> -->
             </dl>
-            <small style="text-decoration: underline;">※ お申込みは、締め切りました。ありがとうございました！</small>
-          </section> -->
+            <!-- <small style="text-decoration: underline;">※ お申込みは、締め切りました。ありがとうございました！</small> -->
+          </section>
           <section id="timeline">
             <h3>ツイッター公式アカウント</h3>
             <a class="twitter-timeline" href="https://twitter.com/ds_federation" data-widget-id="400171431914246145">@ds_federation からのツイート</a>
@@ -568,7 +569,7 @@
             <form class="team-entry-form form-horizontal visible-entry">
               <input type="hidden" name="id" value="" id="key">
               <div class="entry-explain">
-                <p><span style="font-weight:bold;">エントリー内容はいつでも変更できますので、お気軽にエントリーしてください！</span>チームが決まっている方は「チームエントリー」、とくに決まったチームがなくとりあえずエントリーの方は「斡旋希望」にチェックを入れてください。チームで出るけどメンバーはまだ見つかっていないという方は「チームエントリー」で他メンバーを空で入力してください。</p>
+                <p><span style="font-weight:bold;">エントリー内容はいつでも変更できますので、お気軽にエントリーしてください！</span>チームが決まっている方は「チームエントリー」、とくに決まったチームがなくとりあえずエントリーの方は「斡旋希望・参加表明」にチェックを入れてください。チームで出るけどメンバーはまだ見つかっていないという方は「チームエントリー」で他メンバーを空で入力してください。</p>
                 <ul>
                   <li><small>※ エントリー後の編集は自分で行うことが出来ます。（既に登録されたエントリーの編集・削除は<a href="#edit-form" class="change-edit-form">こちら</a>）</small></li>
                   <li><small>※ 問題が発生した場合、ページを再表示して最初からやり直してみてください。</small></li>
@@ -587,7 +588,7 @@
                   <div class="radio-inline">
                     <label>
                       <input type="radio" id="type-single" name="entry-type">
-                      斡旋希望
+                      斡旋希望・参加表明
                     </label>
                   </div>
                 </div>
@@ -784,7 +785,7 @@
                   <option>選択してください</option>
                   <optgroup label="チームエントリー" id="target-team">
                   </optgroup>
-                  <optgroup label="エントリー（斡旋希望）" id="target-single">
+                  <optgroup label="エントリー（斡旋希望・参加表明）" id="target-single">
                   </optgroup>
                 </select>
               </div>
