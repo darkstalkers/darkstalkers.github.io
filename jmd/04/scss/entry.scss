@@ -334,7 +334,7 @@ label {
 #entry-summary .dl-horizontal dd {
   margin-left: 170px;
   font-weight: bold;
-  text-align: right;
+  text-align: left;
 }
 #entry-summary section {
   clear: both;
@@ -477,6 +477,7 @@ label {
   #entry-summary .dl-horizontal dd {
     margin-left: 0;
     font-weight: bold;
+    text-align: right;
   }
 }
 
