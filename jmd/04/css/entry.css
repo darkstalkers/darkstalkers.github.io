@@ -405,6 +405,7 @@ label {
 #entry-summary .dl-horizontal dd {
   margin-left: 170px;
   font-weight: bold;
+  text-align: right;
 }
 
 #entry-summary section {
@@ -536,6 +537,13 @@ label {
   }
   .entry-explain li {
     margin-left: 0;
+  }
+  #entry-summary .dl-horizontal dt {
+    width: 170px;
+  }
+  #entry-summary .dl-horizontal dd {
+    margin-left: 0;
+    font-weight: bold;
   }
 }
 
