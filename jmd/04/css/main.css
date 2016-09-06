@@ -1290,4 +1290,32 @@ a.entry-btn, a:visited.entry-btn {
   border: none;
 }
 
+#regulation ul {
+  list-style: initial;
+  margin-left: 1em;
+}
+
+#regulation b {
+  display: block;
+  margin-top: 1em;
+}
+
+.section-inner {
+  padding: 0 1em;
+}
+
+.youtube {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.youtube iframe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 /*# sourceMappingURL=main.css.map */
