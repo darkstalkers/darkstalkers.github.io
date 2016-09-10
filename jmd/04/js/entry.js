@@ -772,6 +772,29 @@ $(function () {
     }, 1000);
   }
 
+  $('#clear-btn-2').click(function (e) {
+    e.preventDefault();
+    clearFormPlayer(2);
+  });
+  $('#clear-btn-3').click(function (e) {
+    e.preventDefault();
+    clearFormPlayer(3);
+  });
+
+  function clearFormPlayer(num) {
+    if (!num) {
+      return;
+    }
+    $('#member' + num + '-name').val('');
+    $('#member' + num + '-character')[0].selectedIndex = 0;
+    $('#member' + num + '-comment').val('');
+    $('#member' + num + '-region')[0].selectedIndex = 0;
+    $('#member' + num + '-env')[0].selectedIndex = 0;
+    $('#member' + num + '-history').val('');
+    $('#member' + num + '-join-ok').prop('checked', false);
+    $('#member' + num + '-join-ng').prop('checked', false);
+  }
+
   var task;
   function analytics() {
     if (task) {

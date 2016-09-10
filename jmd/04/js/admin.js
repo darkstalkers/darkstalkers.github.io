@@ -293,7 +293,7 @@ $(function () {
   $('#teams-output-sjis').on('click', function (e) {
     $(this).prop('href', 'data:text/plain;charset=sjis,' + EscapeSJIS(createTeamsData()));
   });
-  $('#singles-output').on('click', function (e) {
+  $('#singles-output-utf8').on('click', function (e) {
     $(this).prop('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(BOM + createSinglesData()));
   });
   $('#singles-output-sjis').on('click', function (e) {
