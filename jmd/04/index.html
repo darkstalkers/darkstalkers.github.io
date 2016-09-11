@@ -834,6 +834,9 @@
             <li class="member col-sm-4">
               <div class="left-block">
                 <img src="./img/icons/${members[0].charaIcon}" alt="">
+                {{if members[0].after == 1 }}
+                  <span class="material-icons join-party">local_bar</span>
+                {{/if}}
               </div>
               <p class="player-name">${members[0].name}</p>
               <span class="player-chara">${members[0].charaName}</span>
@@ -842,6 +845,9 @@
             <li class="member col-sm-4">
               <div class="left-block">
                 <img src="./img/icons/${members[1].charaIcon}" alt="">
+                {{if members[1].after == 1 }}
+                  <span class="material-icons join-party">local_bar</span>
+                {{/if}}
               </div>
               <p class="player-name">${members[1].name}</p>
               <span class="player-chara">${members[1].charaName}</span>
@@ -850,6 +856,9 @@
             <li class="member col-sm-4">
               <div class="left-block">
                 <img src="./img/icons/${members[2].charaIcon}" alt="">
+                {{if members[2].after == 1 }}
+                  <span class="material-icons join-party">local_bar</span>
+                {{/if}}
               </div>
               <p class="player-name">${members[2].name}</p>
               <span class="player-chara">${members[2].charaName}</span>
@@ -872,6 +881,9 @@
             <li class="member col-sm-4">
               <div class="left-block">
                 <img src="./img/icons/${members[0].charaIcon}" alt="">
+                {{if members[0].after == 1 }}
+                  <span class="material-icons join-party">local_bar</span>
+                {{/if}}
               </div>
               <p class="player-name">${members[0].name}</p>
               <span class="player-chara">${members[0].charaName}</span>
@@ -880,6 +892,9 @@
             <li class="member col-sm-4">
               <div class="left-block">
                 <img src="./img/icons/${members[1].charaIcon}" alt="">
+                {{if members[1].after == 1 }}
+                  <span class="material-icons join-party">local_bar</span>
+                {{/if}}
               </div>
               <p class="player-name">${members[1].name}</p>
               <span class="player-chara">${members[1].charaName}</span>
@@ -902,6 +917,9 @@
             <li class="member col-sm-4">
               <div class="left-block">
                 <img src="./img/icons/${members[0].charaIcon}" alt="">
+                {{if members[0].after == 1 }}
+                  <span class="material-icons join-party">local_bar</span>
+                {{/if}}
               </div>
               <p class="player-name">${members[0].name}</p>
               <span class="player-chara">${members[0].charaName}</span>
@@ -916,6 +934,9 @@
       <li class="member col-sm-4 single" id="${key}">
         <div class="left-block">
           <img src="./img/icons/${members[0].charaIcon}" alt="">
+          {{if members[0].after == 1 }}
+            <span class="material-icons join-party">local_bar</span>
+          {{/if}}
         </div>
         <a href="#" data-id="${key}" class="edit-link pull-right" title="編集・削除"><span class="material-icons">create</span></a>
         <p class="player-name">${members[0].name}</p>
