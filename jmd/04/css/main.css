@@ -1318,4 +1318,101 @@ a.entry-btn, a:visited.entry-btn {
   height: 100% !important;
 }
 
+#column h2 {
+  line-height: 1.4;
+}
+
+#column h2 span {
+  display: block;
+  max-width: 12em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#column h2 span:first-child {
+  text-align: left;
+}
+
+#column h2 hr {
+  display: inline-block;
+  width: 2em;
+  margin: 10px 0;
+  border-top: 3px solid #eee;
+  box-shadow: 0px 0px 10px red, 0px 0px 10px red;
+}
+
+@media all and (max-width: 480px) {
+  #column h2 hr {
+    margin: 6px 0;
+  }
+}
+
+@media all and (max-width: 480px) {
+  #column h2 {
+    margin-bottom: 1em;
+  }
+}
+
+#column h3 {
+  border-top: none;
+}
+
+#column h4 {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+#column .author {
+  text-align: right;
+}
+
+#column .team {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1em;
+}
+
+#column .team .team-member {
+  text-align: center;
+  width: 100px;
+  border: 1px solid #8a8a8a;
+}
+
+#column .team .team-member:not(:last-child) {
+  border-right-width: 0;
+}
+
+#column .team .team-member .picture {
+  padding: 8px;
+}
+
+#column .team .team-member .player {
+  padding: 8px 0;
+  border-top: 1px solid #8a8a8a;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+#column > hr {
+  max-width: 50%;
+  margin-left: 0;
+  border-top: 1px dashed #eee !important;
+}
+
+#column .inline-line {
+  display: inline-block;
+  margin: 5px 0;
+  width: 3em;
+  border-top: 1px solid #eee !important;
+}
+
+#column .check-player {
+  color: #65d465;
+}
+
+#column .check-team {
+  color: #7ec2d8;
+}
+
 /*# sourceMappingURL=main.css.map */
