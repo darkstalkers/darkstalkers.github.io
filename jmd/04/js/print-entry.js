@@ -1,84 +1,77 @@
-$(function(){
-  var REGIONS = ['北海道','青森県','岩手県','宮城県','秋田県',
-  '山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県',
-  '東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県',
-  '長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府',
-  '大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県',
-  '広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県',
-  '佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県'
-  ];
+'use strict';
+
+$(function () {
+  var REGIONS = ['北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県', '新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県', '三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県', '鳥取県', '島根県', '岡山県', '広島県', '山口県', '徳島県', '香川県', '愛媛県', '高知県', '福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'];
   var ENV = {
     arcade: 'アーケード',
     ps3: 'PS3',
     xbox: 'Xbox'
-  }
+  };
 
-  var CHARACTERS = [
-    {
-      id: 'anakaris',
-      name: 'アナカリス',
-      image: 'img_s_anakaris_50x50.jpg'
-    }, {
-      id: 'aulbath',
-      name: 'オルバス',
-      image: 'img_s_aulbath_50x50.jpg'
-    }, {
-      id: 'bishamon',
-      name: 'ビシャモン',
-      image: 'img_s_bishamon_50x50.jpg'
-    }, {
-      id: 'bulleta',
-      name: 'バレッタ',
-      image: 'img_s_bulleta_50x50.jpg'
-    }, {
-      id: 'demitri',
-      name: 'デミトリ',
-      image: 'img_s_demitri_50x50.jpg'
-    }, {
-      id: 'felicia',
-      name: 'フェリシア',
-      image: 'img_s_felicia_50x50.jpg'
-    }, {
-      id: 'gallon',
-      name: 'ガロン',
-      image: 'img_s_gallon_50x50.jpg'
-    }, {
-      id: 'jedah',
-      name: 'ジェダ',
-      image: 'img_s_jedah_50x50.jpg'
-    }, {
-      id: 'leilei',
-      name: 'レイレイ',
-      image: 'img_s_leilei_50x50.jpg'
-    }, {
-      id: 'lilith',
-      name: 'リリス',
-      image: 'img_s_lilith_50x50.jpg'
-    }, {
-      id: 'morrigan',
-      name: 'モリガン',
-      image: 'img_s_morrigan_50x50.jpg'
-    }, {
-      id: 'qbee',
-      name: 'キュービー',
-      image: 'img_s_qbee_50x50.jpg'
-    }, {
-      id: 'sasquatch',
-      name: 'サスカッチ',
-      image: 'img_s_sasquatch_50x50.jpg'
-    }, {
-      id: 'victor',
-      name: 'ビクトル',
-      image: 'img_s_victor_50x50.jpg'
-    }, {
-      id: 'zabel',
-      name: 'ザベル',
-      image: 'img_s_zabel_50x50.jpg'
-    }
-  ];
+  var CHARACTERS = [{
+    id: 'anakaris',
+    name: 'アナカリス',
+    image: 'img_s_anakaris_50x50.jpg'
+  }, {
+    id: 'aulbath',
+    name: 'オルバス',
+    image: 'img_s_aulbath_50x50.jpg'
+  }, {
+    id: 'bishamon',
+    name: 'ビシャモン',
+    image: 'img_s_bishamon_50x50.jpg'
+  }, {
+    id: 'bulleta',
+    name: 'バレッタ',
+    image: 'img_s_bulleta_50x50.jpg'
+  }, {
+    id: 'demitri',
+    name: 'デミトリ',
+    image: 'img_s_demitri_50x50.jpg'
+  }, {
+    id: 'felicia',
+    name: 'フェリシア',
+    image: 'img_s_felicia_50x50.jpg'
+  }, {
+    id: 'gallon',
+    name: 'ガロン',
+    image: 'img_s_gallon_50x50.jpg'
+  }, {
+    id: 'jedah',
+    name: 'ジェダ',
+    image: 'img_s_jedah_50x50.jpg'
+  }, {
+    id: 'leilei',
+    name: 'レイレイ',
+    image: 'img_s_leilei_50x50.jpg'
+  }, {
+    id: 'lilith',
+    name: 'リリス',
+    image: 'img_s_lilith_50x50.jpg'
+  }, {
+    id: 'morrigan',
+    name: 'モリガン',
+    image: 'img_s_morrigan_50x50.jpg'
+  }, {
+    id: 'qbee',
+    name: 'キュービー',
+    image: 'img_s_qbee_50x50.jpg'
+  }, {
+    id: 'sasquatch',
+    name: 'サスカッチ',
+    image: 'img_s_sasquatch_50x50.jpg'
+  }, {
+    id: 'victor',
+    name: 'ビクトル',
+    image: 'img_s_victor_50x50.jpg'
+  }, {
+    id: 'zabel',
+    name: 'ザベル',
+    image: 'img_s_zabel_50x50.jpg'
+  }];
 
   // ハッシュ作成
-  var charas = {}
+  var charas = {};
   for (var i = 0, len = CHARACTERS.length; i < len; i++) {
     var chara = CHARACTERS[i];
     charas[chara.id] = {
@@ -92,11 +85,10 @@ $(function(){
   var optionsHTML = '';
   for (var i = 0, len = CHARACTERS.length; i < len; i++) {
     var character = CHARACTERS[i];
-    optionsHTML +=
-      '<option value="' + character.id + '">' + character.name + '</option>';
+    optionsHTML += '<option value="' + character.id + '">' + character.name + '</option>';
   }
   var $options = $(optionsHTML);
-  $('select.characters').each(function(i, select) {
+  $('select.characters').each(function (i, select) {
     $(select).append($options.clone());
   });
 
@@ -104,16 +96,15 @@ $(function(){
   var regionOptionsHTML = '';
   for (var i = 0, len = REGIONS.length; i < len; i++) {
     var region = REGIONS[i];
-    regionOptionsHTML +=
-      '<option value="' + (i+1) + '">' + region + '</option>';
+    regionOptionsHTML += '<option value="' + (i + 1) + '">' + region + '</option>';
   }
   var $regionOptions = $(regionOptionsHTML);
-  $('select.regions').each(function(i, select) {
+  $('select.regions').each(function (i, select) {
     $(select).append($regionOptions.clone());
   });
 
   // フォーム切替
-  $('input[name=entry-type]').on('change', function() {
+  $('input[name=entry-type]').on('change', function () {
     if ($('#type-single').prop('checked')) {
       changeForm('single');
     } else {
@@ -134,17 +125,17 @@ $(function(){
   var configRef = ref.child('config');
   var config;
   configRef.child('open');
-  configRef.once('value', function(snapshot) {
+  configRef.once('value', function (snapshot) {
     config = snapshot.val();
     if (!config) {
       config = {
         open: true,
         adminPass: 'e421b0ade1927b91fa41bfa2baf72eb5'
-      }
+      };
       configRef.set(config);
     }
     configUpdated(config);
-    configRef.on('value', function(snapshot) {
+    configRef.on('value', function (snapshot) {
       config = snapshot.val();
       configUpdated(config);
     });
@@ -161,20 +152,20 @@ $(function(){
   // 追加
   var teamNo = 0;
   var teams = [];
-  teamsRef.on('child_added', function(snapshot) {
+  teamsRef.on('child_added', function (snapshot) {
     var team = snapshot.val();
     var key = snapshot.key;
     team.no = ++teamNo;
     team.key = key;
     switch (team.members.length) {
       case 3:
-        $('#template-team3').tmpl(toTemplateFormat(team, 3)).fadeIn(1000).prependTo('#teams');
+        $('#template-team3').tmpl(toTemplateFormat(team, 3)).fadeIn(1000).appendTo('#teams');
         break;
       case 2:
-        $('#template-team2').tmpl(toTemplateFormat(team, 2)).fadeIn(1000).prependTo('#teams');
+        $('#template-team2').tmpl(toTemplateFormat(team, 2)).fadeIn(1000).appendTo('#teams');
         break;
       case 1:
-        $('#template-team1').tmpl(toTemplateFormat(team, 1)).fadeIn(1000).prependTo('#teams');
+        $('#template-team1').tmpl(toTemplateFormat(team, 1)).fadeIn(1000).appendTo('#teams');
         break;
       default:
     }
@@ -185,7 +176,7 @@ $(function(){
     teamUpdated(team);
   });
   var singles = [];
-  singlesRef.on('child_added', function(snapshot) {
+  singlesRef.on('child_added', function (snapshot) {
     var single = snapshot.val();
     var key = snapshot.key;
     single.key = key;
@@ -197,7 +188,7 @@ $(function(){
   });
 
   // 削除
-  teamsRef.on('child_removed', function(snapshot) {
+  teamsRef.on('child_removed', function (snapshot) {
     var key = snapshot.key;
     $('#' + key).remove();
     removeOption('#target-team', key);
@@ -210,7 +201,7 @@ $(function(){
     }
     teamUpdated();
   });
-  singlesRef.on('child_removed', function(snapshot) {
+  singlesRef.on('child_removed', function (snapshot) {
     var key = snapshot.key;
     $('#' + key).remove();
     removeOption('#target-single', key);
@@ -225,7 +216,7 @@ $(function(){
   });
 
   // 変更
-  teamsRef.on('child_changed', function(snapshot, old) {
+  teamsRef.on('child_changed', function (snapshot, old) {
     var team = snapshot.val();
     var key = snapshot.key;
     team.no = entries[key].no;
@@ -244,7 +235,6 @@ $(function(){
       default:
     }
 
-    
     entries[key] = team;
     changeOptionLabel('#target-team', team.name, key);
     for (var i = 0, len = teams.length; i < len; i++) {
@@ -255,7 +245,7 @@ $(function(){
     }
     teamUpdated(team);
   });
-  singlesRef.on('child_changed', function(snapshot, old) {
+  singlesRef.on('child_changed', function (snapshot, old) {
     var single = snapshot.val();
     var key = snapshot.key;
     single.key = key;
@@ -271,9 +261,8 @@ $(function(){
     singleUpdated(single);
   });
 
-
   // エントリー（保存）
-  $('#entry-button').on('click', function(e) {
+  $('#entry-button').on('click', function (e) {
     e.preventDefault();
     $('#edit-form').collapse('hide');
     enableActionButtons(false);
@@ -297,7 +286,7 @@ $(function(){
       $('#type-team').trigger('change');
       showMessage('success', 'エントリーが完了しました', true);
       $('.team-entry-form > .form-group').hide();
-      setTimeout(function(){
+      setTimeout(function () {
         $('#team-entry').modal('hide');
       }, 1500);
       lastModifyEntryKey = dataRef.key;
@@ -305,7 +294,7 @@ $(function(){
   });
 
   // 編集・削除の入力
-  $('#input-button').on('click', function(e){
+  $('#input-button').on('click', function (e) {
     e.preventDefault();
     hideMessages();
 
@@ -341,7 +330,7 @@ $(function(){
   });
 
   // 編集する
-  $('#edit-button').on('click', function(e) {
+  $('#edit-button').on('click', function (e) {
     e.preventDefault();
 
     enableActionButtons(false);
@@ -359,7 +348,6 @@ $(function(){
       enableActionButtons(true);
       return false;
     }
-
 
     var data = getFormData();
     var dataRef;
@@ -394,7 +382,7 @@ $(function(){
     function onComplete() {
       showMessage('success', '編集が完了しました', true);
       $('.team-entry-form > .form-group').hide();
-      setTimeout(function(){
+      setTimeout(function () {
         $('#team-entry').modal('hide');
       }, 1500);
       lastModifyEntryKey = dataRef.key;
@@ -402,7 +390,7 @@ $(function(){
   });
 
   // 削除する
-  $('#delete-button').on('click', function(e) {
+  $('#delete-button').on('click', function (e) {
     e.preventDefault();
 
     enableActionButtons(false);
@@ -413,7 +401,7 @@ $(function(){
       enableActionButtons(true);
       return false;
     }
-    comfirmDelete(function(e){
+    comfirmDelete(function (e) {
       e.preventDefault();
       var isMediation = $('#type-single').prop('checked');
       var dataRef;
@@ -429,14 +417,14 @@ $(function(){
     function onComplete() {
       showMessage('success', '削除が完了しました', true);
       $('.team-entry-form > .form-group').hide();
-      setTimeout(function(){
+      setTimeout(function () {
         $('#team-entry').modal('hide');
       }, 1500);
     }
   });
 
   // スムーズスクロール
-  $('.anchor-button').on('click', function(e) {
+  $('.anchor-button').on('click', function (e) {
     e.preventDefault();
     var href = '#' + this.href.replace(/.*#/, '');
     scrollTo(href, -70);
@@ -474,7 +462,7 @@ $(function(){
 
   function validate(isMediation, isEdit) {
     if (typeof isEdit == 'undefined') {
-      isEdit = false
+      isEdit = false;
     }
     if (!isMediation) {
       if ($('#teamName').val().length === 0) {
@@ -491,26 +479,18 @@ $(function(){
       return false;
     }
     if (!isMediation) {
-      for (let i = 1; i < 3; i++) {
-        let num = i + 1;
-          if ( $(`#member${num}-name`).val() ||
-            $(`#member${num}-character`).prop('selectedIndex') !== 0 ||
-            $(`#member${num}-comment`).val() ||
-            $(`#member${num}-region`).prop('selectedIndex') !== 0 ||
-            $(`#member${num}-env`).prop('selectedIndex') !== 0 ||
-            $(`#member${num}-history`).val() ||
-            $(`#member${num}-join-ok`).prop('checked') ||
-            $(`#member${num}-join-ng`).prop('checked')
-          ) {
-            if ($(`#member${num}-name`).val().length === 0) {
-              showMessage('danger', `${num}人目のプレイヤー名を入力してください`);
-              return false;
-            }
-            if ($(`#member${num}-character`).prop('selectedIndex') === 0) {
-              showMessage('danger', `${num}人目の使用キャラを選択してください`);
-              return false;
-            }
+      for (var _i = 1; _i < 3; _i++) {
+        var num = _i + 1;
+        if ($('#member' + num + '-name').val() || $('#member' + num + '-character').prop('selectedIndex') !== 0 || $('#member' + num + '-comment').val() || $('#member' + num + '-region').prop('selectedIndex') !== 0 || $('#member' + num + '-env').prop('selectedIndex') !== 0 || $('#member' + num + '-history').val() || $('#member' + num + '-join-ok').prop('checked') || $('#member' + num + '-join-ng').prop('checked')) {
+          if ($('#member' + num + '-name').val().length === 0) {
+            showMessage('danger', num + '人目のプレイヤー名を入力してください');
+            return false;
           }
+          if ($('#member' + num + '-character').prop('selectedIndex') === 0) {
+            showMessage('danger', num + '人目の使用キャラを選択してください');
+            return false;
+          }
+        }
       }
     }
     // if (!isMediation) {
@@ -544,19 +524,19 @@ $(function(){
       updatedAt: new Date().toString(),
       password: md5($('#pass').val()),
       members: []
-    }
+    };
 
-    for (let i = 0; i < 3; i++) {
-      let num = i + 1;
-      if ($(`#member${num}-name`).val()) {
+    for (var _i2 = 0; _i2 < 3; _i2++) {
+      var num = _i2 + 1;
+      if ($('#member' + num + '-name').val()) {
         data.members.push({
-          name: $(`#member${num}-name`).val(),
-          character: $(`#member${num}-character`).val(),
-          comment: $(`#member${num}-comment`).val().replace(/[\n\r]/g, ''),
-          region: $(`#member${num}-region`).val(),
-          env: $(`#member${num}-env`).val() || '',
-          history: $(`#member${num}-history`).val() || '',
-          after: $(`input[name=member${num}-after]:checked`).val() || ''
+          name: $('#member' + num + '-name').val(),
+          character: $('#member' + num + '-character').val(),
+          comment: $('#member' + num + '-comment').val().replace(/[\n\r]/g, ''),
+          region: $('#member' + num + '-region').val(),
+          env: $('#member' + num + '-env').val() || '',
+          history: $('#member' + num + '-history').val() || '',
+          after: $('input[name=member' + num + '-after]:checked').val() || ''
         });
       }
     }
@@ -571,20 +551,20 @@ $(function(){
   function setFormData(entry, key) {
     $('#key').val(key || '');
 
-    for (let i = 0; i < entry.members.length; i++) {
-      let num = i + 1;
-      $(`#member${num}-name`).val(entry.members[i].name);
-      $(`#member${num}-character`).val(entry.members[i].character);
-      $(`#member${num}-comment`).val(entry.members[i].comment);
-      $(`#member${num}-region`).val(entry.members[i].region);
-      $(`#member${num}-env`).val(entry.members[i].env);
-      $(`#member${num}-history`).val(entry.members[i].history);
-      let after = entry.members[i].after;
+    for (var _i3 = 0; _i3 < entry.members.length; _i3++) {
+      var num = _i3 + 1;
+      $('#member' + num + '-name').val(entry.members[_i3].name);
+      $('#member' + num + '-character').val(entry.members[_i3].character);
+      $('#member' + num + '-comment').val(entry.members[_i3].comment);
+      $('#member' + num + '-region').val(entry.members[_i3].region);
+      $('#member' + num + '-env').val(entry.members[_i3].env);
+      $('#member' + num + '-history').val(entry.members[_i3].history);
+      var after = entry.members[_i3].after;
       if (after) {
         if (after == 1) {
-          $(`#member${num}-join-ok`).prop('checked', true);
+          $('#member' + num + '-join-ok').prop('checked', true);
         } else {
-          $(`#member${num}-join-ng`).prop('checked', true);
+          $('#member' + num + '-join-ng').prop('checked', true);
         }
       }
     }
@@ -606,7 +586,7 @@ $(function(){
   }
 
   function removeOption(selector, value) {
-    $(selector).find('option').each(function(i, option) {
+    $(selector).find('option').each(function (i, option) {
       if (option.value === value) {
         $(option).remove();
         return;
@@ -614,7 +594,7 @@ $(function(){
     });
   }
   function changeOptionLabel(selector, label, value) {
-    $(selector).find('option').each(function(i, option) {
+    $(selector).find('option').each(function (i, option) {
       if (option.value === value) {
         $(option).text(label);
         return;
@@ -655,7 +635,7 @@ $(function(){
     var div = $('<div/>');
     var span = $('<span/>').text('エントリーを削除します。よろしいですか？');
     var button = $('<a href="#"/>').addClass('btn btn-danger btn-sm').text('はい').on('click', handle);
-    var cancel = $('<a href="#"/>').addClass('btn btn-default btn-sm').text('いいえ').on('click', function(e){
+    var cancel = $('<a href="#"/>').addClass('btn btn-default btn-sm').text('いいえ').on('click', function (e) {
       e.preventDefault();
       $('#message').hide();
     });
@@ -667,18 +647,18 @@ $(function(){
   }
 
   function scrollTo(selector, adjust) {
-    $("html,body").animate({scrollTop:$(selector).eq(0).offset().top + adjust});
+    $("html,body").animate({ scrollTop: $(selector).eq(0).offset().top + adjust });
   }
 
-  $('.to-edit-form').on('click', function(e) {
+  $('.to-edit-form').on('click', function (e) {
     e.preventDefault();
     $('#team-entry').addClass('edit').modal();
   });
-  $('.to-entry-form').on('click', function(e) {
+  $('.to-entry-form').on('click', function (e) {
     e.preventDefault();
     $('#team-entry').removeClass('edit').modal();
   });
-  $(document).on('click', '.edit-link', function(e) {
+  $(document).on('click', '.edit-link', function (e) {
     e.preventDefault();
     $('#target').val($(this).data('id'));
     $('#team-entry').addClass('edit').modal();
@@ -692,7 +672,7 @@ $(function(){
       }
     }
   });
-  $('#team-entry').on('hidden.bs.modal', function(e) {
+  $('#team-entry').on('hidden.bs.modal', function (e) {
     $('#entry-form-title').text('エントリー');
     $('#entry-button')[0].style.cssText = '';
     $('.entry-explain')[0].style.cssText = '';
@@ -711,28 +691,28 @@ $(function(){
       var selector = '#' + lastModifyEntryKey;
       scrollTo(selector, -100);
       $(selector).addClass('done');
-      setTimeout(function() {
+      setTimeout(function () {
         $(selector).addClass('animate');
       }, 100);
       lastModifyEntryKey = '';
     }
   });
-  $('.change-edit-form').on('click', function(e) {
+  $('.change-edit-form').on('click', function (e) {
     e.preventDefault();
     $('#team-entry').addClass('edit');
     hideMessages();
   });
 
   // modalが表示された時
-  $(".modal").on("shown.bs.modal", function() {
-    var urlReplace = "#" + $(this).attr('id')
-    history.pushState(null, null, urlReplace)
+  $(".modal").on("shown.bs.modal", function () {
+    var urlReplace = "#" + $(this).attr('id');
+    history.pushState(null, null, urlReplace);
   });
 
   // modalの閉じる機能が動作した時
   $(".modal").on("hidden.bs.modal", function () {
-    if(location.hash == "#" + $(this).attr('id')) {
-      history.back()
+    if (location.hash == "#" + $(this).attr('id')) {
+      history.back();
     }
   });
 
@@ -762,16 +742,16 @@ $(function(){
   }
   var upCountTask;
   function updateTotalCount() {
-    let totalCount = 0;
-    teams.forEach(team => {
-      team.members.forEach(member => {
+    var totalCount = 0;
+    teams.forEach(function (team) {
+      team.members.forEach(function (member) {
         if (member.name) {
           totalCount++;
         }
       });
     });
-    singles.forEach(team => {
-      team.members.forEach(member => {
+    singles.forEach(function (team) {
+      team.members.forEach(function (member) {
         if (member.name) {
           totalCount++;
         }
@@ -782,7 +762,7 @@ $(function(){
     if (upCountTask) {
       clearTimeout(upCountTask);
     }
-    upCountTask = setTimeout(function() {
+    upCountTask = setTimeout(function () {
       var afterCount = 0;
       for (var key in entries) {
         var entry = entries[key];
@@ -797,14 +777,14 @@ $(function(){
     }, 1000);
   }
 
-  $('#clear-btn-2').click(function(e) {
+  $('#clear-btn-2').click(function (e) {
     e.preventDefault();
     clearFormPlayer(2);
   });
-  $('#clear-btn-3').click(function(e) {
+  $('#clear-btn-3').click(function (e) {
     e.preventDefault();
     clearFormPlayer(3);
-  })
+  });
 
   function clearFormPlayer(num) {
     if (!num) {
@@ -825,7 +805,7 @@ $(function(){
     if (task) {
       clearTimeout(task);
     }
-    task = setTimeout(function() {
+    task = setTimeout(function () {
       var pCharas = $.extend(true, {}, charas);
       for (var key in entries) {
         var entry = entries[key];
@@ -857,14 +837,14 @@ $(function(){
       for (var i = 0, len = regionCount.length; i < len; i++) {
         if (regionCount[i] !== undefined) {
           regionData.push({
-            name: REGIONS[i-1],
+            name: REGIONS[i - 1],
             count: regionCount[i]
           });
         }
       }
-      regionData.sort(function(a,b){
-        if(a.count < b.count) return 1;
-        if(a.count > b.count) return -1;
+      regionData.sort(function (a, b) {
+        if (a.count < b.count) return 1;
+        if (a.count > b.count) return -1;
         return 0;
       });
 
@@ -872,7 +852,6 @@ $(function(){
       for (var i = 0, len = regionData.length; i < len; i++) {
         $('#template-region-count').tmpl(regionData[i]).appendTo('#region-count');
       }
-
     }, 1000);
   }
   function objectToArray(object) {
@@ -883,16 +862,16 @@ $(function(){
     return array;
   }
   function sortByCount(array) {
-    return array.sort(function(a,b){
-        if(a.count < b.count) return -1;
-        if(a.count > b.count) return 1;
-        return 0;
+    return array.sort(function (a, b) {
+      if (a.count < b.count) return -1;
+      if (a.count > b.count) return 1;
+      return 0;
     });
   }
   function displayCharaCount(array, selecter, totalSelecter) {
     $(selecter).empty();
     var totalCount = 0;
-    for (var i = (array.length-1); i >= 0; i--) {
+    for (var i = array.length - 1; i >= 0; i--) {
       var chara = array[i];
       $('#character-count-template').tmpl(chara).appendTo(selecter);
       totalCount += chara.count;
@@ -909,12 +888,7 @@ $(function(){
       date = new Date(date);
     }
     if (date) {
-      return date.getFullYear() + '/' +
-             padLeft(date.getMonth() + 1) + '/' +
-             padLeft(date.getDate()) + ' ' +
-             padLeft(date.getHours()) + ':' +
-             padLeft(date.getMinutes()) + ':' +
-             padLeft(date.getSeconds());
+      return date.getFullYear() + '/' + padLeft(date.getMonth() + 1) + '/' + padLeft(date.getDate()) + ' ' + padLeft(date.getHours()) + ':' + padLeft(date.getMinutes()) + ':' + padLeft(date.getSeconds());
     } else {
       return '';
     }
@@ -926,7 +900,7 @@ $(function(){
     if (len === undefined) {
       len = 2;
     }
-    var buf = ''
+    var buf = '';
     for (var i = 0; i < len; i++) {
       buf += pad;
     }
@@ -934,7 +908,7 @@ $(function(){
     return str.slice(-len);
   }
 
-  const charaBlank = {
+  var charaBlank = {
     name: '',
     image: 'blank.png'
   };
@@ -943,20 +917,20 @@ $(function(){
     if (!len) {
       len = 3;
     }
-    for (let i = 0; i < len; i++) {
-      let member = data.members[i];
+    for (var _i4 = 0; _i4 < len; _i4++) {
+      var member = data.members[_i4];
       if (!member) {
         member = {};
       }
       member.name = member.name || '';
       member.comment = member.comment || '';
-      let character = charas[member.character];
-      if (!character) {
-        character = charaBlank;
+      var _character = charas[member.character];
+      if (!_character) {
+        _character = charaBlank;
       }
-      member.charaName = character.name;
-      member.charaIcon = character.image;
-      data.members[i] = member;
+      member.charaName = _character.name;
+      member.charaIcon = _character.image;
+      data.members[_i4] = member;
     }
     return data;
   }
@@ -976,3 +950,4 @@ console.log('%c＿＿＿＿＿＿＿＿／ 　｜　　 〈　　　　｜　　
 console.log('%c　　　　　　　　　　 /　／＼_」　　　/　／＼」', 'font-family: ＭＳ Ｐゴシック');
 console.log('%c　　　　　　　　　　 ￣　　　　　　 / ／', 'font-family: ＭＳ Ｐゴシック');
 console.log('バグを見つけたら @yoshikawa_t まで');
+//# sourceMappingURL=print-entry.js.map

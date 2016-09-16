@@ -168,13 +168,13 @@ $(function(){
     team.key = key;
     switch (team.members.length) {
       case 3:
-        $('#template-team3').tmpl(toTemplateFormat(team, 3)).fadeIn(1000).prependTo('#teams');
+        $('#template-team3').tmpl(toTemplateFormat(team, 3)).fadeIn(1000).appendTo('#teams');
         break;
       case 2:
-        $('#template-team2').tmpl(toTemplateFormat(team, 2)).fadeIn(1000).prependTo('#teams');
+        $('#template-team2').tmpl(toTemplateFormat(team, 2)).fadeIn(1000).appendTo('#teams');
         break;
       case 1:
-        $('#template-team1').tmpl(toTemplateFormat(team, 1)).fadeIn(1000).prependTo('#teams');
+        $('#template-team1').tmpl(toTemplateFormat(team, 1)).fadeIn(1000).appendTo('#teams');
         break;
       default:
     }
