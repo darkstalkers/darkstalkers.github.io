@@ -569,7 +569,6 @@ a.list-group-item {
   position: absolute;
   right: 16px;
   margin-bottom: 2px;
-  -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
@@ -847,6 +846,14 @@ dd {
   text-shadow: 0px 0px 6px red, 0px 0px 6px red;
 }
 
+#result .player-chara {
+  margin: 0.4em 0;
+}
+
+#result .player-comment {
+  margin-top: 0.5em;
+}
+
 #result section h3 {
   border-top: none;
 }
@@ -875,6 +882,12 @@ dd {
   max-width: 11.11111111111111%;
   float: left;
   margin: 0.5%;
+}
+
+@media all and (max-width: 480px) {
+  .thumb-list.brackets-list li {
+    max-width: 32%;
+  }
 }
 
 .thumb-list li img {
@@ -1367,7 +1380,6 @@ a.entry-btn, a:visited.entry-btn {
 }
 
 #column .team {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 1em;

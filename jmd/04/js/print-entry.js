@@ -483,11 +483,11 @@ $(function () {
         var num = _i + 1;
         if ($('#member' + num + '-name').val() || $('#member' + num + '-character').prop('selectedIndex') !== 0 || $('#member' + num + '-comment').val() || $('#member' + num + '-region').prop('selectedIndex') !== 0 || $('#member' + num + '-env').prop('selectedIndex') !== 0 || $('#member' + num + '-history').val() || $('#member' + num + '-join-ok').prop('checked') || $('#member' + num + '-join-ng').prop('checked')) {
           if ($('#member' + num + '-name').val().length === 0) {
-            showMessage('danger', num + '人目のプレイヤー名を入力してください');
+            showMessage('danger', num + '\u4EBA\u76EE\u306E\u30D7\u30EC\u30A4\u30E4\u30FC\u540D\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044');
             return false;
           }
           if ($('#member' + num + '-character').prop('selectedIndex') === 0) {
-            showMessage('danger', num + '人目の使用キャラを選択してください');
+            showMessage('danger', num + '\u4EBA\u76EE\u306E\u4F7F\u7528\u30AD\u30E3\u30E9\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044');
             return false;
           }
         }

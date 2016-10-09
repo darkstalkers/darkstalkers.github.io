@@ -787,6 +787,12 @@ dd {
   margin-right: 1em;
   text-shadow: 0px 0px 6px red, 0px 0px 6px red;
 }
+#result .player-chara {
+  margin: 0.4em 0;
+}
+#result .player-comment {
+  margin-top: 0.5em;
+}
 #result section h3 {
   border-top: none;
 }
@@ -814,6 +820,12 @@ dd {
   max-width: 11.11111111111111%;
   float: left;
   margin: 0.5%;
+}
+
+.thumb-list.brackets-list li {
+  @media all and (max-width: 480px) {
+    max-width: 32%;
+  }
 }
 
 .thumb-list li img {

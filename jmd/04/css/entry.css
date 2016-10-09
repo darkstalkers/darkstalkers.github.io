@@ -80,12 +80,10 @@ ul#teams, ul.members, ul.singles, ul.count {
 }
 
 ul.singles, ul.count {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 ul#teams li, ul.members li, ul.count {

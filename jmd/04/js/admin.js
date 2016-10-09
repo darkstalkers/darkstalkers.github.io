@@ -286,7 +286,7 @@ $(function () {
     return array;
   }
 
-  var BOM = '﻿';
+  var BOM = '\uFEFF';
   $('#teams-output-utf8').on('click', function (e) {
     $(this).prop('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(BOM + createTeamsData()));
   });
