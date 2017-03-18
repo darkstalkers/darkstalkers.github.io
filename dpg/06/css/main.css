@@ -57,8 +57,7 @@ body {
 
 @media (max-width: 768px) {
   .title-logo h1.logo {
-    margin-top: 0;
-    position: fixed;
+    margin-top: 60px;
     top: 0;
     z-index: 999;
   }
@@ -76,6 +75,7 @@ body {
   .title-logo h1.logo img {
     box-sizing: border-box;
     width: 100%;
+    padding: 5px 20px 10px;
   }
 }
 
@@ -87,7 +87,7 @@ body {
 
 @media (max-width: 768px) {
   .event-info {
-    margin-top: 180px;
+    margin-top: 20px;
   }
 }
 
