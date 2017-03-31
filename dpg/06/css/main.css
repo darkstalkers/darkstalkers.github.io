@@ -20,13 +20,13 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-  background: #000;
+  background: #000 url(../img/background.png) no-repeat center 0;
   background-attachment: fixed;
 }
 
 @media (max-width: 768px) {
   body {
-    background-position: 50% -30px;
+    background-position: center 26px;
     background-size: contain;
   }
 }
@@ -34,7 +34,7 @@ body {
 .container {
   width: 100%;
   max-width: 960px;
-  margin: 3em auto 0;
+  margin: 10px auto 0;
   padding: 0;
   position: relative;
 }
@@ -57,7 +57,7 @@ body {
 
 @media (max-width: 768px) {
   .title-logo h1.logo {
-    margin-top: 60px;
+    margin-top: 3px;
     top: 0;
     z-index: 999;
   }
@@ -75,19 +75,21 @@ body {
   .title-logo h1.logo img {
     box-sizing: border-box;
     width: 100%;
-    padding: 5px 20px 10px;
+    padding: 5px 60px 10px 20px;
   }
 }
 
 .event-info {
-  margin: 48px 0 0;
+  margin: 248px 0 0;
+  padding-right: 100px;
   width: 100%;
-  text-align: center;
+  text-align: right;
 }
 
 @media (max-width: 768px) {
   .event-info {
-    margin-top: 20px;
+    margin-top: 96px;
+    padding-right: 8px;
   }
 }
 
