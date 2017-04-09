@@ -411,6 +411,9 @@ a, a:visited {
   float: left;
   width: 25%;
   padding: 8px;
+  @media (max-width: $mobile-breakpoint) {
+    padding: 4px;
+  }
 }
 .photo .column-4 li {
   width: 24%;

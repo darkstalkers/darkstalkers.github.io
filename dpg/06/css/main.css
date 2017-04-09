@@ -467,6 +467,12 @@ a, a:visited {
   padding: 8px;
 }
 
+@media (max-width: 768px) {
+  .photo ul li {
+    padding: 4px;
+  }
+}
+
 .photo .column-4 li {
   width: 24%;
 }
