@@ -1272,6 +1272,7 @@ section h3 {
   padding: 0;
   float: left;
   width: 25%;
+  min-height: 50px;
   overflow: hidden;
   text-align: left;
   margin-bottom: 8px;
