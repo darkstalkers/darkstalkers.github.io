@@ -80,6 +80,7 @@ body {
 }
 
 .event-info {
+  position: relative;
   margin: 248px 0 0;
   padding-right: 100px;
   width: 100%;
@@ -89,6 +90,7 @@ body {
 @media (max-width: 768px) {
   .event-info {
     margin-top: 96px;
+    margin-bottom: 24px;
     padding-right: 8px;
   }
 }
@@ -171,6 +173,33 @@ body {
   }
   .event-info .game-logo img {
     width: 80px;
+  }
+}
+
+.event-info .happy20th {
+  position: absolute;
+  bottom: -42px;
+  right: 14%;
+  font-family: 'Times New Roman', "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  color: #fff;
+  text-shadow: 0px 0px 10px red, 0px 0px 10px red;
+  font-size: 36px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.event-info .happy20th .number {
+  font-size: 42px;
+}
+
+@media (max-width: 768px) {
+  .event-info .happy20th {
+    bottom: -30px;
+    right: 24%;
+    font-size: 16px;
+  }
+  .event-info .happy20th .number {
+    font-size: 20px;
   }
 }
 
