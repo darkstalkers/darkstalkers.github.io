@@ -1014,6 +1014,7 @@ dd {
       z-index: 2;
     }
     .times {
+      filter: blur(1px);
       font-size: 2.5em;
       position: absolute;
       bottom: 60px;
