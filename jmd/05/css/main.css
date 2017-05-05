@@ -89,7 +89,7 @@ body {
   display: inline-block;
   overflow: visible;
   text-align: center;
-  margin: 0 auto;
+  margin: 0 auto 10em;
   position: relative;
 }
 
@@ -158,6 +158,11 @@ body {
   .happy20th img {
     width: 96px;
   }
+}
+
+.others {
+  text-align: center;
+  color: #efefef;
 }
 
 .game-logo {
@@ -1024,9 +1029,6 @@ dd {
   .contents > section {
     padding: 0.8em;
   }
-  .event-info {
-    margin: 0;
-  }
   .event-date {
     font-size: 2.4em;
     margin-left: 0.2em;
@@ -1107,7 +1109,7 @@ dd {
     padding: 0.2em;
   }
   .event-info {
-    margin: 0;
+    margin: 0 0 1em;
     text-align: center;
   }
   .event-date {
