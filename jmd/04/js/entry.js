@@ -116,7 +116,7 @@ $(function () {
 
   // firebase
   var database = firebase.database();
-  var ref = database.ref('data/04');
+  var ref = database.ref('04/data');
   var teamsRef = ref.child('teams');
   var singlesRef = ref.child('singles');
   var entries = {};
