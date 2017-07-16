@@ -1,6 +1,6 @@
 @import 'social_icons';
 
-$mobile-breakpoint: 480px;
+$mobile-breakpoint: 600px;
 
 img {
   max-width: 100%;
@@ -52,7 +52,7 @@ body {
   }
 }
 .title-logo h1 {
-  margin: 0;
+  margin: -20px 0 0;
 }
 .logo {
   overflow: hidden;
@@ -166,20 +166,21 @@ body {
   padding: 0 !important;
 }
 .catchphrase {
-  filter: invert(15%);
+  filter: invert(10%);
   font-weight: bold;
-  font-size: 4em;
+  font-size: 2.5em;
   text-align: center;
-  margin: 0;
+  margin: 200px 0 0;
   > span {
     padding-left: 1em;
   }
   @media (max-width: $mobile-breakpoint) {
+    margin-top: 90px;
     margin-bottom: 1em !important;
     font-size: 1.4em;
   }
   @media (max-width: 412px) {
-    font-size: 1.8em;
+    font-size: 1.4em;
   }
 }
 .inline-line {
@@ -392,9 +393,9 @@ body {
 }
 
 .container {
-  // background-image: url(../img/background.png);
-  // background-repeat: no-repeat;
-  // background-position: center 160px;
+  background: url(../img/background.png);
+  background-repeat: no-repeat;
+  background-position: center 180px;
   // background-attachment: fixed;
   // background-size: contain;
   width: 100%;
@@ -991,7 +992,7 @@ dd {
 
 
 /* for mobile */
-@media all and (max-width: 480px) {
+@media all and (max-width: $mobile-breakpoint) {
   .result-summary {
     margin-top: 1em;
     font-size: 1em;
@@ -1017,11 +1018,12 @@ dd {
   }
   .container {
     /*padding-top: 60px;*/
-    background-position: 0 0;
+    background-size: cover;
+    background-position: 0 95px;
   }
   .logo {
     width: 280px;
-    margin: 0 auto !important;
+    margin: -30px 0px 0 -5px !important;
     position: relative;
     overflow: visible;
     left: -16px;
@@ -1029,7 +1031,7 @@ dd {
       z-index: 2;
     }
     .times {
-      filter: blur(1px);
+      filter: blur(0);
       font-size: 2.5em;
       position: absolute;
       bottom: 60px;
@@ -1121,6 +1123,9 @@ dd {
   }
   .member-list p {
     padding-left: 0;
+  }
+  .member-blank {
+    display: none;
   }
   .party-summary {
     margin-left: 0;

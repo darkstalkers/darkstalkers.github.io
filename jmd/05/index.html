@@ -746,7 +746,7 @@
           </h4>
           <ul class="members">
             {{each members}}
-              <li class="member col-sm-4">
+              <li class="member col-sm-4 {{if !name}}member-blank{{/if}}">
                 <div class="left-block">
                   <img src="./img/icons/${charaIcon}" alt="">
                   {{if after == 1 }}
