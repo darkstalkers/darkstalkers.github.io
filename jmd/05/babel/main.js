@@ -21,7 +21,7 @@
   if (window.innerWidth > 600) {
     // bg.style.backgroundSize = `auto ${$(window).height()}px`;
     bg.addEventListener('scroll', function(e){
-      var diff =  (bg.scrollTop / 50) + 10;
+      var diff =  (bg.scrollTop / 50);
       if (diff < 0) {
         diff = 0;
       }
