@@ -116,7 +116,7 @@ $(function () {
 
   // firebase
   var database = firebase.database();
-  var ref = database.ref('data');
+  var ref = database.ref('05/data');
   var teamsRef = ref.child('teams');
   var singlesRef = ref.child('singles');
   var entries = {};
@@ -157,18 +157,7 @@ $(function () {
     var key = snapshot.key;
     team.no = ++teamNo;
     team.key = key;
-    switch (team.members.length) {
-      case 3:
-        $('#template-team3').tmpl(toTemplateFormat(team, 3)).fadeIn(1000).prependTo('#teams');
-        break;
-      case 2:
-        $('#template-team2').tmpl(toTemplateFormat(team, 2)).fadeIn(1000).prependTo('#teams');
-        break;
-      case 1:
-        $('#template-team1').tmpl(toTemplateFormat(team, 1)).fadeIn(1000).prependTo('#teams');
-        break;
-      default:
-    }
+    $('#template-team').tmpl(toTemplateFormat(team, 3)).fadeIn(1000).prependTo('#teams');
 
     entries[key] = team;
     addOption('#target-team', team.name, key, true);
@@ -222,18 +211,7 @@ $(function () {
     team.no = entries[key].no;
     team.key = key;
 
-    switch (team.members.length) {
-      case 3:
-        $('#' + key).replaceWith($('#template-team3').tmpl(toTemplateFormat(team, 3)).fadeIn(1000));
-        break;
-      case 2:
-        $('#' + key).replaceWith($('#template-team2').tmpl(toTemplateFormat(team, 2)).fadeIn(1000));
-        break;
-      case 1:
-        $('#' + key).replaceWith($('#template-team1').tmpl(toTemplateFormat(team, 1)).fadeIn(1000));
-        break;
-      default:
-    }
+    $('#' + key).replaceWith($('#template-team').tmpl(toTemplateFormat(team, 3)).fadeIn(1000));
 
     entries[key] = team;
     changeOptionLabel('#target-team', team.name, key);
@@ -532,6 +510,7 @@ $(function () {
         data.members.push({
           name: $('#member' + num + '-name').val(),
           character: $('#member' + num + '-character').val(),
+          twitter: $('#member' + num + '-twitter').val(),
           comment: $('#member' + num + '-comment').val().replace(/[\n\r]/g, ''),
           region: $('#member' + num + '-region').val(),
           env: $('#member' + num + '-env').val() || '',
@@ -555,6 +534,7 @@ $(function () {
       var num = _i3 + 1;
       $('#member' + num + '-name').val(entry.members[_i3].name);
       $('#member' + num + '-character').val(entry.members[_i3].character);
+      $('#member' + num + '-twitter').val(entry.members[_i3].twitter);
       $('#member' + num + '-comment').val(entry.members[_i3].comment);
       $('#member' + num + '-region').val(entry.members[_i3].region);
       $('#member' + num + '-env').val(entry.members[_i3].env);

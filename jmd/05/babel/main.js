@@ -17,21 +17,21 @@
   });
 
   // smooth scroll
-  const top = 10; // %
-  var bg = document.querySelector('.container');
-  if (window.innerWidth < 600) {
-    bg.style.backgroundPosition = '100% 0';
-    bg.style.backgroundSize = `auto ${$(window).height()}px`;
-    bg.addEventListener('scroll', function(e){
-      var diff =  100 - (bg.scrollTop / 50);
-      if (diff < 0) {
-        diff = 0;
-      }
-      bg.style.backgroundPosition = `${diff}% 0`;
-    }, false);
-  } else {
-    bg.style.backgroundSize = `cover`;
-  }
+  // const top = 10; // %
+  // var bg = document.querySelector('.container');
+  // if (window.innerWidth < 600) {
+  //   bg.style.backgroundPosition = '100% 0';
+  //   bg.style.backgroundSize = `auto ${$(window).height()}px`;
+  //   bg.addEventListener('scroll', function(e){
+  //     var diff =  100 - (bg.scrollTop / 50);
+  //     if (diff < 0) {
+  //       diff = 0;
+  //     }
+  //     bg.style.backgroundPosition = `${diff}% 0`;
+  //   }, false);
+  // } else {
+  //   bg.style.backgroundSize = `cover`;
+  // }
 
   /* gnav */
   $('#btn_menu').on('click', function () {
