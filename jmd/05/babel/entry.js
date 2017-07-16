@@ -549,14 +549,15 @@ $(function(){
   function setFormData(entry, key) {
     $('#key').val(key || '');
 
+    console.log('debug', entry);
     for (let i = 0; i < entry.members.length; i++) {
       let num = i + 1;
       $(`#member${num}-name`).val(entry.members[i].name);
-      $(`#member${num}-character`).val(entry.members[i].character);
+      $(`#member${num}-character`).val(entry.members[i].character || '選択してください');
       $(`#member${num}-twitter`).val(entry.members[i].twitter);
       $(`#member${num}-comment`).val(entry.members[i].comment);
-      $(`#member${num}-region`).val(entry.members[i].region);
-      $(`#member${num}-env`).val(entry.members[i].env);
+      $(`#member${num}-region`).val(entry.members[i].region || '選択してください');
+      $(`#member${num}-env`).val(entry.members[i].env || '選択してください');
       $(`#member${num}-history`).val(entry.members[i].history);
       let after = entry.members[i].after;
       if (after) {

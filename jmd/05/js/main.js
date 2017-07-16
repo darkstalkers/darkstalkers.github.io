@@ -52,19 +52,20 @@
   });
 
   // window resize
-  var timer = false;
-  $(window).resize(function () {
-    if (timer !== false) {
-      clearTimeout(timer);
-    }
-    timer = setTimeout(function () {
-      if (window.innerWidth < 600) {
-        bg.style.backgroundSize = 'auto ' + $(window).height() + 'px';
-      } else {
-        bg.style.backgroundSize = 'cover';
-      }
-    }, 200);
-  });
+  // var timer = false;
+  // $(window).resize(function() {
+  //     if (timer !== false) {
+  //         clearTimeout(timer);
+  //     }
+  //     timer = setTimeout(function() {
+  //       if (window.innerWidth < 600) {
+  //         bg.style.backgroundSize = `auto ${$(window).height()}px`;
+  //       } else {
+  //         bg.style.backgroundSize = `cover`;
+  //       }
+  //     }, 200);
+  // });
+
 
   // Entry list
   $(window).load(function (e) {
