@@ -755,7 +755,7 @@
                 </div>
                 <p class="player-name">
                   {{if twitter}}
-                    <a href="https://twitter.com/${twitter}" target="_blank" class="twitter-link">${name} <i class="icon-twitter"></i></a>
+                    <a href="https://twitter.com/${twitter.replace('@', '')}" target="_blank" class="twitter-link">${name} <i class="icon-twitter"></i></a>
                   {{else}}
                     ${name}
                   {{/if}}
@@ -780,7 +780,7 @@
         <a href="#" data-id="${key}" class="edit-link pull-right" title="編集・削除"><span class="material-icons">create</span></a>
         <p class="player-name">
           {{if members[0].twitter}}
-            <a href="https://twitter.com/${members[0].twitter}" target="_blank" class="twitter-link">${members[0].name} <i class="icon-twitter"></i></a>
+            <a href="https://twitter.com/${members[0].twitter.replace('@', '')}" target="_blank" class="twitter-link">${members[0].name} <i class="icon-twitter"></i></a>
           {{else}}
             ${members[0].name}
           {{/if}}
