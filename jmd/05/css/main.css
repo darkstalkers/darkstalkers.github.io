@@ -1606,23 +1606,42 @@ a.entry-btn, a:visited.entry-btn {
 
 #column .team .team-member {
   text-align: center;
-  width: 100px;
+  width: auto;
+  min-width: 180px;
   border: 1px solid #8a8a8a;
+}
+
+@media (max-width: 481px) {
+  #column .team .team-member {
+    width: 33%;
+    min-width: 0;
+  }
 }
 
 #column .team .team-member:not(:last-child) {
   border-right-width: 0;
 }
 
-#column .team .team-member .picture {
-  padding: 8px;
+#column .team .team-member .picture, #column .team .team-member .player {
+  padding: 12px;
+}
+
+@media (max-width: 481px) {
+  #column .team .team-member .picture, #column .team .team-member .player {
+    padding: 8px;
+  }
 }
 
 #column .team .team-member .player {
-  padding: 8px 0;
   border-top: 1px solid #8a8a8a;
   letter-spacing: 1px;
-  font-size: 13px;
+  font-size: 12px;
+}
+
+@media (max-width: 481px) {
+  #column .team .team-member .player {
+    font-size: 10px;
+  }
 }
 
 #column > hr {

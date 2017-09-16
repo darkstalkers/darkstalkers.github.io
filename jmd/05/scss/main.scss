@@ -1392,19 +1392,29 @@ a.entry-btn, a:visited.entry-btn{
     margin-bottom: 1em;
     .team-member {
       text-align: center;
-      width: 100px;
+      width: auto;
+      min-width: 180px;
       border: 1px solid #8a8a8a;
+      @media (max-width: 481px) {
+        width: 33%;
+        min-width: 0;
+      }
       &:not(:last-child) {
         border-right-width: 0;
       }
-      .picture {
-        padding: 8px;
+      .picture, .player {
+        padding: 12px;
+        @media (max-width: 481px) {
+          padding: 8px;
+        }
       }
       .player {
-        padding: 8px 0;
         border-top: 1px solid #8a8a8a;
         letter-spacing: 1px;
-        font-size: 13px;
+        font-size: 12px;
+        @media (max-width: 481px) {
+          font-size: 10px;
+        }
       }
     }
   }
