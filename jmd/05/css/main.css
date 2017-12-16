@@ -1106,6 +1106,18 @@ dd {
   }
 }
 
+.thumb-list.brackets-list {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100% / 8;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
 .thumb-list li img {
   width: 100%;
 }
