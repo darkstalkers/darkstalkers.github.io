@@ -27,7 +27,7 @@ body {
 
 @media (max-width: 768px) {
   body {
-    background-position: center 26px;
+    background-position: center 88px;
     background-size: contain;
   }
 }
@@ -98,10 +98,16 @@ body {
 
 @media (max-width: 768px) {
   .event-info {
-    margin-top: 186px;
+    margin-top: 256px;
     margin-bottom: 24px;
     padding-top: 24px;
     padding-right: 8px;
+  }
+}
+
+@media (max-width: 321px) {
+  .event-info {
+    margin-top: 226px;
   }
 }
 

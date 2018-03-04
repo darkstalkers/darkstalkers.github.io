@@ -27,7 +27,7 @@ body {
   background: #000 url(../img/background.jpg) no-repeat center 0;
   background-attachment: fixed;
   @media (max-width: $mobile-breakpoint) {
-    background-position: center 26px;
+    background-position: center 88px;
     background-size: contain;
   }
 }
@@ -79,10 +79,13 @@ body {
   background: rgba(#000, 0.5);
   background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.8), transparent);
   @media (max-width: $mobile-breakpoint) {
-    margin-top: 186px;
+    margin-top: 256px;
     margin-bottom: 24px;
     padding-top: 24px;
     padding-right: 8px;
+  }
+  @media (max-width: 321px) {
+    margin-top: 226px;
   }
   div {
     display: inline-block;
