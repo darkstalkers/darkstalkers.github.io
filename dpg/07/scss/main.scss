@@ -962,13 +962,13 @@ dd {
     margin: 0;
     box-sizing: border-box;
     padding: 0;
+    display: flex;
     li {
       padding: 0;
       margin: 0;
       text-align: center;
       display: inline-block;
       max-width: 200px;
-      width: 48%;
       box-sizing: border-box;
       padding: 1em;
       img {

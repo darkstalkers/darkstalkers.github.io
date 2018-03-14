@@ -1097,6 +1097,9 @@ dd {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #archive ul li {
@@ -1105,7 +1108,6 @@ dd {
   text-align: center;
   display: inline-block;
   max-width: 200px;
-  width: 48%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 1em;
