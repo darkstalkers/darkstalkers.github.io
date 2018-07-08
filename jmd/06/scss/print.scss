@@ -1,0 +1,77 @@
+.container {
+  padding: 0;
+  background: white;
+  background-image: none;
+  width: auto;
+  height: auto;
+  overflow: auto;
+  position: static;
+}
+.contents {
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  > section {
+    background: white;
+    border: none !important;
+  }
+}
+.player-name {
+  font-size: 24px;
+}
+.player-chara {
+  font-size: 16px;
+}
+.player-comment {
+  height: 3em;
+}
+#entries {
+  padding: 1em;
+}
+#entries > h3 {
+  padding: 0;
+}
+* {
+  color: #000 !important;
+  text-shadow: none !important;
+}
+ul.members {
+  padding-bottom: 4em;
+}
+.team {
+  .team-no, h4 {
+    font-size: 32px;
+  }
+  h4 {
+    margin: 16px 0;
+  }
+  dl {
+    margin: 0 0 1em -58px;
+  }
+}
+
+#teams {
+  >li {
+    border: 1px solid gray;
+    padding-left: 1em !important;
+  }
+  >li:nth-child(odd) {
+    border-bottom: none;
+  }
+  >li:nth-child(2n) {
+    page-break-after: always;
+  }
+}
+#entry-summary {
+  page-break-before: always;
+}
+#region-count {
+  column-count: 3;
+}
+
+#entry-summary {
+  padding: 1em 1em 0;
+  h3 {
+    padding: 0;
+  }
+}
