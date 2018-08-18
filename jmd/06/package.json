@@ -1,5 +1,5 @@
 {
-  "name": "dpg5",
+  "name": "jmd6",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -9,23 +9,24 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.9.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-babel": "^6.1.2",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^7.0.1",
     "gulp-cached": "^1.1.0",
     "gulp-foreach": "^0.1.0",
-    "gulp-if": "^2.0.0",
-    "gulp-live-server": "0.0.29",
-    "gulp-load-plugins": "^1.2.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^2.2.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-watch": "^4.3.5",
-    "lodash": "^4.3.0",
-    "sass-graph": "^2.1.1"
+    "gulp-if": "^2.0.2",
+    "gulp-live-server": "0.0.31",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-watch": "^5.0.1",
+    "lodash": "^4.17.10",
+    "sass-graph": "^3.0.0"
   },
   "dependencies": {
-    "node-sass": "^4.7.2"
+    "node-sass": "^4.9.3"
   }
 }

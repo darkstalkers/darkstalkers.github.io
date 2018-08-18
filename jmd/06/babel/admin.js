@@ -85,7 +85,7 @@ $(function(){
 
   // firebase
   var database = firebase.database();
-  var ref = database.ref('05/data');
+  var ref = database.ref('06/data');
   var teamsRef = ref.child('teams');
   var singlesRef = ref.child('singles');
 

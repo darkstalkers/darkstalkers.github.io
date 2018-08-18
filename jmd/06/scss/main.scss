@@ -88,7 +88,7 @@ body {
   display: inline-block;
   overflow: visible;
   text-align: center;
-  margin: 0 auto 10em;
+  margin: 0 auto 3em;
   position: relative;
 }
 .event-info div {
@@ -120,29 +120,11 @@ body {
   margin-left: 0.2em;
 }
 .happy20th {
-  text-align: right;
-  position: absolute;
-  bottom: -2.8em;
-  right: -1em;
-  font-family: 'Times New Roman', "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-  color: #fff;
-  text-shadow: 0px 0px 10px red, 0px 0px 10px red;
-  font-size: 36px;
-  font-style: italic;
-  font-weight: bold;
-  filter: sepia(30%);
-  .number {
-    font-size: 42px;
-  }
+  text-align: center;
   img {
     width: 150px;
   }
   @media (max-width: $mobile-breakpoint) {
-    position: static;
-    font-size: 24px;
-    .number {
-      font-size: 28px;
-    }
     img {
       width: 96px;
     }
@@ -395,7 +377,7 @@ body {
 .container {
   background: url(../img/background.png);
   background-repeat: no-repeat;
-  background-position: center 180px;
+  background-position: center 140px;
   // background-attachment: fixed;
   // background-size: contain;
   width: 100%;

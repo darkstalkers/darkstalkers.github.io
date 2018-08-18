@@ -80,6 +80,7 @@ ul#teams, ul.members, ul.singles, ul.count {
 }
 
 ul.singles, ul.count {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -388,6 +389,8 @@ label {
 }
 
 .animate {
+  -webkit-transition: background linear 10s;
+  -o-transition: background linear 10s;
   transition: background linear 10s;
   background: transparent;
 }
@@ -607,15 +610,20 @@ label {
   text-align: right;
 }
 
-.join-party {
+.entry-icon {
   display: block;
   font-size: 16px;
   padding: 4px 0;
   color: #ccc;
+  text-shadow: none;
 }
 
-.edit-link {
-  display: none;
+.matching-icon {
+  display: inline-block;
+  font-size: 16px;
+  padding: 4px 0;
+  color: #fff;
+  text-shadow: none;
 }
 
 /*# sourceMappingURL=entry.css.map */

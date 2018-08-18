@@ -116,7 +116,7 @@ $(function () {
 
   // firebase
   var database = firebase.database();
-  var ref = database.ref('05/data');
+  var ref = database.ref('06/data');
   var teamsRef = ref.child('teams');
   var singlesRef = ref.child('singles');
   var entries = {};
@@ -524,6 +524,7 @@ $(function () {
       // チーム名
       data.name = $('#teamName').val();
     }
+    data.matching = $('input[name=matching]:checked').val() || '';
     return data;
   }
 
@@ -555,6 +556,14 @@ $(function () {
       $('#teamName').val(entry.name);
     } else {
       $('#type-single').prop('checked', true).trigger('change');
+    }
+    var matching = entry.matching;
+    if (matching) {
+      if (matching == 1) {
+        $('#matching-ok').prop('checked', true);
+      } else {
+        $('#matching-ng').prop('checked', true);
+      }
     }
   }
 
@@ -662,7 +671,8 @@ $(function () {
     $('.pass .badge')[0].style.cssText = '';
     $('#pass').addClass('require').prop('placeholder', '');
     $('.team-entry-form')[0].reset();
-    $('.team-entry-form > .form-group')[0].style.cssText = '';
+    $('.team-entry-form > .form-group')[0].style.cssText = ''; // 種別
+    $('.team-entry-form > .form-group')[1].style.cssText = ''; // 斡旋希望
     $('.edit-form')[0].reset();
     changeForm();
     enableActionButtons(true);

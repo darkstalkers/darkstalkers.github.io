@@ -540,14 +540,23 @@ label {
   text-align: right;
 }
 
-.join-party {
+.entry-icon {
   display: block;
   font-size: 16px;
   padding: 4px 0;
   color: #ccc;
+  text-shadow: none;
+}
+
+.matching-icon {
+  display: inline-block;
+  font-size: 16px;
+  padding: 4px 0;
+  color: #fff;
+  text-shadow: none;
 }
 
 // 編集無効
-.edit-link {
-  display: none;
-}
+// .edit-link {
+//   display: none;
+// }

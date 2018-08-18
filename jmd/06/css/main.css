@@ -146,7 +146,8 @@ body {
   margin: 0 auto;
   color: #fff;
   /*padding: 8px;*/
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .contents {
@@ -215,7 +216,7 @@ body {
   display: inline-block;
   overflow: visible;
   text-align: center;
-  margin: 0 auto 10em;
+  margin: 0 auto 3em;
   position: relative;
 }
 
@@ -251,22 +252,7 @@ body {
 }
 
 .happy20th {
-  text-align: right;
-  position: absolute;
-  bottom: -2.8em;
-  right: -1em;
-  font-family: 'Times New Roman', "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-  color: #fff;
-  text-shadow: 0px 0px 10px red, 0px 0px 10px red;
-  font-size: 36px;
-  font-style: italic;
-  font-weight: bold;
-  -webkit-filter: sepia(30%);
-          filter: sepia(30%);
-}
-
-.happy20th .number {
-  font-size: 42px;
+  text-align: center;
 }
 
 .happy20th img {
@@ -274,13 +260,6 @@ body {
 }
 
 @media (max-width: 600px) {
-  .happy20th {
-    position: static;
-    font-size: 24px;
-  }
-  .happy20th .number {
-    font-size: 28px;
-  }
   .happy20th img {
     width: 96px;
   }
@@ -338,7 +317,8 @@ body {
   display: inline-block;
   margin: 15px 0;
   width: 2em;
-  box-shadow: 0px 0px 10px red, 0px 0px 10px red;
+  -webkit-box-shadow: 0px 0px 10px red, 0px 0px 10px red;
+          box-shadow: 0px 0px 10px red, 0px 0px 10px red;
   border-top: 5px solid #eee !important;
 }
 
@@ -361,6 +341,7 @@ body {
   /* border-radius: 1em; */
   margin-bottom: 2em;
   color: #FFF;
+  -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   border: 1px solid #5E4743;
@@ -530,6 +511,7 @@ small {
 }
 
 .event-summary dd {
+  -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0.2em 0 0.2em 8.5em;
@@ -547,7 +529,7 @@ a, a:visited {
 .container {
   background: url(../img/background.png);
   background-repeat: no-repeat;
-  background-position: center 180px;
+  background-position: center 140px;
   width: 100%;
   height: 100%;
   overflow: scroll;
@@ -616,6 +598,7 @@ dd {
 
 .photo img {
   border: 6px solid #ddd;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -764,7 +747,7 @@ a.list-group-item {
   margin-bottom: 0.5em;
   padding: 0.4em;
   background: rgba(0, 0, 0, 0.5);
-  background: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, 0.8), transparent);
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
   letter-spacing: 3px;
 }
 
@@ -785,15 +768,20 @@ a.list-group-item {
   position: absolute;
   right: 16px;
   margin-bottom: 2px;
+  -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 
 .entry-btn.savior {
+  background: -o-linear-gradient(top, #82bee9, #458dcb);
+  background: -webkit-gradient(linear, left top, left bottom, from(#82bee9), to(#458dcb));
   background: linear-gradient(to bottom, #82bee9, #458dcb);
 }
 
 .entry-btn.hunter {
+  background: -o-linear-gradient(top, #85e185, #5eba5e);
+  background: -webkit-gradient(linear, left top, left bottom, from(#85e185), to(#5eba5e));
   background: linear-gradient(to bottom, #85e185, #5eba5e);
 }
 
@@ -812,6 +800,7 @@ a.list-group-item {
 }
 
 .timetable dd {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px dotted gray;
 }
@@ -917,6 +906,7 @@ a.list-group-item {
 .member-list li {
   margin: 0;
   padding: 0.2em;
+  -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
@@ -972,6 +962,7 @@ dt:after {
 }
 
 dd {
+  -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0.2em 0 0.2em 8.5em;
@@ -1107,15 +1098,18 @@ dd {
 }
 
 .thumb-list.brackets-list {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100% / 8;
-  -ms-flex-pack: center;
-      justify-content: center;
-  -ms-flex-align: center;
-      align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .thumb-list li img {
@@ -1387,6 +1381,8 @@ a.entry-btn, a:visited.entry-btn {
 
 .gnav ul {
   visibility: hidden;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
   transition: .2s;
   position: absolute;
   opacity: 0;
@@ -1405,6 +1401,8 @@ a.entry-btn, a:visited.entry-btn {
   text-decoration: none;
   color: white;
   font-size: 100%;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
   transition: .2s;
 }
 
@@ -1427,6 +1425,8 @@ a.entry-btn, a:visited.entry-btn {
   right: 0;
   cursor: pointer;
   padding: 8px 14px;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
   transition: .2s;
   background-color: #CB0100;
   border-radius: 3px;
@@ -1440,8 +1440,10 @@ a.entry-btn, a:visited.entry-btn {
 #archive ul {
   list-style: none;
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
@@ -1452,7 +1454,8 @@ a.entry-btn, a:visited.entry-btn {
   text-align: center;
   display: inline-block;
   max-width: 200px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 1em;
 }
 
@@ -1461,7 +1464,8 @@ a.entry-btn, a:visited.entry-btn {
 }
 
 #archive ul img:hover {
-  box-shadow: 0 0 20px 0 red;
+  -webkit-box-shadow: 0 0 20px 0 red;
+          box-shadow: 0 0 20px 0 red;
 }
 
 #archive ul li a:hover {
@@ -1582,7 +1586,8 @@ a.entry-btn, a:visited.entry-btn {
   width: 2em;
   margin: 10px 0;
   border-top: 3px solid #eee;
-  box-shadow: 0px 0px 10px red, 0px 0px 10px red;
+  -webkit-box-shadow: 0px 0px 10px red, 0px 0px 10px red;
+          box-shadow: 0px 0px 10px red, 0px 0px 10px red;
 }
 
 @media all and (max-width: 480px) {
@@ -1611,6 +1616,7 @@ a.entry-btn, a:visited.entry-btn {
 }
 
 #column .team {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 1em;

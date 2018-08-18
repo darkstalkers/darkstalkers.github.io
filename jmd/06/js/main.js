@@ -27,7 +27,7 @@
       if (diff < 0) {
         diff = 0;
       }
-      bg.style.backgroundPosition = 'center calc(180px + ' + diff + '%)';
+      bg.style.backgroundPosition = 'center calc(140px + ' + diff + '%)';
     }, false);
   } else {
     bg.style.backgroundSize = 'cover';
@@ -38,6 +38,9 @@
     $('.gnav').toggleClass('menu_open');
   });
   $('body').on('click', function (e) {
+    if (!e || !e.originalEvent) {
+      return;
+    }
     if (window.innerWidth > 600) {
       if (!e.originalEvent.srcElement.classList.contains('close-ignore')) {
         $('.gnav').removeClass('menu_open');
