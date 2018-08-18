@@ -318,6 +318,7 @@ $(function(){
   function createTeamsData() {
     var rowHeader = [
       'チーム名',
+      '斡旋希望',
       '1:プレイヤー名',
       '1:使用キャラ',
       '1:コメント',
@@ -347,6 +348,7 @@ $(function(){
       var team = teams[i];
       var columns = [];
       columns.push(team.name || '');
+      columns.push(team.matching || '');
       team.members.forEach(member => {
         columns.push(member.name || '');
         let chara = charas[member.character];
@@ -376,6 +378,7 @@ $(function(){
   function createSinglesData() {
     var rowHeader = [
       'プレイヤー名',
+      '斡旋希望',
       '使用キャラ',
       'コメント',
       '主な活動地域',
@@ -390,6 +393,7 @@ $(function(){
       var columns = [];
       single.members.forEach(member => {
         columns.push(member.name || '');
+        columns.push(single.matching || '');
         let chara = charas[member.character];
         if (!chara) {
           chara = {

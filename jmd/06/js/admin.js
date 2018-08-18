@@ -301,13 +301,14 @@ $(function () {
   });
 
   function createTeamsData() {
-    var rowHeader = ['チーム名', '1:プレイヤー名', '1:使用キャラ', '1:コメント', '1:主な活動地域', '1:主なプレイ環境', '1:セイヴァー歴', '1:打ち上げ', '2:プレイヤー名', '2:使用キャラ', '2:コメント', '2:主な活動地域', '2:主なプレイ環境', '2:セイヴァー歴', '2:打ち上げ', '3:プレイヤー名', '3:使用キャラ', '3:コメント', '3:主な活動地域', '3:主なプレイ環境', '3:セイヴァー歴', '3:打ち上げ', '更新日時'];
+    var rowHeader = ['チーム名', '斡旋希望', '1:プレイヤー名', '1:使用キャラ', '1:コメント', '1:主な活動地域', '1:主なプレイ環境', '1:セイヴァー歴', '1:打ち上げ', '2:プレイヤー名', '2:使用キャラ', '2:コメント', '2:主な活動地域', '2:主なプレイ環境', '2:セイヴァー歴', '2:打ち上げ', '3:プレイヤー名', '3:使用キャラ', '3:コメント', '3:主な活動地域', '3:主なプレイ環境', '3:セイヴァー歴', '3:打ち上げ', '更新日時'];
     var rows = [];
     rows.push(rowHeader);
     for (var i = 0, len = teams.length; i < len; i++) {
       var team = teams[i];
       var columns = [];
       columns.push(team.name || '');
+      columns.push(team.matching || '');
       team.members.forEach(function (member) {
         columns.push(member.name || '');
         var chara = charas[member.character];
@@ -335,7 +336,7 @@ $(function () {
     return lines.join('\n');
   }
   function createSinglesData() {
-    var rowHeader = ['プレイヤー名', '使用キャラ', 'コメント', '主な活動地域', '主なプレイ環境', 'セイヴァー歴', '打ち上げ'];
+    var rowHeader = ['プレイヤー名', '斡旋希望', '使用キャラ', 'コメント', '主な活動地域', '主なプレイ環境', 'セイヴァー歴', '打ち上げ'];
     var rows = [];
     rows.push(rowHeader);
     for (var i = 0, len = singles.length; i < len; i++) {
@@ -343,6 +344,7 @@ $(function () {
       var columns = [];
       single.members.forEach(function (member) {
         columns.push(member.name || '');
+        columns.push(single.matching || '');
         var chara = charas[member.character];
         if (!chara) {
           chara = {
