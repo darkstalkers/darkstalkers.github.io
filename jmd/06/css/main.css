@@ -1683,6 +1683,10 @@ a.entry-btn, a:visited.entry-btn {
   color: #7ec2d8;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 .emoji {
   font-family: "Segoe UI Emoji", sans-serif;
 }
