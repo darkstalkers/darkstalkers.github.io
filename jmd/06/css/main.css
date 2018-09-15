@@ -1193,6 +1193,20 @@ dd {
   }
 }
 
+.tournament {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.tournament > li {
+  max-width: 50%;
+  padding: 8px;
+  margin: 0;
+}
+
 /* for mobile */
 @media all and (max-width: 600px) {
   .result-summary {
@@ -1531,6 +1545,18 @@ a.entry-btn, a:visited.entry-btn {
   right: 0;*/
     width: 100% !important;
     height: 100% !important;
+  }
+  .tournament {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .tournament > li {
+    max-width: 100%;
+    padding: 8px;
+    margin: 0;
   }
 }
 

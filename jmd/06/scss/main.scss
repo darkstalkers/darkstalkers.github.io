@@ -980,6 +980,16 @@ dd {
   }
 }
 
+.tournament {
+  display: flex;
+  flex-wrap: wrap;
+  >li {
+    max-width: 50%;
+    padding: 8px;
+    margin: 0;
+  }
+}
+
 
 /* for mobile */
 @media all and (max-width: $mobile-breakpoint) {
@@ -1305,6 +1315,15 @@ a.entry-btn, a:visited.entry-btn{
   right: 0;*/
   width: 100% !important;
   height: 100% !important;
+}
+.tournament {
+  display: flex;
+  flex-wrap: wrap;
+  >li {
+    max-width: 100%;
+    padding: 8px;
+    margin: 0;
+  }
 }
 }
 
