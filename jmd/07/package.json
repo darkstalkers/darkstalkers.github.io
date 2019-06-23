@@ -1,0 +1,32 @@
+{
+  "name": "jmd6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-each": "^0.5.0",
+    "gulp-if": "^2.0.2",
+    "gulp-live-server": "0.0.31",
+    "gulp-load-plugins": "^1.6.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-watch": "^5.0.1",
+    "lodash": "^4.17.11",
+    "sass-graph": "^3.0.4"
+  },
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  }
+}
