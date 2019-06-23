@@ -1,4 +1,2 @@
 User-Agent:*
-Disallow:
-
 Sitemap: http://darkstalkers-federation.org/sitmap.xml
