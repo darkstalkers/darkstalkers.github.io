@@ -115,7 +115,7 @@ $(function () {
   var lastModifyEntryKey = ''; // firebase
 
   var database = firebase.database();
-  var ref = database.ref('06/data');
+  var ref = database.ref('07/data');
   var teamsRef = ref.child('teams');
   var singlesRef = ref.child('singles');
   var entries = {}; // 設定
