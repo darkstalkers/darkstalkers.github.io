@@ -72,30 +72,28 @@ gulp.task('serve', gulp.series('build', () => {
   let server = gulpLiveServer.static('./', 8081);
   server.start();
   watching = true;
-  gulp.watch(
-    ['./**/*.{js,json}',
-    './node_modules/**/*.{js,json}', './package.json'], () => {
-    server.start().bind(server);
+  gulp.watch(['./**/*.{js,json}', './node_modules/**/*.{js,json}', './package.json'], (file) => {
+    gulp.task('scripts');
+    server.notify.apply(server, [file]);
   });
-  gulp.watch(
-    ['./**/*',
-    `!${SASS_DIR}/**/*`, `!${BABEL_DIR}/**/*`], (file) => {
-    server.notify.apply(server, file);
+  gulp.watch(['./**/*', `!${SASS_DIR}/**/*`, `!${BABEL_DIR}/**/*`], (file) => {
+    gulp.task('styles');
+    server.notify.apply(server, [file]);
   });
-  gulp.watch(SASS_FILES, () => {
-    gulp.start('styles');
+  gulp.watch(SASS_FILES, (file) => {
+    gulp.task('styles');
+    server.notify.apply(server, [file]);
   });
-  gulp.watch(BABEL_FILES, () => {
-    gulp.start('scripts');
+  gulp.watch(BABEL_FILES, (file) => {
+    gulp.task('scripts');
+    server.notify.apply(server, [file]);
   });
 }));
 
 // Watch files for changes & reload
 gulp.task('watch', gulp.series('styles', () => {
   watching = true;
-  gulp.watch(SASS_FILES, function() {
-    gulp.start('styles');
-  });
+  gulp.watch(SASS_FILES, ['styles']);
 }));
 
 gulp.task('default', gulp.series('serve'));

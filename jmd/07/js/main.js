@@ -16,25 +16,21 @@
       scrollTop: to
     }, 300);
   }); // smooth scroll
+  // var bg = document.querySelector('.container');
+  // if (window.innerWidth > 600) {
+  //   // bg.style.backgroundSize = `auto ${$(window).height()}px`;
+  //   bg.addEventListener('scroll', function(e){
+  //     var diff =  (bg.scrollTop / 50);
+  //     if (diff < 0) {
+  //       diff = 0;
+  //     }
+  //     bg.style.backgroundPosition = `center calc(140px + ${diff}%)`;
+  //   }, false);
+  // } else {
+  //   bg.style.backgroundSize = `cover`;
+  // }
 
-  var bg = document.querySelector('.container');
-
-  if (window.innerWidth > 600) {
-    // bg.style.backgroundSize = `auto ${$(window).height()}px`;
-    bg.addEventListener('scroll', function (e) {
-      var diff = bg.scrollTop / 50;
-
-      if (diff < 0) {
-        diff = 0;
-      }
-
-      bg.style.backgroundPosition = "center calc(140px + ".concat(diff, "%)");
-    }, false);
-  } else {
-    bg.style.backgroundSize = "cover";
-  }
   /* gnav */
-
 
   $('#btn_menu').on('click', function () {
     $('.gnav').toggleClass('menu_open');
