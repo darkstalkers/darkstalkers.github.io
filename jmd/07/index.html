@@ -1028,7 +1028,7 @@
       <li id="${key}">
         <section class="team">
           <h4>
-            <a href="#" data-id="${key}" class="edit-link pull-right visible-edit" title="編集・削除"><span class="material-icons">create</span></a>
+            <a href="#" data-id="${key}" class="edit-link pull-right entry-action" title="編集・削除"><span class="material-icons">create</span></a>
             <span class="team-no">No. ${no}</span>
             ${name}
             {{if matching == 1 }}
@@ -1068,7 +1068,7 @@
             <span class="material-icons entry-icon">local_bar</span>
           {{/if}}
         </div>
-        <a href="#" data-id="${key}" class="edit-link pull-right visible-edit" title="編集・削除"><span class="material-icons">create</span></a>
+        <a href="#" data-id="${key}" class="edit-link pull-right entry-action" title="編集・削除"><span class="material-icons">create</span></a>
         <p class="player-name">
           {{if members[0].twitter}}
             <a href="https://twitter.com/${members[0].twitter.replace('@', '')}" target="_blank" class="twitter-link">${members[0].name} <i class="icon-twitter"></i></a>
