@@ -156,8 +156,14 @@ $(function () {
     var team = snapshot.val();
     var key = snapshot.key;
     team.no = ++teamNo;
-    team.key = key;
-    $('#template-team').tmpl(toTemplateFormat(team, 3)).fadeIn(1000).prependTo('#teams');
+    team.key = key; // エントリー受付中は新規エントリー順、停止後は受付順
+
+    if (config && config.open) {
+      $('#template-team').tmpl(toTemplateFormat(team, 3)).fadeIn(1000).prependTo('#teams');
+    } else {
+      $('#template-team').tmpl(toTemplateFormat(team, 3)).fadeIn(1000).appendTo('#teams');
+    }
+
     entries[key] = team;
     addOption('#target-team', team.name, key, true);
     teams.push(team);
