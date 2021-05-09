@@ -23,7 +23,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-watch": "^5.0.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "sass-graph": "^3.0.4"
   },
   "dependencies": {
