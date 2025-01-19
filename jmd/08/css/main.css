@@ -1661,6 +1661,7 @@ a.entry-btn, a:visited.entry-btn {
 }
 
 .underline {
+  display: inline !important;
   text-decoration: underline;
 }
 
