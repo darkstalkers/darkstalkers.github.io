@@ -1146,6 +1146,18 @@ dd {
   color: #ccc;
 }
 
+.explain .icon {
+  display: inline-block;
+  font-size: 16px;
+  padding: 4px 0;
+  color: #fff;
+  text-shadow: none;
+}
+.explain .icon-party {
+  position: relative;
+  left: -1px;
+}
+
 /* for tablet */
 /* for mobile */
 /* for mobile */
