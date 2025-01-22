@@ -9,8 +9,12 @@ $(function(){
   ];
   var ENV = {
     arcade: 'アーケード',
-    ps3: 'PS3',
-    xbox: 'Xbox'
+    ps3: 'PS3/リザレク',
+    xbox: 'Xbox/リザレク',
+    steam: 'Steam/ファイコレ',
+    ps4: 'PS4/ファイコレ',
+    switch: 'Switch/ファイコレ',
+    xboxone: 'XboxOne/ファイコレ',
   }
 
   var CHARACTERS = [

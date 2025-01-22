@@ -2,6 +2,15 @@
 
 $(function () {
   var REGIONS = ['北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県', '新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県', '三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県', '鳥取県', '島根県', '岡山県', '広島県', '山口県', '徳島県', '香川県', '愛媛県', '高知県', '福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'];
+  var ENV = {
+    arcade: 'アーケード',
+    ps3: 'PS3/リザレク',
+    xbox: 'Xbox/リザレク',
+    steam: 'Steam/ファイコレ',
+    ps4: 'PS4/ファイコレ',
+    "switch": 'Switch/ファイコレ',
+    xboxone: 'XboxOne/ファイコレ'
+  };
   var CHARACTERS = [{
     id: 'anakaris',
     name: 'アナカリス',
@@ -310,7 +319,7 @@ $(function () {
         columns.push(chara.name);
         columns.push(member.comment || '');
         columns.push(REGIONS[parseInt(member.region, 10) - 1] || '');
-        columns.push(filterDefaultStr(member.env) || '');
+        columns.push(ENV[member.env] || '');
         columns.push(filterDefaultStr(member.history) || '');
         columns.push(member.after || '');
       });
@@ -344,7 +353,7 @@ $(function () {
         columns.push(chara.name);
         columns.push(member.comment || '');
         columns.push(REGIONS[parseInt(member.region, 10) - 1] || '');
-        columns.push(filterDefaultStr(member.env) || '');
+        columns.push(ENV[member.env] || '');
         columns.push(filterDefaultStr(member.history) || '');
         columns.push(member.after || '');
       });

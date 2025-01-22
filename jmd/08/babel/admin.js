@@ -9,6 +9,16 @@ $(function(){
   '佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県'
   ];
 
+  var ENV = {
+    arcade: 'アーケード',
+    ps3: 'PS3/リザレク',
+    xbox: 'Xbox/リザレク',
+    steam: 'Steam/ファイコレ',
+    ps4: 'PS4/ファイコレ',
+    switch: 'Switch/ファイコレ',
+    xboxone: 'XboxOne/ファイコレ'
+  };
+
   var CHARACTERS = [
     {
       id: 'anakaris',
@@ -360,7 +370,7 @@ $(function(){
         columns.push(chara.name);
         columns.push(member.comment || '');
         columns.push(REGIONS[parseInt(member.region, 10) - 1] || '');
-        columns.push(filterDefaultStr(member.env) || '');
+        columns.push(ENV[member.env] || '');
         columns.push(filterDefaultStr(member.history) || '');
         columns.push(member.after || '');
       });
@@ -403,7 +413,7 @@ $(function(){
         columns.push(chara.name);
         columns.push(member.comment || '');
         columns.push(REGIONS[parseInt(member.region, 10) - 1] || '');
-        columns.push(filterDefaultStr(member.env) || '');
+        columns.push(ENV[member.env] || '');
         columns.push(filterDefaultStr(member.history) || '');
         columns.push(member.after || '');
       });

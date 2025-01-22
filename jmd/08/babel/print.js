@@ -8,7 +8,10 @@ var PRINT_REGIONS = ['', '北海道','青森県','岩手県','宮城県','秋田
 ];
 var PRINT_ENV = {
   arcade: 'アーケード',
-  ps3: 'PS3',
-  xbox: 'Xbox',
-  other: 'その他'
+  ps3: 'PS3/リザレク',
+  xbox: 'Xbox/リザレク',
+  steam: 'Steam/ファイコレ',
+  ps4: 'PS4/ファイコレ',
+  switch: 'Switch/ファイコレ',
+  xboxone: 'XboxOne/ファイコレ',
 };
