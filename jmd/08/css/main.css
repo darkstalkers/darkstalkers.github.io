@@ -1723,4 +1723,8 @@ a.entry-btn, a:visited.entry-btn {
     margin-bottom: 0.3em;
   }
 }
+
+#env small {
+  margin: 0 0 0 1em;
+}
 /*# sourceMappingURL=main.css.map */
