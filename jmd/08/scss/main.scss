@@ -880,24 +880,28 @@ dd {
   color: #ddd;
 }
 
-.thumb-list li {
-  max-width: 11.11111111111111%;
-  float: left;
-  margin: 0.5%;
-}
-
-.thumb-list.brackets-list li {
-  @media all and (max-width: 480px) {
-    max-width: 32%;
-  }
-}
+// .thumb-list li {
+//   max-width: 11.11111111111111%;
+//   float: left;
+//   margin: 0.5%;
+// }
 
 .thumb-list.brackets-list {
   display: flex;
   flex-wrap: wrap;
-  width: 100% / 8;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  gap: 20px;
+  @media all and (max-width: 480px) {
+    justify-content: center;
+  }
+}
+
+.thumb-list.brackets-list li {
+  max-width: 200px;
+  @media all and (max-width: 480px) {
+    max-width: 300px;
+  }
 }
 
 .thumb-list li img {
