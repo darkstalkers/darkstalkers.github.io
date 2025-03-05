@@ -1731,4 +1731,18 @@ a.entry-btn, a:visited.entry-btn {
 #env small {
   margin: 0 0 0 1em;
 }
+
+#result .archive .video-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 10px;
+}
+#result .archive .video-link a {
+  font-size: 16px;
+}
+#result .archive .video-link .icon {
+  width: 24px;
+  margin: 0 4px 0 0;
+}
 /*# sourceMappingURL=main.css.map */
