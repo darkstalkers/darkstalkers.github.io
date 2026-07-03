@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Darkstalkers Federation';
+const description =
+  'Darkstalkers Federation は、2D格闘ゲーム「ヴァンパイア」シリーズを応援するコミュニティです。ヴァンパイア関連の情報発信や大会運営などの活動を行っています。';
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="max-w-2xl mx-auto px-4 py-8 min-h-screen font-sans">
+    <h1 class="text-2xl font-bold mb-4" style="text-shadow: 0 0 10px red, 0 0 10px red;">
+      Darkstalkers Federation
+    </h1>
+
+    <p class="mb-2">
+      Darkstalkers Federationへようこそ！<br />
+      こちらは、2D格闘ゲーム「ヴァンパイア」シリーズを応援する有志のコミュニティです。
+      ヴァンパイア関連の各種情報のお知らせや大会運営などの活動を行っています。
+    </p>
+    <p class="mb-6">本サイトでは、今のところ各種大会の案内のみをしています。</p>
+
+    <section>
+      <h2 class="text-xl font-bold mb-4" style="text-shadow: 0 0 10px red, 0 0 10px red;">
+        Past Events
+      </h2>
+
+      <section class="pl-4 mb-6">
+        <h3 class="text-lg font-bold mb-2" style="text-shadow: 0 0 10px red, 0 0 10px red;">
+          Judgement Day
+        </h3>
+        <ul class="space-y-1">
+          <li>2013 - <a href="/judgementday/2013/index.html" class="hover:underline">Judgement Day</a></li>
+          <li>
+            2014 - <a href="/judgementday/02/index.html" class="hover:underline">Judgement Day 2</a>
+            | (<a href="/judgementday/2014/index.html" class="hover:underline">Teaser site</a>)
+          </li>
+          <li>2015 - <a href="/judgementday/03/index.html" class="hover:underline">Judgement Day 3</a></li>
+          <li>2016 - <a href="/jmd/04/index.html" class="hover:underline">Judgement Day 4</a></li>
+          <li>2017 - <a href="/jmd/05/index.html" class="hover:underline">Judgement Day 5</a></li>
+          <li>2018 - <a href="/jmd/06/index.html" class="hover:underline">Judgement Day 6</a></li>
+          <li>2019 - <a href="/jmd/07/index.html" class="hover:underline">Judgement Day 7</a></li>
+          <li>2025 - <a href="/jmd/08/" class="hover:underline">Judgement Day 8</a></li>
+        </ul>
+      </section>
+
+      <section class="pl-4">
+        <h3 class="text-lg font-bold mb-2" style="text-shadow: 0 0 10px red, 0 0 10px red;">
+          Devil's PlayGround
+        </h3>
+        <ul class="space-y-1">
+          <li><a href="/dpg/03/index.html" class="hover:underline">Devil's PlayGround 3</a></li>
+          <li><a href="/dpg/04/index.html" class="hover:underline">Devil's PlayGround 4</a></li>
+          <li><a href="/dpg/05/index.html" class="hover:underline">Devil's PlayGround 5</a></li>
+          <li><a href="/dpg/06/index.html" class="hover:underline">Devil's PlayGround 6</a></li>
+          <li><a href="/dpg/07/index.html" class="hover:underline">Devil's PlayGround 7</a></li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Darkstalkers Federation',
+    url: 'https://darkstalkers-federation.org',
+    description,
+  })} />
+</BaseLayout>

@@ -1,0 +1,380 @@
+---
+import Nav from '../../../components/jmd/Nav';
+import EntrySection from '../../../components/jmd/EntrySection';
+import ImageLightbox from '../../../components/jmd/ImageLightbox';
+
+const title = 'Judgement Day 8（ジャッジメント・デイ8） ー ヴァンパイアセイヴァー3on3';
+const description = 'Judgement Day 8（ジャッジメント・デイ8） ― ヴァンパイアセイヴァー3on3 3月1日（土）東京にて開催！';
+const canonicalUrl = 'https://darkstalkers-federation.org/jmd/08/';
+const ogImage = 'https://darkstalkers-federation.org/jmd/08/img/ogp.png';
+
+const finalImages = [
+  { src: '/jmd/08/img/result/Final.JPG' },
+];
+const secondImages = [
+  { src: '/jmd/08/img/result/2_1.JPG' },
+  { src: '/jmd/08/img/result/2_2.JPG' },
+];
+const playoffImages = [
+  { src: '/jmd/08/img/result/PlayOff_A.JPG' },
+  { src: '/jmd/08/img/result/PlayOff_B.JPG' },
+];
+const firstImages = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].map(
+  l => ({ src: `/jmd/08/img/result/${l}.JPG` })
+);
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="description" content={description}>
+    <meta name="keywords" content="Judgement Day,ジャッジメント・デイ,JMD,ヴァンパイア,ヴァンパイアセイヴァー">
+    <link rel="canonical" href={canonicalUrl}>
+
+    <meta property="og:title" content={title}>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonicalUrl}>
+    <meta property="og:image" content={ogImage}>
+    <meta property="og:description" content={description}>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={ogImage}>
+
+    <!-- JSON-LD Event -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Judgement Day 8（ジャッジメント・デイ8）",
+      "description": "ヴァンパイアセイヴァー3on3大会",
+      "startDate": "2025-03-01T10:00+09:00",
+      "endDate": "2025-03-01T20:00+09:00",
+      "location": {
+        "@type": "Place",
+        "name": "eスポフィールド",
+        "url": "https://espofield.com/"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Darkstalkers Federation",
+        "url": "https://darkstalkers-federation.org"
+      },
+      "url": canonicalUrl,
+      "image": ogImage,
+    })} />
+
+    <link rel="shortcut icon" href="/jmd/08/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/jmd/08/css/main.css">
+    <link rel="stylesheet" href="/jmd/08/css/entry.css">
+  </head>
+  <body>
+    <Nav client:only="react" />
+
+    <div class="container">
+      <header id="top">
+        <div class="title-logo">
+          <h1 class="logo">
+            <img src="/jmd/08/img/title-logo.png" alt="Judgement Day（ジャッジメント・デイ）">
+            <span class="times">8</span>
+          </h1>
+          <p class="catchphrase">
+            <span>審判<span class="hiragana">の</span>日<span class="hiragana">に </span>集結<span class="hiragana">せよ</span> <span class="inline-line"></span> 。</span>
+          </p>
+          <div class="event-info">
+            <div class="event-date">
+              <time datetime="2025-03-01">
+                <span class="year">2025.</span><span class="month-date">3.1</span><span class="day">Sat</span>
+              </time>
+            </div>
+            <p class="happy20th"><img src="/jmd/08/img/vs_logo.png" alt="Vampire Savior"><span></span></p>
+          </div>
+        </div>
+        <div class="social">
+          <ul>
+            <li class="twitter">
+              <a href="https://twitter.com/share" class="twitter-share-button"
+                data-url="https://darkstalkers-federation.org/jmd/08/"
+                data-text="Judgement Day 8" data-via="ds_federation"
+                data-lang="ja" data-hashtags="JMD8">ツイート</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <div class="contents">
+
+        <!-- 大会概要 -->
+        <section id="summary" itemscope itemtype="https://schema.org/Event">
+          <meta itemprop="name" content="Judgement Day 8（ジャッジメント・デイ8）">
+          <meta itemprop="startDate" content="2025-03-01T00:00+09">
+          <h2 class="event-title">大会概要</h2>
+          <p>ヴァンパイアセイヴァー 3on3 大会<b>Judgement Day 8</b>が3月1日（土）に開催決定！</p>
+          <p>5年ぶりに世界最高峰の魔界劇場の幕が開く！全国から集結した闇の眷属たちによる妙技を味わえ！</p>
+          <div class="youtube">
+            <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/z9CFXly31RM?si=R95gj6-IKajHz-cV"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <dl class="event-summary">
+            <dt>イベント名称</dt><dd>Judgement Day 8</dd>
+            <dt>開催日時</dt><dd>2025年3月1日（土） 10:00〜</dd>
+            <dt>ゲームタイトル</dt><dd>ヴァンパイアセイヴァー</dd>
+            <dt>大会形式</dt>
+            <dd>予選 … 3チームor4チームによるリーグ戦or変則トーナメント（プレーオフあり）</dd>
+            <dd>決勝 … 8チームによるシングルイリミネーショントーナメント</dd>
+            <dt>入場料</dt>
+            <dd>お一人様 3,000円（大会参加費込み）/ 観戦のみの場合 2,000円</dd>
+            <dt>会場</dt>
+            <dd itemprop="location" itemscope itemtype="https://schema.org/Place">
+              <a itemprop="url" href="https://espofield.com/" target="_blank">
+                <span itemprop="name">eスポフィールド</span>
+              </a>
+            </dd>
+            <dt>配信</dt>
+            <dd><a href="https://www.twitch.tv/gamenewton" target="_blank">Twitch ニュートンチャンネル</a></dd>
+          </dl>
+        </section>
+
+        <!-- 対戦表・トーナメント表 -->
+        <section id="result">
+          <h2>対戦表・トーナメント表</h2>
+
+          <section class="archive">
+            <h3>決勝トーナメント</h3>
+            <div class="video-link">
+              <img src="/jmd/08/img/youtube.png" alt="" class="icon">
+              <a href="https://www.youtube.com/watch?v=AkDdDHOVP-c" target="_blank">
+                Vampire Savior 3on3 TEAM Battle「Judgement Day 8」Final Tournament
+              </a>
+            </div>
+            <ImageLightbox images={finalImages} client:only="react" />
+          </section>
+
+          <section class="archive">
+            <h3>二次予選</h3>
+            <div class="video-link">
+              <img src="/jmd/08/img/youtube.png" alt="" class="icon">
+              <a href="https://www.youtube.com/watch?v=njCvO9RTA7g" target="_blank">
+                Vampire Savior 3on3 TEAM Battle「Judgement Day 8」2nd round
+              </a>
+            </div>
+            <ImageLightbox images={secondImages} client:only="react" />
+          </section>
+
+          <section class="archive">
+            <h3>プレイオフ</h3>
+            <div class="video-link">
+              <img src="/jmd/08/img/youtube.png" alt="" class="icon">
+              <a href="https://www.youtube.com/watch?v=XVV8sMzWIaQ" target="_blank">
+                Vampire Savior 3on3 TEAM Battle「Judgement Day 8」playoff
+              </a>
+            </div>
+            <ImageLightbox images={playoffImages} client:only="react" />
+          </section>
+
+          <section class="archive">
+            <h3>一次予選</h3>
+            <div class="video-link">
+              <img src="/jmd/08/img/youtube.png" alt="" class="icon">
+              <a href="https://www.youtube.com/watch?v=NA1iBMWq2Nc" target="_blank">
+                Vampire Savior 3on3 TEAM Battle「Judgement Day 8」1st round
+              </a>
+            </div>
+            <ImageLightbox images={firstImages} client:only="react" />
+          </section>
+        </section>
+
+        <!-- エントリーリスト (React) -->
+        <EntrySection client:only="react" dbPath="08/data" iconBase="/jmd/08/img/icons/" readOnly={true} />
+
+        <!-- タイムテーブル -->
+        <section id="timetable">
+          <h2>タイムテーブル</h2>
+          <dl class="timetable">
+            <dt>10:00</dt><dd>開場および事前エントリー確認</dd>
+            <dt>11:00</dt><dd>1次予選開始</dd>
+            <dt>15:30</dt><dd>プレーオフ開始</dd>
+            <dt>16:30</dt><dd>2次予選開始</dd>
+            <dt>17:30</dt><dd>決勝トーナメント開始</dd>
+            <dt>19:30</dt><dd>表彰式～終了</dd>
+          </dl>
+          <small>※ スケジュールは当日の進行状況により、変更となる場合があります。</small>
+        </section>
+
+        <!-- 大会ルール -->
+        <section id="regulation">
+          <h2>大会ルール</h2>
+          <section>
+            <h3>レギュレーション</h3>
+            <div class="section-inner">
+              <ul>
+                <li>3on3チームマッチ</li>
+                <li>スピード：ターボ3固定</li>
+                <li>使用キャラの変更不可</li>
+                <li>その他は工場出荷デフォルト設定</li>
+                <li>特定技によるガード不能バグについては、広く認知されているので制限無し。ただしゲーム続行不能になるバグの利用は禁止（アナカリスの無敵状態は可）</li>
+                <li>試合開始前にジャンケンを行い、勝利した側がコンパネ選択権（1Por2P）を得る</li>
+                <li>試合開始前に先鋒の選手を審判に申告する。その後の変更は認めない</li>
+                <li><b class="underline">勝ち抜き戦とし、中堅以降の順序は自由に決定できる</b></li>
+                <li>コンパネの不具合が発生した場合はプレイを中断し、即座に運営へ申告すること</li>
+                <li>ダブルKOは再試合</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h3>大会進行の流れ</h3>
+            <div class="section-inner">
+              <b>1次予選</b>
+              <ul>
+                <li>1ブロック3枠のリーグ戦or4枠の変則トーナメントを行います</li>
+                <li><b class="underline">組み合わせは事前に運営がくじ引きを行い決定します。</b></li>
+                <li>1位14チームが2次予選へ進みます。</li>
+                <li>2位はプレーオフへ進みます</li>
+              </ul>
+              <b>プレーオフ</b>
+              <ul>
+                <li>2次予選に進出できる枠数は2枠</li>
+                <li>トーナメントを勝ち抜けた2チームが2次予選へ進出します。</li>
+              </ul>
+              <b>2次予選</b>
+              <ul>
+                <li>1位抜け14チーム+プレーオフ勝ち抜け2チームによる勝ち抜き戦を行います。</li>
+                <li>勝ち抜けた8チームが決勝トーナメントへ進出します。</li>
+              </ul>
+              <b>決勝トーナメント</b>
+              <ul>
+                <li>8枠のシングルイリミネーショントーナメント</li>
+                <li>組み合わせはくじ引きを行い、くじの番号順に対戦相手チームを指名</li>
+                <li>指名された側は1回限り拒否権を行使できます</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h3>注意事項</h3>
+            <div class="section-inner">
+              <ul>
+                <li>当日はライブ配信およびメディア取材等で会場内の映像配信や写真撮影が行われます。あらかじめご了承ください。</li>
+                <li>会場内は終日禁煙となります。</li>
+                <li>会場内への飲食物の持ち込みは厳禁です。</li>
+                <li><b class="underline">当日は会場全エリア貸切となりますので、通常利用時必要となる会員登録は必要ありません</b>。</li>
+                <li>児童の入場料はかかりません。</li>
+                <li>未成年者も入場、打ち上げの参加は可能ですが、飲酒は固くお断りいたします。</li>
+              </ul>
+            </div>
+          </section>
+        </section>
+
+        <!-- その他 -->
+        <section id="others">
+          <h2>その他</h2>
+          <section id="env">
+            <h3>当日の対戦環境について</h3>
+            <ul>
+              <li>▼ブラスト筐体4セット（うち2セットは大会用固定、レバーはサンワ製で統一）</li>
+              <li>▼設備ゲーミングPCにてSteam版ファイティングコレクションを4台稼働予定</li>
+              <li>▼液晶+HDMI主力基板を4台稼働予定</li>
+            </ul>
+          </section>
+          <section id="volunteers">
+            <h3>運営ボランティア募集！</h3>
+            <small style="text-decoration: underline;">※ 募集は締め切りました。ありがとうございました！</small>
+          </section>
+          <section id="archive">
+            <h3>アーカイブ（過去大会）</h3>
+            <ul>
+              <li><a href="/judgementday/2013/"><p>1st</p><img src="/jmd/08/img/past/1.png" alt=""></a></li>
+              <li><a href="/judgementday/02/"><p>2nd</p><img src="/jmd/08/img/past/2.png" alt=""></a></li>
+              <li><a href="/judgementday/03/"><p>3rd</p><img src="/jmd/08/img/past/3.png" alt=""></a></li>
+              <li><a href="/jmd/04/"><p>4th</p><img src="/jmd/08/img/past/4.png" alt=""></a></li>
+              <li><a href="/jmd/05/"><p>5th</p><img src="/jmd/08/img/past/5.png" alt=""></a></li>
+              <li><a href="/jmd/06/"><p>6th</p><img src="/jmd/08/img/past/6.png" alt=""></a></li>
+              <li><a href="/jmd/07/"><p>7th</p><img src="/jmd/08/img/past/7.png" alt=""></a></li>
+            </ul>
+          </section>
+          <section id="after">
+            <h3>後夜祭</h3>
+            <ul>
+              <li>2025年3月2日（日）</li>
+              <li>13:00開始（エントリー受付12:00〜12:30）</li>
+              <li>開催場所：ゲームニュートン大山店</li>
+              <li>形式：シングルトーナメント</li>
+              <li>参加費：200円</li>
+            </ul>
+          </section>
+          <section id="party">
+            <h3>打ち上げについて</h3>
+            <p class="after-party">
+              大会終了後にイベント会場を飲み会モードに転換し、その場で打ち上げを行います。
+              <small style="text-decoration: underline;">※ 募集は締め切りました。ありがとうございました！</small>
+            </p>
+            <dl class="party-summary">
+              <dt>場所</dt><dd><a href="https://espofield.com/" target="_blank">eスポフィールド</a></dd>
+              <dt>時間</dt><dd>大会終了後から2時間</dd>
+              <dt>会費</dt><dd>4,000円（ビュッフェ形式+飲み放題）</dd>
+            </dl>
+          </section>
+        </section>
+
+        <!-- スタッフ -->
+        <section id="staff" class="staff">
+          <h2>公式アカウント・スタッフ一覧</h2>
+          <ul class="staff-list">
+            {[
+              { img: 'ds_federation.jpg', name: 'DSFederation',     role: '公式アカウント',         twitter: 'ds_federation' },
+              { img: 'ririrililith.jpg',  name: 'リリィ',           role: '主催者',                twitter: 'ririrililith' },
+              { img: 'Celibaka.jpg',      name: 'せり',             role: '運営その1',             twitter: 'Celibaka' },
+              { img: 'meron.png',         name: 'デカメロン',       role: 'サイト構築・運営担当',   twitter: 'dekameronb' },
+              { img: 'matsuda4951.jpg',   name: '松田さん',         role: 'イベントバックアップ',   twitter: 'matsuda4951' },
+              { img: 'xo_bison.jpg',      name: 'ニュートン若松さん', role: 'イベントバックアップ', twitter: 'xo_bison' },
+            ].map(s => (
+              <li>
+                <div class="staff-logo-wrapper">
+                  <img src={`/jmd/08/img/staff/${s.img}`} class="staff-logo" alt={s.name}>
+                </div>
+                <div class="staff-info">
+                  <div class="staff-name">{s.name}</div>
+                  <div class="staff-role">{s.role}</div>
+                  <div class="staff-description">
+                    <a href={`https://twitter.com/${s.twitter}`} class="twitter-follow-button"
+                      data-show-count="false" data-lang="ja">@{s.twitter}さんをフォロー</a>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+
+      <footer>
+        <small>Illustration by アシオミマサト<br>&copy; Darkstalkers Federation 2025</small>
+      </footer>
+    </div>
+
+    <script>
+      // Parallax background
+      const bg = document.querySelector('.container') as HTMLElement;
+      if (bg) {
+        if (window.innerWidth > 600) {
+          bg.addEventListener('scroll', () => {
+            const diff = bg.scrollTop / 50;
+            bg.style.backgroundPosition = `center calc(100px + ${Math.max(0, diff)}%)`;
+          });
+        } else {
+          bg.style.backgroundPosition = 'center 100px';
+          bg.style.backgroundSize = 'contain';
+        }
+      }
+    </script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </body>
+</html>
