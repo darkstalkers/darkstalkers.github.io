@@ -12,7 +12,12 @@ const firebaseConfig = {
   appId: import.meta.env.PUBLIC_FIREBASE_APP_ID,
 };
 
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
-export const db = getDatabase(app);
-export const auth = getAuth(app);
-auth.languageCode = 'ja';
+const app      = getApps().find(a => a.name === '[DEFAULT]') ?? initializeApp(firebaseConfig);
+const adminApp = getApps().find(a => a.name === 'admin')     ?? initializeApp(firebaseConfig, 'admin');
+
+export const db        = getDatabase(app);
+export const auth      = getAuth(app);
+export const adminDb   = getDatabase(adminApp);
+export const adminAuth = getAuth(adminApp);
+auth.languageCode      = 'ja';
+adminAuth.languageCode = 'ja';

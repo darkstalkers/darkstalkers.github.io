@@ -4,9 +4,9 @@ import EntrySection from '../../../components/jmd/EntrySection';
 import ImageLightbox from '../../../components/jmd/ImageLightbox';
 
 const title = 'Judgement Day 9（ジャッジメント・デイ9） ー ヴァンパイアセイヴァー3on3';
-const description = 'Judgement Day 9（ジャッジメント・デイ9） ― ヴァンパイアセイヴァー3on3 東京にて開催！';
+const description = 'Judgement Day 9（ジャッジメント・デイ9） ― 2026年9月20日（日）eスポフィールドにて開催！ヴァンパイアセイヴァー大規模3on3大会。';
 const canonicalUrl = 'https://darkstalkers-federation.org/jmd/09/';
-const ogImage = 'https://darkstalkers-federation.org/jmd/08/img/ogp.png'; // 09用画像ができたら差し替え
+const ogImage = 'https://darkstalkers-federation.org/jmd/09/img/ogp.png';
 
 // 対戦表画像（08のものを暫定使用。09用画像ができたら差し替え）
 const finalImages   = [{ src: '/jmd/08/img/result/Final.JPG' }];
@@ -23,15 +23,20 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
     <title>{title}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta name="description" content={description}>
-    <meta name="keywords" content="Judgement Day,ジャッジメント・デイ,JMD,ヴァンパイア,ヴァンパイアセイヴァー">
+    <meta name="keywords" content="Judgement Day,ジャッジメント・デイ,JMD,JMD9,ヴァンパイア,ヴァンパイアセイヴァー,格闘ゲーム大会,格ゲー,3on3,東京,eスポフィールド,2026">
     <link rel="canonical" href={canonicalUrl}>
 
     <meta property="og:title" content={title}>
     <meta property="og:type" content="website">
     <meta property="og:url" content={canonicalUrl}>
     <meta property="og:image" content={ogImage}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:description" content={description}>
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="Darkstalkers Federation">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ds_federation">
     <meta name="twitter:title" content={title}>
     <meta name="twitter:description" content={description}>
     <meta name="twitter:image" content={ogImage}>
@@ -40,7 +45,20 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
       "@context": "https://schema.org",
       "@type": "Event",
       "name": "Judgement Day 9（ジャッジメント・デイ9）",
-      "description": "ヴァンパイアセイヴァー3on3大会",
+      "description": "ヴァンパイアセイヴァー大規模3on3大会",
+      "startDate": "2026-09-20",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "eスポフィールド",
+        "url": "https://espofield.com/",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "JP",
+          "addressLocality": "東京"
+        }
+      },
       "organizer": {
         "@type": "Organization",
         "name": "Darkstalkers Federation",
@@ -58,11 +76,9 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
     <link rel="stylesheet" href="/jmd/08/css/main.css">
     <link rel="stylesheet" href="/jmd/08/css/entry.css">
     <style>
-      /* TODO: JMD9用イラストが用意できたら background-image を差し替えること */
-      /* 参考: /jmd/08/css/main.css の .container に background.png が設定されている */
-      .container { background-image: none; }
+      .container { background-image: url('/jmd/09/img/background.png'); }
 
-      #archive ul { display: flex; flex-wrap: wrap; gap: 0 1.5em; padding: 0; }
+#archive ul { display: flex; flex-wrap: wrap; gap: 0 1.5em; padding: 0; }
       #archive ul li { display: inline; padding: 0.2em 1em; text-align: left; }
       #archive ul li a { font-size: 1.1em; color: #ccc; white-space: nowrap; }
       #archive ul li a:hover { color: #fff; text-decoration: underline; }
@@ -75,8 +91,7 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
       <header id="top">
         <div class="title-logo">
           <h1 class="logo">
-            <img src="/jmd/08/img/title-logo.png" alt="Judgement Day（ジャッジメント・デイ）">
-            <span class="times">9</span>
+            <img src="/jmd/09/img/title-logo.png" alt="Judgement Day 9（ジャッジメント・デイ9）">
           </h1>
           <p class="catchphrase">
             <span>審判<span class="hiragana">の</span>日<span class="hiragana">に </span>集結<span class="hiragana">せよ</span> <span class="inline-line"></span> 。</span>
@@ -117,8 +132,14 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
             <dt>大会形式</dt>
             <dd>予選 … 3チームor4チームによるリーグ戦or変則トーナメント（プレーオフあり）</dd>
             <dd>決勝 … 8チームによるシングルイリミネーショントーナメント</dd>
+            <dt>会場</dt>
+            <dd itemprop="location" itemscope itemtype="https://schema.org/Place">
+              <a itemprop="url" href="https://espofield.com/" target="_blank" rel="noopener noreferrer">
+                <span itemprop="name">eスポフィールド</span>
+              </a>
+            </dd>
             <dt>配信</dt>
-            <dd><a href="https://www.twitch.tv/gamenewton" target="_blank">Twitch ニュートンチャンネル</a></dd>
+            <dd><a href="https://www.twitch.tv/gamenewton" target="_blank" rel="noopener noreferrer">Twitch ニュートンチャンネル</a></dd>
           </dl>
         </section>
 
@@ -145,8 +166,7 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
           <p>詳細未定</p>
         </section> -->
 
-        <!-- 大会ルール（内容確定次第復活） -->
-        <!-- <section id="regulation">
+        <section id="regulation">
           <h2>大会ルール</h2>
           <section>
             <h3>レギュレーション</h3>
@@ -160,11 +180,31 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
                 <li>試合開始前にジャンケンを行い、勝利した側がコンパネ選択権（1Por2P）を得る</li>
                 <li>試合開始前に先鋒の選手を審判に申告する。その後の変更は認めない</li>
                 <li><b class="underline">勝ち抜き戦とし、中堅以降の順序は自由に決定できる</b></li>
+                <li>コンパネの不具合が発生した場合はプレイを中断し、即座に運営へ申告すること</li>
                 <li>ダブルKOは再試合</li>
               </ul>
             </div>
           </section>
-        </section> -->
+          <section>
+            <h3>大会進行の流れ</h3>
+            <div class="section-inner">
+              <p>未定</p>
+            </div>
+          </section>
+          <section>
+            <h3>注意事項</h3>
+            <div class="section-inner">
+              <ul>
+                <li>当日はライブ配信およびメディア取材等で会場内の映像配信や写真撮影が行われます。あらかじめご了承ください。</li>
+                <li>会場内は終日禁煙となります。</li>
+                <li>会場内への飲食物の持ち込みは厳禁です。</li>
+                <li><b class="underline">当日は会場全エリア貸切となりますので、通常利用時必要となる会員登録は必要ありません</b>。</li>
+                <li>児童の入場料はかかりません。</li>
+                <li>未成年者も入場、打ち上げの参加は可能ですが、飲酒は固くお断りいたします。</li>
+              </ul>
+            </div>
+          </section>
+        </section>
 
         <!-- その他 -->
         <section id="others">
@@ -193,6 +233,8 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
               { img: 'ririrililith.jpg',  name: 'リリィ',         role: '主催者',              twitter: 'ririrililith' },
               { img: 'Celibaka.jpg',      name: 'せり',           role: '運営その1',           twitter: 'Celibaka' },
               { img: 'dekamelon999.jpg',         name: 'デカメロン',     role: 'サイト構築・運営担当', twitter: 'dekamelon999' },
+              { img: 'matsuda4951.jpg',          name: '松田さん',       role: 'イベントバックアップ', twitter: 'matsuda4951' },
+              { img: 'xo_bison.jpg',             name: 'ニュートン若松さん', role: 'イベントバックアップ', twitter: 'xo_bison' },
             ].map(s => (
               <li>
                 <div class="staff-logo-wrapper">
@@ -203,7 +245,7 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
                   <div class="staff-role">{s.role}</div>
                   <div class="staff-description">
                     <a href={`https://twitter.com/${s.twitter}`} class="twitter-follow-button"
-                      data-show-count="false" data-lang="ja">@{s.twitter}さんをフォロー</a>
+                      data-show-count="false" data-lang="ja" target="_blank" rel="noopener noreferrer">@{s.twitter}さんをフォロー</a>
                   </div>
                 </div>
               </li>

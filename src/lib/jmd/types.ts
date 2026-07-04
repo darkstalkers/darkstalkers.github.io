@@ -7,6 +7,7 @@ export interface Member {
   env?: string;
   history?: string;
   after?: string;
+  byoc?: string;
 }
 
 export interface TeamEntry {
@@ -14,7 +15,6 @@ export interface TeamEntry {
   name: string;
   members: Member[];
   matching?: string;
-  email?: string;
   updatedAt?: string;
 }
 
@@ -22,7 +22,6 @@ export interface SingleEntry {
   key: string;
   members: Member[];
   matching?: string;
-  email?: string;
   updatedAt?: string;
 }
 

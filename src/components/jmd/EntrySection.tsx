@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ref, onValue, push, set, remove } from 'firebase/database';
+import { ref, onValue, push, set, update, get, query as dbQuery, orderByValue, equalTo } from 'firebase/database';
 import {
   sendSignInLinkToEmail,
   onAuthStateChanged,
@@ -84,15 +84,25 @@ function MemberFormGroup({ index, label, required, isTeam, member: m, onUpdate, 
       </div>
       */}
       <div className="form-group after">
-        <label className="col-sm-3 control-label">打ち上げに参加しますか？</label>
-        <div className="col-sm-6">
-          {[['1', '参加する'], ['0', '参加しない']].map(([val, lbl]) => (
-            <label key={val} className="radio-inline">
-              <input type="radio" name={`member${num}-after`} value={val}
-                checked={m.after === val} onChange={() => onUpdate(index, 'after', val)} />
-              {lbl}
-            </label>
-          ))}
+        <label className="col-sm-2 control-label">打ち上げ</label>
+        <div className="col-sm-10">
+          <label className="checkbox-inline">
+            <input type="checkbox"
+              checked={m.after === '1'}
+              onChange={e => onUpdate(index, 'after', e.target.checked ? '1' : '')} />
+            参加する
+          </label>
+        </div>
+      </div>
+      <div className="form-group">
+        <label className="col-sm-4 control-label">BYOC（コントローラーの持ち込み）</label>
+        <div className="col-sm-8">
+          <label className="checkbox-inline">
+            <input type="checkbox"
+              checked={m.byoc === '1'}
+              onChange={e => onUpdate(index, 'byoc', e.target.checked ? '1' : '')} />
+            希望する
+          </label>
         </div>
       </div>
       {index > 0 && (
@@ -130,7 +140,7 @@ function fmtDate(s?: string) {
 
 const BLANK_MEMBER = (): Member => ({
   name: '', character: '', twitter: '', comment: '',
-  region: '', env: '', history: '', after: '',
+  region: '', env: '', history: '', after: '', byoc: '',
 });
 
 interface FormState {
@@ -162,10 +172,11 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
   const [authLinkSent, setAuthLinkSent] = useState(false);
   const [pendingEditKey, setPendingEditKey] = useState('');
   const [loginToast, setLoginToast]   = useState(false);
+  const [ownedEntryKeys, setOwnedEntryKeys] = useState<Set<string>>(new Set());
 
   const canEntry = !readOnly && config.open;
   const canEditEntry = (entry: TeamEntry | SingleEntry) =>
-    !readOnly && config.open && !!user && entry.email?.toLowerCase() === user?.email?.toLowerCase();
+    !readOnly && config.open && !!user && ownedEntryKeys.has(entry.key);
   const canSubmit = !submitting
     && !!form.email.trim()
     && !!form.members[0].name.trim()
@@ -202,16 +213,28 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
 
   // ── Auth ────────────────────────────────────────────
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, u => {
+    const unsub = onAuthStateChanged(auth, async u => {
       setUser(u);
       if (u && window.sessionStorage.getItem('justSignedIn')) {
         window.sessionStorage.removeItem('justSignedIn');
         setLoginToast(true);
         setTimeout(() => setLoginToast(false), 3000);
       }
+      if (u?.email) {
+        const [teamSnap, singleSnap] = await Promise.all([
+          get(dbQuery(ref(db, `${dbPath}/team-emails`), orderByValue(), equalTo(u.email))),
+          get(dbQuery(ref(db, `${dbPath}/single-emails`), orderByValue(), equalTo(u.email))),
+        ]);
+        setOwnedEntryKeys(new Set([
+          ...Object.keys(teamSnap.val() ?? {}),
+          ...Object.keys(singleSnap.val() ?? {}),
+        ]));
+      } else {
+        setOwnedEntryKeys(new Set());
+      }
     });
     return unsub;
-  }, []);
+  }, [dbPath]);
 
   // /auth/ で認証完了後にリダイレクトで戻ってきたとき、editEntryKey を拾う
   useEffect(() => {
@@ -226,7 +249,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
     if (!user || !pendingEditKey) return;
     const entry = [...teams, ...singles].find(e => e.key === pendingEditKey);
     if (!entry) return;
-    if (entry.email?.toLowerCase() !== user.email?.toLowerCase()) {
+    if (!ownedEntryKeys.has(pendingEditKey)) {
       setMsg('このエントリーの編集権限がありません');
       setPendingEditKey('');
       return;
@@ -234,7 +257,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
     prefillForm(entry);
     setDialog('entry');
     setPendingEditKey('');
-  }, [user, pendingEditKey, teams, singles]);
+  }, [user, pendingEditKey, teams, singles, ownedEntryKeys]);
 
   // ── Helpers ─────────────────────────────────────────
   function prefillForm(entry: TeamEntry | SingleEntry) {
@@ -248,7 +271,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
         { ...BLANK_MEMBER(), ...(entry.members[1] ?? {}) },
         { ...BLANK_MEMBER(), ...(entry.members[2] ?? {}) },
       ],
-      email: entry.email ?? '',
+      email: user?.email ?? '',
       editKey: entry.key,
     });
     setMsg(''); setMsg2('');
@@ -277,7 +300,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
     if (form.isTeam) {
       for (let i = 1; i < 3; i++) {
         const m = form.members[i];
-        const hasAny = m.name || m.character || m.comment || m.region || m.env || m.history || m.after;
+        const hasAny = m.name || m.character || m.comment || m.region || m.env || m.history || m.after || m.byoc;
         if (hasAny) {
           if (!m.name.trim()) { setMsg(`${i+1}人目のプレイヤー名を入力してください`); return false; }
           if (!m.character)   { setMsg(`${i+1}人目の使用キャラを選択してください`); return false; }
@@ -292,20 +315,27 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
     if (!validate()) return;
     setSubmitting(true);
     const activeMem = form.isTeam ? form.members.filter(m => m.name.trim()) : [form.members[0]];
-    const data: Record<string, any> = {
+    const publicData: Record<string, any> = {
       members: activeMem,
       matching: form.matching,
-      email: form.email.toLowerCase().trim(),
       updatedAt: new Date().toString(),
     };
-    if (form.isTeam) data.name = form.teamName.trim();
+    if (form.isTeam) publicData.name = form.teamName.trim();
     try {
       if (form.editKey) {
         const isTeamEntry = teams.some(t => t.key === form.editKey);
-        await set(ref(db, `${dbPath}/${isTeamEntry ? 'teams' : 'singles'}/${form.editKey}`), data);
+        await set(ref(db, `${dbPath}/${isTeamEntry ? 'teams' : 'singles'}/${form.editKey}`), publicData);
         setMsg('編集が完了しました');
       } else {
-        await push(ref(db, `${dbPath}/${form.isTeam ? 'teams' : 'singles'}`), data);
+        const collection = form.isTeam ? 'teams' : 'singles';
+        const emailCollection = form.isTeam ? 'team-emails' : 'single-emails';
+        const newRef = push(ref(db, `${dbPath}/${collection}`));
+        const key = newRef.key!;
+        await update(ref(db), {
+          [`${dbPath}/${collection}/${key}`]: publicData,
+          [`${dbPath}/${emailCollection}/${key}`]: form.email.toLowerCase().trim(),
+        });
+        setOwnedEntryKeys(prev => new Set([...prev, key]));
         setMsg('エントリーが完了しました');
       }
       setTimeout(closeDialog, 1500);
@@ -322,7 +352,13 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
     setSubmitting(true);
     try {
       const isTeamEntry = teams.some(t => t.key === form.editKey);
-      await remove(ref(db, `${dbPath}/${isTeamEntry ? 'teams' : 'singles'}/${form.editKey}`));
+      const collection = isTeamEntry ? 'teams' : 'singles';
+      const emailCollection = isTeamEntry ? 'team-emails' : 'single-emails';
+      await update(ref(db), {
+        [`${dbPath}/${collection}/${form.editKey}`]: null,
+        [`${dbPath}/${emailCollection}/${form.editKey}`]: null,
+      });
+      setOwnedEntryKeys(prev => { const n = new Set(prev); n.delete(form.editKey); return n; });
       setMsg('削除が完了しました');
       setTimeout(closeDialog, 1500);
     } catch (err) {
@@ -360,7 +396,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
     }
     const entry = [...teams, ...singles].find(e => e.key === key);
     if (!entry) return;
-    if (entry.email?.toLowerCase() !== user.email?.toLowerCase()) { alert('このエントリーの編集権限がありません'); return; }
+    if (!ownedEntryKeys.has(key)) { alert('このエントリーの編集権限がありません'); return; }
     prefillForm(entry);
     setDialog('entry');
   }
@@ -452,6 +488,14 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
   return (
     <section id="entry">
       <style>{`
+        #entry {
+          background: rgba(0, 0, 0, 0.6);
+          padding: 2em;
+          margin-bottom: 2em;
+          color: #FFF;
+          box-sizing: border-box;
+          border: 1px solid #5E4743;
+        }
         #entry > h2 {
           text-align: center;
           font-weight: bold;
@@ -608,7 +652,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
           {/* Edit Picker Dialog */}
           {dialog === 'editPicker' && (() => {
             const myEntries = [...teams, ...singles].filter(
-              e => e.email?.toLowerCase() === user?.email?.toLowerCase()
+              e => ownedEntryKeys.has(e.key)
             );
             return (
               <div className="modal fade in team-entry"
@@ -730,16 +774,14 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
                         </div>
                       </div>
                       <div className="form-group full-width">
-                        <label className="col-sm-2 control-label">斡旋を希望しますか？</label>
-                        <div className="col-sm-6">
-                          {[['1', '希望する'], ['0', '希望しない']].map(([v, l]) => (
-                            <label key={v} className="radio-inline">
-                              <input type="radio" name="matching" value={v}
-                                checked={form.matching === v}
-                                onChange={() => setForm(f => ({ ...f, matching: v }))} />
-                              {l}
-                            </label>
-                          ))}
+                        <label className="col-sm-2 control-label">斡旋希望</label>
+                        <div className="col-sm-10">
+                          <label className="checkbox-inline">
+                            <input type="checkbox"
+                              checked={form.matching === '1'}
+                              onChange={e => setForm(f => ({ ...f, matching: e.target.checked ? '1' : '' }))} />
+                            希望する
+                          </label>
                         </div>
                       </div>
                       {form.isTeam && (

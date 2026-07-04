@@ -31,7 +31,7 @@ export default function Nav() {
     // { href: '#result',     label: '対戦表・トーナメント表' },
     { href: '#entry',      label: 'エントリー' },
     // { href: '#timetable',  label: 'タイムテーブル' },
-    // { href: '#regulation', label: '大会ルール' },
+    { href: '#regulation', label: '大会ルール' },
     { href: '#others',     label: 'その他' },
     // { href: '#env',        label: '　当日の対戦環境について' },
     // { href: '#volunteers', label: '　運営ボランティア募集' },
