@@ -1,2 +1,2 @@
-User-Agent:*
-Sitemap: http://darkstalkers-federation.org/sitmap.xml
+User-Agent: *
+Sitemap: https://darkstalkers-federation.org/sitemap.xml
