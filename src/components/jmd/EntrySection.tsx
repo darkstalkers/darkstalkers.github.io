@@ -335,6 +335,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
           [`${dbPath}/${collection}/${key}`]: publicData,
           [`${dbPath}/${emailCollection}/${key}`]: form.email.toLowerCase().trim(),
         });
+        window.localStorage.setItem('lastEntryEmail', form.email.toLowerCase().trim());
         setOwnedEntryKeys(prev => new Set([...prev, key]));
         setMsg('エントリーが完了しました');
       }
@@ -390,7 +391,8 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
   function openEditDialog(key: string) {
     if (!user) {
       setPendingEditKey(key);
-      setAuthEmail(''); setAuthLinkSent(false); setMsg2('');
+      setAuthEmail(window.localStorage.getItem('lastEntryEmail') ?? '');
+      setAuthLinkSent(false); setMsg2('');
       setDialog('signIn');
       return;
     }
@@ -527,7 +529,11 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
               : (
                 <div className="page-header text-center">
                   <button className="btn btn-primary entry-action"
-                    onClick={() => { setForm(blankForm()); setMsg(''); setDialog('entry'); }}>
+                    onClick={() => {
+                      const savedEmail = window.localStorage.getItem('lastEntryEmail') ?? '';
+                      setForm({ ...blankForm(), email: savedEmail });
+                      setMsg(''); setDialog('entry');
+                    }}>
                     エントリー
                   </button>
                   {' '}
@@ -537,7 +543,8 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
                         setDialog('editPicker');
                       } else {
                         setPendingEditKey('');
-                        setAuthEmail(''); setAuthLinkSent(false); setMsg2('');
+                        setAuthEmail(window.localStorage.getItem('lastEntryEmail') ?? '');
+                        setAuthLinkSent(false); setMsg2('');
                         setDialog('signIn');
                       }
                     }}>
@@ -718,13 +725,15 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
                           <label>メールアドレス</label>
                           <input type="email" className="form-control" value={authEmail}
                             onChange={e => setAuthEmail(e.target.value)} placeholder="example@email.com" />
+                          <small className="text-muted">※ 認証メールが迷惑メールフォルダに入ることがあります。届かない場合はご確認ください。</small>
                         </div>
                         {msg2 && <div className="alert alert-danger">{msg2}</div>}
                       </>
                     ) : (
                       <div className="alert alert-success">
                         <p>認証メールを送信しました。メールに届いたリンクをクリックしてください。</p>
-                        <p style={{ marginBottom: 0 }}>※ リンクの有効期限は1時間です。</p>
+                        <p>※ リンクの有効期限は1時間です。</p>
+                        <p style={{ marginBottom: 0 }}>※ 迷惑メールフォルダに入ることがあります。届かない場合はご確認ください。</p>
                       </div>
                     )}
                   </div>
