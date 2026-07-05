@@ -308,6 +308,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
       }
     }
     if (!form.email.trim()) { setMsg('メールアドレスを入力してください（編集・削除に使用します）'); return false; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) { setMsg('正しいメールアドレスの形式で入力してください'); return false; }
     return true;
   }
 
@@ -371,6 +372,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
 
   async function handleSendAuthEmail() {
     if (!authEmail.trim()) { setMsg2('メールアドレスを入力してください'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(authEmail.trim())) { setMsg2('正しいメールアドレスの形式で入力してください'); return; }
     const normalizedEmail = authEmail.trim().toLowerCase();
     const actionCodeSettings = {
       url: `${window.location.origin}/auth/?continueUrl=${encodeURIComponent(window.location.pathname)}`,
