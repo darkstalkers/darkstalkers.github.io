@@ -37,7 +37,7 @@ export default function Nav() {
     // { href: '#volunteers', label: '　運営ボランティア募集' },
     { href: '#archive',    label: '　アーカイブ（過去大会）' },
     // { href: '#after',      label: '　後夜祭' },
-    // { href: '#party',      label: '　打ち上げについて' },
+    { href: '#party',      label: '　打ち上げについて' },
     { href: '#staff',      label: '公式アカウント・スタッフ一覧' },
   ];
 
