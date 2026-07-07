@@ -552,6 +552,10 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
                     }}>
                     編集・削除
                   </button>
+                  <p style={{ marginTop: '0.75em', marginBottom: 0, fontSize: '0.9em', color: '#ccc' }}>
+                    エントリー上限：192名　／　エントリー締切：2026/8/31 23:59<br />
+                    <small>※ 上限になり次第エントリーを締め切ります</small>
+                  </p>
                 </div>
               )
           }
