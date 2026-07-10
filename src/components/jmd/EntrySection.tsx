@@ -193,7 +193,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
       setTeams(
         Object.entries(data)
           .map(([key, v]) => ({ ...(v as any), key }))
-          .sort((a, b) => new Date(a.updatedAt ?? 0).getTime() - new Date(b.updatedAt ?? 0).getTime())
+          .sort((a, b) => a.key < b.key ? -1 : 1)
       );
     });
     const unsubS = onValue(singlesRef, snap => {
@@ -201,7 +201,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
       setSingles(
         Object.entries(data)
           .map(([key, v]) => ({ ...(v as any), key }))
-          .sort((a, b) => new Date(a.updatedAt ?? 0).getTime() - new Date(b.updatedAt ?? 0).getTime())
+          .sort((a, b) => a.key < b.key ? -1 : 1)
       );
     });
     const unsubC = onValue(configRef, snap => {
