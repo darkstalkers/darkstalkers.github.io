@@ -173,10 +173,11 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
   const [pendingEditKey, setPendingEditKey] = useState('');
   const [loginToast, setLoginToast]   = useState(false);
   const [ownedEntryKeys, setOwnedEntryKeys] = useState<Set<string>>(new Set());
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const canEntry = !readOnly && config.open;
   const canEditEntry = (entry: TeamEntry | SingleEntry) =>
-    !readOnly && config.open && !!user && ownedEntryKeys.has(entry.key);
+    !!user && ownedEntryKeys.has(entry.key) && (isAdmin || (!readOnly && config.open));
   const canSubmit = !submitting
     && !!form.email.trim()
     && !!form.members[0].name.trim()
@@ -220,16 +221,39 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
         setLoginToast(true);
         setTimeout(() => setLoginToast(false), 3000);
       }
-      if (u?.email) {
-        const [teamSnap, singleSnap] = await Promise.all([
-          get(dbQuery(ref(db, `${dbPath}/team-emails`), orderByValue(), equalTo(u.email))),
-          get(dbQuery(ref(db, `${dbPath}/single-emails`), orderByValue(), equalTo(u.email))),
-        ]);
-        setOwnedEntryKeys(new Set([
-          ...Object.keys(teamSnap.val() ?? {}),
-          ...Object.keys(singleSnap.val() ?? {}),
-        ]));
+      if (u) {
+        let admin = false;
+        try {
+          await get(ref(db, 'jmd/admin-access'));
+          admin = true;
+        } catch {
+          admin = false;
+        }
+        setIsAdmin(admin);
+
+        if (admin) {
+          const [teamSnap, singleSnap] = await Promise.all([
+            get(ref(db, `${dbPath}/team-emails`)),
+            get(ref(db, `${dbPath}/single-emails`)),
+          ]);
+          setOwnedEntryKeys(new Set([
+            ...Object.keys(teamSnap.val() ?? {}),
+            ...Object.keys(singleSnap.val() ?? {}),
+          ]));
+        } else if (u.email) {
+          const [teamSnap, singleSnap] = await Promise.all([
+            get(dbQuery(ref(db, `${dbPath}/team-emails`), orderByValue(), equalTo(u.email))),
+            get(dbQuery(ref(db, `${dbPath}/single-emails`), orderByValue(), equalTo(u.email))),
+          ]);
+          setOwnedEntryKeys(new Set([
+            ...Object.keys(teamSnap.val() ?? {}),
+            ...Object.keys(singleSnap.val() ?? {}),
+          ]));
+        } else {
+          setOwnedEntryKeys(new Set());
+        }
       } else {
+        setIsAdmin(false);
         setOwnedEntryKeys(new Set());
       }
     });
