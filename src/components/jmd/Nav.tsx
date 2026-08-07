@@ -34,10 +34,11 @@ export default function Nav() {
     { href: '#regulation', label: '大会ルール' },
     { href: '#others',     label: 'その他' },
     // { href: '#env',        label: '　当日の対戦環境について' },
-    // { href: '#volunteers', label: '　運営ボランティア募集' },
+    { href: '#party',      label: '　打ち上げについて' },
+    { href: '#volunteers', label: '　運営ボランティア募集' },
+    { href: '#lending',    label: '　アーケードコントローラー貸与のお願い' },
     { href: '#archive',    label: '　アーカイブ（過去大会）' },
     // { href: '#after',      label: '　後夜祭' },
-    { href: '#party',      label: '　打ち上げについて' },
     { href: '#staff',      label: '公式アカウント・スタッフ一覧' },
   ];
 
