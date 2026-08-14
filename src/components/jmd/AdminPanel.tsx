@@ -8,7 +8,31 @@ import {
 } from 'firebase/auth';
 import { adminDb, adminAuth } from '../../lib/firebase';
 import { CHARA_MAP } from '../../lib/jmd/constants';
-import type { TeamEntry, SingleEntry, Config } from '../../lib/jmd/types';
+import type { TeamEntry, SingleEntry, Config, EntryStatus } from '../../lib/jmd/types';
+import { resolveStatus } from '../../lib/jmd/types';
+
+const STATUS_LABEL: Record<EntryStatus, string> = {
+  before: '受付開始前',
+  open: '受付中',
+  new_closed: '新規受付停止中（編集は受付中）',
+  closed: '受付停止中',
+};
+
+const STATUS_ALERT_CLASS: Record<EntryStatus, string> = {
+  before: 'alert-info',
+  open: 'alert-success',
+  new_closed: 'alert-warning',
+  closed: 'alert-danger',
+};
+
+const STATUS_BUTTON_LABEL: Record<EntryStatus, string> = {
+  before: '受付開始前にする',
+  open: '受付を開始する',
+  new_closed: '新規受付を停止する',
+  closed: '受付を停止する',
+};
+
+const STATUS_ORDER: EntryStatus[] = ['before', 'open', 'new_closed', 'closed'];
 
 interface Props {
   dbPath: string;
@@ -31,7 +55,7 @@ export default function AdminPanel({ dbPath }: Props) {
 
   const [teams, setTeams]     = useState<TeamEntry[]>([]);
   const [singles, setSingles] = useState<SingleEntry[]>([]);
-  const [config, setConfig]   = useState<Config>({ open: false });
+  const [config, setConfig]   = useState<Config>({ status: 'before' });
 
   useEffect(() => {
     const unsub = onAuthStateChanged(adminAuth, async u => {
@@ -85,8 +109,8 @@ export default function AdminPanel({ dbPath }: Props) {
     }
   }
 
-  async function toggleEntry(open: boolean) {
-    await set(ref(adminDb, `${dbPath}/config/open`), open);
+  async function setStatus(status: EntryStatus) {
+    await set(ref(adminDb, `${dbPath}/config/status`), status);
   }
 
   function totalCount() {
@@ -171,13 +195,16 @@ export default function AdminPanel({ dbPath }: Props) {
         <button className="btn btn-default" onClick={() => signOut(adminAuth)}>ログアウト</button>
       </div>
 
-      <div className={`alert ${config.open ? 'alert-success' : 'alert-warning'}`}>
-        <strong>{config.open ? '只今エントリー受付中' : 'エントリー受付停止中'}</strong>
-        <div style={{ marginTop: '0.5rem' }}>
-          {config.open
-            ? <button className="btn btn-warning btn-sm" onClick={() => toggleEntry(false)}>受付を停止する</button>
-            : <button className="btn btn-success btn-sm" onClick={() => toggleEntry(true)}>受付を開始する</button>
-          }
+      <div className={`alert ${STATUS_ALERT_CLASS[resolveStatus(config)]}`}>
+        <strong>{STATUS_LABEL[resolveStatus(config)]}</strong>
+        <div style={{ marginTop: '0.5rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+          {STATUS_ORDER.map(s => (
+            <button key={s} className="btn btn-default btn-sm"
+              disabled={resolveStatus(config) === s}
+              onClick={() => setStatus(s)}>
+              {STATUS_BUTTON_LABEL[s]}
+            </button>
+          ))}
         </div>
       </div>
 

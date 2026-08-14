@@ -9,6 +9,7 @@ import {
 import { db, auth } from '../../lib/firebase';
 import { CHARACTERS, CHARA_MAP } from '../../lib/jmd/constants';
 import type { TeamEntry, SingleEntry, Config, Member } from '../../lib/jmd/types';
+import { resolveStatus } from '../../lib/jmd/types';
 
 // ── コンポーネント外定義（内部定義するとアンマウント→再マウントでフォーカスが外れる）──
 interface MemberFormGroupProps {
@@ -160,7 +161,7 @@ const blankForm = (): FormState => ({
 export default function EntrySection({ dbPath, iconBase, readOnly = false }: Props) {
   const [teams, setTeams]     = useState<TeamEntry[]>([]);
   const [singles, setSingles] = useState<SingleEntry[]>([]);
-  const [config, setConfig]   = useState<Config>({ open: false });
+  const [config, setConfig]   = useState<Config>({ status: 'before' });
   const [user, setUser]       = useState<User | null>(null);
 
   const [dialog, setDialog]           = useState<'none' | 'entry' | 'signIn' | 'editPicker'>('none');
@@ -175,9 +176,10 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
   const [ownedEntryKeys, setOwnedEntryKeys] = useState<Set<string>>(new Set());
   const [isAdmin, setIsAdmin] = useState(false);
 
-  const canEntry = !readOnly && config.open;
+  const status = resolveStatus(config);
+  const canEdit = !readOnly && (status === 'open' || status === 'new_closed');
   const canEditEntry = (entry: TeamEntry | SingleEntry) =>
-    !!user && ownedEntryKeys.has(entry.key) && (isAdmin || (!readOnly && config.open));
+    !!user && ownedEntryKeys.has(entry.key) && (isAdmin || canEdit);
   const canSubmit = !submitting
     && !!form.email.trim()
     && !!form.members[0].name.trim()
@@ -548,41 +550,44 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
       <h2>エントリーリスト</h2>
       <div className="tab-content">
         <div className="tab-pane active" id="home">
-          {readOnly
-            ? <p>新規エントリーは締め切りました。</p>
-            : !canEntry
-              ? <p>エントリー受付準備中です。</p>
-              : (
-                <div className="page-header text-center">
-                  <button className="btn btn-primary entry-action"
-                    onClick={() => {
-                      const savedEmail = window.localStorage.getItem('lastEntryEmail') ?? '';
-                      setForm({ ...blankForm(), email: savedEmail });
-                      setMsg(''); setDialog('entry');
-                    }}>
-                    エントリー
-                  </button>
-                  {' '}
-                  <button className="btn btn-default entry-action"
-                    onClick={() => {
-                      if (user) {
-                        setDialog('editPicker');
-                      } else {
-                        setPendingEditKey('');
-                        setAuthEmail(window.localStorage.getItem('lastEntryEmail') ?? '');
-                        setAuthLinkSent(false); setMsg2('');
-                        setDialog('signIn');
-                      }
-                    }}>
-                    編集・削除
-                  </button>
-                  <p style={{ marginTop: '0.75em', marginBottom: 0, fontSize: '0.9em', color: '#ccc' }}>
-                    エントリー上限：192名　／　エントリー締切：2026/8/31 23:59<br />
-                    <small>※ 上限になり次第エントリーを締め切ります</small>
-                  </p>
-                </div>
-              )
-          }
+          {(readOnly || status === 'closed' || status === 'new_closed') &&
+            <p>エントリーは締め切りました。</p>}
+          {!readOnly && status === 'before' &&
+            <p>エントリー受付準備中です。</p>}
+          {!readOnly && (status === 'open' || status === 'new_closed') && (
+            <div className="page-header text-center">
+              {status === 'open' && (
+                <button className="btn btn-primary entry-action"
+                  onClick={() => {
+                    const savedEmail = window.localStorage.getItem('lastEntryEmail') ?? '';
+                    setForm({ ...blankForm(), email: savedEmail });
+                    setMsg(''); setDialog('entry');
+                  }}>
+                  エントリー
+                </button>
+              )}
+              {status === 'open' && ' '}
+              <button className="btn btn-default entry-action"
+                onClick={() => {
+                  if (user) {
+                    setDialog('editPicker');
+                  } else {
+                    setPendingEditKey('');
+                    setAuthEmail(window.localStorage.getItem('lastEntryEmail') ?? '');
+                    setAuthLinkSent(false); setMsg2('');
+                    setDialog('signIn');
+                  }
+                }}>
+                編集・削除
+              </button>
+              {status === 'open' && (
+                <p style={{ marginTop: '0.75em', marginBottom: 0, fontSize: '0.9em', color: '#ccc' }}>
+                  エントリー上限：192名　／　エントリー締切：2026/8/31 23:59<br />
+                  <small>※ 上限になり次第エントリーを締め切ります</small>
+                </p>
+              )}
+            </div>
+          )}
         </div>
 
         <section id="entries">

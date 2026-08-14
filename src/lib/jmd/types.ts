@@ -27,6 +27,15 @@ export interface SingleEntry {
 
 export type Entry = TeamEntry | SingleEntry;
 
+export type EntryStatus = 'before' | 'open' | 'new_closed' | 'closed';
+
 export interface Config {
-  open: boolean;
+  status?: EntryStatus;
+  /** @deprecated 旧フィールド。status未設定時のフォールバックにのみ使用 */
+  open?: boolean;
+}
+
+export function resolveStatus(config: Config): EntryStatus {
+  if (config.status) return config.status;
+  return config.open ? 'open' : 'before';
 }
