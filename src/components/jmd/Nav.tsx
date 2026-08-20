@@ -37,8 +37,8 @@ export default function Nav() {
     { href: '#party',      label: '　打ち上げについて' },
     { href: '#volunteers', label: '　運営ボランティア募集' },
     { href: '#lending',    label: '　アーケードコントローラー貸与のお願い' },
+    { href: '#after',      label: '　後夜祭' },
     { href: '#archive',    label: '　アーカイブ（過去大会）' },
-    // { href: '#after',      label: '　後夜祭' },
     { href: '#staff',      label: '公式アカウント・スタッフ一覧' },
   ];
 
