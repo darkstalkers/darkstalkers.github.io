@@ -35,6 +35,97 @@ interface EditForm {
   members: [Member, Member, Member];
 }
 
+// ── 重複チェック ──────────────────────────────────────
+interface DupEntry {
+  source: 'team' | 'single';
+  key: string;
+  teamName: string;
+  name: string;
+  twitter: string;
+}
+interface DupGroup {
+  reason: string;
+  entries: DupEntry[];
+}
+
+function normName(s: string): string {
+  return (s ?? '').normalize('NFKC').trim().toLowerCase().replace(/[ 　]/g, '');
+}
+function normTwitter(s: string): string {
+  return normName(s).replace(/^@/, '');
+}
+function levenshtein(a: string, b: string): number {
+  const dp: number[][] = Array.from({ length: a.length + 1 }, () => new Array(b.length + 1).fill(0));
+  for (let i = 0; i <= a.length; i++) dp[i][0] = i;
+  for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      dp[i][j] = a[i - 1] === b[j - 1]
+        ? dp[i - 1][j - 1]
+        : 1 + Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
+    }
+  }
+  return dp[a.length][b.length];
+}
+function similarity(a: string, b: string): number {
+  if (!a || !b) return 0;
+  return 1 - levenshtein(a, b) / Math.max(a.length, b.length);
+}
+
+function collectDupEntries(teams: TeamEntry[], singles: SingleEntry[]): DupEntry[] {
+  const list: DupEntry[] = [];
+  teams.forEach(t => realMembers(t).forEach(m =>
+    list.push({ source: 'team', key: t.key, teamName: t.name ?? '', name: m.name, twitter: m.twitter ?? '' })));
+  singles.forEach(s => realMembers(s).forEach(m =>
+    list.push({ source: 'single', key: s.key, teamName: '', name: m.name, twitter: m.twitter ?? '' })));
+  return list;
+}
+
+function findDuplicates(teams: TeamEntry[], singles: SingleEntry[]): DupGroup[] {
+  const entries = collectDupEntries(teams, singles);
+  const groups: DupGroup[] = [];
+
+  const byName = new Map<string, DupEntry[]>();
+  entries.forEach(e => {
+    const key = normName(e.name);
+    if (!key) return;
+    if (!byName.has(key)) byName.set(key, []);
+    byName.get(key)!.push(e);
+  });
+  byName.forEach(list => {
+    if (list.length > 1) groups.push({ reason: `同名: 「${list[0].name}」`, entries: list });
+  });
+
+  const byTwitter = new Map<string, DupEntry[]>();
+  entries.forEach(e => {
+    const key = normTwitter(e.twitter);
+    if (!key) return;
+    if (!byTwitter.has(key)) byTwitter.set(key, []);
+    byTwitter.get(key)!.push(e);
+  });
+  byTwitter.forEach((list, key) => {
+    if (list.length > 1) groups.push({ reason: `同一Twitter: @${key}`, entries: list });
+  });
+
+  for (let i = 0; i < entries.length; i++) {
+    for (let j = i + 1; j < entries.length; j++) {
+      const a = entries[i], b = entries[j];
+      if (a.key === b.key) continue;
+      const na = normName(a.name), nb = normName(b.name);
+      if (!na || !nb || na === nb) continue;
+      const ratio = similarity(na, nb);
+      if (ratio >= 0.75) {
+        groups.push({
+          reason: `類似名（類似度${Math.round(ratio * 100)}%）: 「${a.name}」⇔「${b.name}」`,
+          entries: [a, b],
+        });
+      }
+    }
+  }
+
+  return groups;
+}
+
 const STATUS_LABEL: Record<EntryStatus, string> = {
   before: '受付開始前',
   open: '受付中',
@@ -84,6 +175,7 @@ export default function AdminPanel({ dbPath }: Props) {
   const [editForm, setEditForm]       = useState<EditForm | null>(null);
   const [editSubmitting, setEditSubmitting] = useState(false);
   const [pickerSingle, setPickerSingle] = useState<SingleEntry | null>(null);
+  const [dupResults, setDupResults] = useState<DupGroup[] | null>(null);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(adminAuth, async u => {
@@ -345,6 +437,13 @@ export default function AdminPanel({ dbPath }: Props) {
         </button>
       </div>
 
+      <div style={{ marginBottom: '2rem' }}>
+        <h3>重複チェック</h3>
+        <button className="btn btn-warning" onClick={() => setDupResults(findDuplicates(teams, singles))}>
+          重複チェックを実行
+        </button>
+      </div>
+
       <h3>チームエントリー一覧 ({teams.length}チーム)</h3>
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem', marginBottom: '2rem' }}>
         <thead>
@@ -525,6 +624,44 @@ export default function AdminPanel({ dbPath }: Props) {
               </div>
               <div className="modal-footer">
                 <button className="btn btn-default" onClick={() => setPickerSingle(null)}>キャンセル</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {dupResults && (
+        <div className="modal fade in" style={{ display: 'block' }} tabIndex={-1} role="dialog">
+          <div className="modal-dialog modal-lg">
+            <div className="modal-content" style={{ color: '#333' }}>
+              <div className="modal-header">
+                <button type="button" className="close" onClick={() => setDupResults(null)}><span>&times;</span></button>
+                <h4 className="modal-title">重複チェック結果（{dupResults.length}件）</h4>
+              </div>
+              <div className="modal-body" style={{ overflowY: 'auto', maxHeight: 'calc(100vh - 200px)' }}>
+                {dupResults.length === 0 ? (
+                  <p>重複の疑いがあるエントリーは見つかりませんでした。</p>
+                ) : (
+                  <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                    {dupResults.map((g, i) => (
+                      <li key={i} style={{ borderBottom: '1px solid #ddd', padding: '0.75rem 0' }}>
+                        <strong>{g.reason}</strong>
+                        <ul style={{ margin: '0.25rem 0 0 1rem' }}>
+                          {g.entries.map((e, j) => (
+                            <li key={j}>
+                              [{e.source === 'team' ? 'チーム' : 'シングル'}]
+                              {' '}{e.teamName ? `${e.teamName} / ` : ''}{e.name}
+                              {e.twitter && ` (@${e.twitter.replace(/^@/, '')})`}
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-default" onClick={() => setDupResults(null)}>閉じる</button>
               </div>
             </div>
           </div>
