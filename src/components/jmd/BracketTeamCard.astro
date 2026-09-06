@@ -1,0 +1,63 @@
+---
+import type { BracketTeam } from '../../lib/jmd/bracket';
+
+interface Props {
+  team: BracketTeam;
+  isWinner: boolean;
+}
+const { team, isWinner } = Astro.props;
+---
+
+<div class:list={['bracket-team', isWinner && 'is-winner']}>
+  <p class="bracket-team-name">
+    <span class="bracket-team-no">No.{team.no}</span>
+    {team.name}
+  </p>
+  <ul class="bracket-team-members">
+    {team.members.map((m) => (
+      <li>{m.name}<span class="bracket-team-chara">（{m.character}）</span></li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .bracket-team {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid transparent;
+    padding: 0.4em 0.6em;
+  }
+  .bracket-team.is-winner {
+    background: rgba(255, 0, 0, 0.15);
+    border-left: 3px solid #ff3030;
+  }
+  .bracket-team-name {
+    margin: 0;
+    font-weight: bold;
+    color: #fff;
+    word-break: break-word;
+  }
+  .bracket-team.is-winner .bracket-team-name {
+    color: #ff5050;
+  }
+  .bracket-team-no {
+    color: #ccc;
+    font-weight: normal;
+    margin-right: 0.4em;
+  }
+  .bracket-team-members {
+    margin: 0.2em 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.85em;
+    color: #ccc;
+  }
+  .bracket-team-members li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5em;
+  }
+  .bracket-team-chara {
+    color: #999;
+    white-space: nowrap;
+  }
+</style>

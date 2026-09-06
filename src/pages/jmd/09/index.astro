@@ -2,6 +2,8 @@
 import Nav from '../../../components/jmd/Nav';
 import EntrySection from '../../../components/jmd/EntrySection';
 import ImageLightbox from '../../../components/jmd/ImageLightbox';
+import BracketBlock from '../../../components/jmd/BracketBlock.astro';
+import { BRACKET_BLOCKS } from '../../../lib/jmd/bracket';
 
 const title = 'Judgement Day 9（ジャッジメント・デイ9） ー ヴァンパイアセイヴァー3on3';
 const description = 'Judgement Day 9（ジャッジメント・デイ9） ― 2026年9月20日（日）eスポフィールドにて開催！ヴァンパイアセイヴァー大規模3on3大会。';
@@ -83,6 +85,16 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
       #archive ul li { display: inline; padding: 0.2em 1em; text-align: left; }
       #archive ul li a { font-size: 1.1em; color: #ccc; white-space: nowrap; }
       #archive ul li a:hover { color: #fff; text-decoration: underline; }
+
+      #bracket .bracket-note { text-align: center; color: #ccc; font-size: 0.9em; margin-top: 0; }
+      #bracket .bracket-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1em;
+      }
+      @media (max-width: 600px) {
+        #bracket .bracket-grid { grid-template-columns: 1fr; }
+      }
     </style>
   </head>
   <body>
@@ -144,6 +156,17 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
             <dt>配信</dt>
             <dd><a href="https://www.twitch.tv/gamenewton" target="_blank" rel="noopener noreferrer">Twitch ニュートンチャンネル</a></dd>
           </dl>
+        </section>
+
+        <!-- 組み合わせ・トーナメント表（予選1回戦） -->
+        <section id="bracket">
+          <h2>組み合わせ・トーナメント表</h2>
+          <p class="bracket-note">勝ち上がったチームは赤色で表示されます。</p>
+          <div class="bracket-grid">
+            {BRACKET_BLOCKS.map(block => (
+              <BracketBlock block={block} />
+            ))}
+          </div>
         </section>
 
         <!-- 対戦表（大会終了後に更新） -->

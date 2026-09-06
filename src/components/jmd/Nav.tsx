@@ -28,7 +28,7 @@ export default function Nav() {
   const links = [
     { href: '#top',        label: 'トップ' },
     { href: '#summary',    label: '大会概要' },
-    // { href: '#result',     label: '対戦表・トーナメント表' },
+    { href: '#bracket',    label: '組み合わせ・トーナメント表' },
     { href: '#entry',      label: 'エントリー' },
     // { href: '#timetable',  label: 'タイムテーブル' },
     { href: '#regulation', label: '大会ルール' },
