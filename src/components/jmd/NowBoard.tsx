@@ -38,6 +38,7 @@ export default function NowBoard({ dbPath }: Props) {
     return init;
   });
   const [editing, setEditing] = useState<Cabinet | null>(null);
+  const [onAir, setOnAir] = useState<Cabinet | null>(null);
 
   useEffect(() => {
     const teamsRef = ref(db, `${dbPath}/teams`);
@@ -60,6 +61,7 @@ export default function NowBoard({ dbPath }: Props) {
         });
         return next;
       });
+      setOnAir(CABINETS.includes(data.onAir) ? data.onAir : null);
     });
 
     return () => { unsubT(); unsubN(); };
@@ -93,6 +95,10 @@ export default function NowBoard({ dbPath }: Props) {
     const set0 = new Set(current?.eliminated ?? []);
     if (checked) set0.add(index); else set0.delete(index);
     updateSide(cabinet, side, { eliminated: Array.from(set0).sort((a, b) => a - b) });
+  }
+
+  async function toggleOnAir(cabinet: Cabinet) {
+    await set(ref(db, `${dbPath}/now/onAir`), onAir === cabinet ? null : cabinet);
   }
 
   async function clearCabinet(cabinet: Cabinet) {
@@ -143,31 +149,35 @@ export default function NowBoard({ dbPath }: Props) {
         </select>
         {team && (
           <div className="now-member-list">
-            {team.members.map((m, i) => (
-              <div key={i} className="now-member-row">
-                <span className="now-member-info">
-                  <span className="now-member-name">{m.name || '（未入力）'}</span>
-                  <span className="now-member-chara">（{charaName(m.character)}）</span>
-                </span>
-                <label className="now-radio">
-                  <input
-                    type="radio"
-                    name={`${cabinet}-${side}-current`}
-                    checked={state.currentIndex === i}
-                    onChange={() => selectCurrent(cabinet, side, i)}
-                  />
-                  対戦中
-                </label>
-                <label className="now-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={state.eliminated.includes(i)}
-                    onChange={e => toggleEliminated(cabinet, side, i, e.target.checked)}
-                  />
-                  敗退済み
-                </label>
-              </div>
-            ))}
+            {team.members.map((m, i) => {
+              const isEliminated = state.eliminated.includes(i);
+              return (
+                <div key={i} className="now-member-row">
+                  <span className="now-member-info">
+                    <span className="now-member-name">{m.name || '（未入力）'}</span>
+                    <span className="now-member-chara">（{charaName(m.character)}）</span>
+                  </span>
+                  <label className="now-radio">
+                    <input
+                      type="radio"
+                      name={`${cabinet}-${side}-current`}
+                      checked={state.currentIndex === i}
+                      disabled={isEliminated}
+                      onChange={() => selectCurrent(cabinet, side, i)}
+                    />
+                    対戦中
+                  </label>
+                  <label className="now-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={isEliminated}
+                      onChange={e => toggleEliminated(cabinet, side, i, e.target.checked)}
+                    />
+                    敗退済み
+                  </label>
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
@@ -192,6 +202,17 @@ export default function NowBoard({ dbPath }: Props) {
         }
         .now-edit-hint { font-size: 0.75rem; color: #999; }
         .now-cabinet.editing { grid-column: 1 / -1; }
+        .now-cabinet.is-onair { border-color: #ff3030; box-shadow: 0 0 12px rgba(255,48,48,0.4); }
+        .now-cabinet-head-left { display: flex; align-items: center; gap: 0.6em; }
+        .now-onair-btn {
+          font-size: 0.7rem; padding: 0.25em 0.6em; border-radius: 3px; cursor: pointer;
+          background: transparent; border: 1px solid #666; color: #999;
+        }
+        .now-onair-btn:hover { border-color: #aaa; color: #fff; }
+        .now-onair-btn.is-on {
+          background: #ff3030; border-color: #ff3030; color: #fff; font-weight: bold;
+          box-shadow: 0 0 8px rgba(255,48,48,0.7);
+        }
         .now-sides { display: flex; gap: 1rem; }
         .now-side { flex: 1; min-width: 0; }
         .now-editors { display: flex; flex-direction: column; gap: 1rem; }
@@ -217,11 +238,21 @@ export default function NowBoard({ dbPath }: Props) {
         .now-member-name { color: #fff; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .now-member-chara { color: #999; white-space: nowrap; }
         .now-radio, .now-checkbox { display: flex; align-items: center; gap: 0.25em; white-space: nowrap; font-weight: normal; margin: 0; }
+        .now-radio:has(input:disabled) { color: #666; }
       `}</style>
       {CABINETS.map(cabinet => (
-        <div key={cabinet} className={`now-cabinet${editing === cabinet ? ' editing' : ''}`}>
+        <div key={cabinet} className={`now-cabinet${editing === cabinet ? ' editing' : ''}${onAir === cabinet ? ' is-onair' : ''}`}>
           <div className="now-cabinet-head" onClick={() => setEditing(editing === cabinet ? null : cabinet)}>
-            <span className="now-cabinet-label">{cabinet}</span>
+            <span className="now-cabinet-head-left">
+              <span className="now-cabinet-label">{cabinet}</span>
+              <button
+                type="button"
+                className={`now-onair-btn${onAir === cabinet ? ' is-on' : ''}`}
+                onClick={e => { e.stopPropagation(); toggleOnAir(cabinet); }}
+              >
+                ● 配信中
+              </button>
+            </span>
             <span className="now-cabinet-head-actions">
               {editing === cabinet && (
                 <button
