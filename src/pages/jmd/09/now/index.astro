@@ -1,0 +1,21 @@
+---
+import NowBoard from '../../../../components/jmd/NowBoard';
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JMD9 実況ボード</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <style>
+      body { background: #0a0a0a; color: #fff; font-family: sans-serif; padding: 1.5rem; }
+      h1 { font-size: 1.3rem; margin: 0 0 1rem; }
+    </style>
+  </head>
+  <body>
+    <h1>JMD9 実況ボード（A〜D筐体）</h1>
+    <NowBoard client:only="react" dbPath="09/data" />
+  </body>
+</html>
