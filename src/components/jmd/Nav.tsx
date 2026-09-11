@@ -35,7 +35,7 @@ export default function Nav() {
     { href: '#others',     label: 'その他' },
     // { href: '#env',        label: '　当日の対戦環境について' },
     { href: '#party',      label: '　打ち上げについて' },
-    { href: '#volunteers', label: '　運営ボランティア募集' },
+    // { href: '#volunteers', label: '　運営ボランティア募集' },
     { href: '#lending',    label: '　アーケードコントローラー貸与のお願い' },
     { href: '#after',      label: '　後夜祭' },
     { href: '#archive',    label: '　アーカイブ（過去大会）' },

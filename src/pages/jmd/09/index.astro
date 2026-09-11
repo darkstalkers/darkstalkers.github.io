@@ -95,6 +95,17 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
       @media (max-width: 600px) {
         #bracket .bracket-grid { grid-template-columns: 1fr; }
       }
+
+      #after h4 {
+        color: #fff;
+        font-weight: bold;
+        text-shadow: 0px 0px 10px red, 0px 0px 10px red;
+        margin: 1em 0 0.5em;
+        padding: 0.5em 0 0;
+        border-top: 1px dotted #5E4743;
+      }
+      .rule-list { list-style: disc; padding-left: 1.4em; margin: 0 0 0.5em; }
+      .rule-list li { margin-bottom: 0.4em; }
     </style>
   </head>
   <body>
@@ -197,7 +208,7 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
           <section>
             <h3>レギュレーション</h3>
             <div class="section-inner">
-              <ul>
+              <ul class="rule-list">
                 <li>3on3チームマッチ</li>
                 <li>スピード：ターボ3固定</li>
                 <li>使用キャラの変更不可</li>
@@ -220,7 +231,7 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
           <section>
             <h3>注意事項</h3>
             <div class="section-inner">
-              <ul>
+              <ul class="rule-list">
                 <li>当日はライブ配信およびメディア取材等で会場内の映像配信や写真撮影が行われます。
 また、参加者は肖像、氏名、プレイヤー名、チーム名、プレイ動画、インタビューコメント等が、当団体若しくは第三者によってウェブサイトその他情報メディア等において編集し公開、報道利用される可能性があります。予めご了承下さい。</li>
                 <li>会場内は終日禁煙となります。店舗入り口の喫煙ルームをご使用下さい。混雑時は一階パチンコ店の大型喫煙ルームをお使い下さい（※特別に許可いただいています）。</li>
@@ -255,7 +266,7 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
           <section id="volunteers">
             <h3>運営ボランティア募集！</h3>
             <p>運営進行を手伝っていただける方を募集しています。具体的な作業内容は以下のようなものを想定しています。</p>
-            <ul>
+            <ul class="rule-list">
               <li>実況・解説（MC）：3～4人<br>状況に応じて交代で行います。</li>
               <li>試合管理・書記：4～5人<br>こちらも自分の予選ブロック以外を担当してもらいます。主な業務は、双方の先鋒を確認、試合経過を専用シートに記入、結果を運営本部に報告、その他雑用など。</li>
             </ul>
@@ -279,7 +290,7 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
               <li>参加費：200円</li>
             </ul>
             <h4>後夜祭ルール</h4>
-            <ul>
+            <ul class="rule-list">
               <li>2on2の形をとった事実上のシングル戦です。形式上のタッグを決め、先鋒・大将でそれぞれ1試合ずつ計2試合を行い、タッグに関わらずその2試合で負けた2名が敗退となります。決定戦はありません。</li>
               <li>参加者全員が順番決めの抽選を行い、その後に順番通りに名札（本人とは限りません）をくじ引きします。その名札を好きな場所に配置することによってトーナメントを形成します。</li>
               <li>引いた参加者の名前が書かれた名札を、トーナメントの組み合わせの空いている中の好きな場所へ、配置していきます。人数が半端な場合のシード、指定された場所への拒否権はありません。</li>
