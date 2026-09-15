@@ -173,7 +173,7 @@ export default function NowBoard({ dbPath }: Props) {
                       checked={isEliminated}
                       onChange={e => toggleEliminated(cabinet, side, i, e.target.checked)}
                     />
-                    敗退済み
+                    敗退
                   </label>
                 </div>
               );
@@ -187,11 +187,8 @@ export default function NowBoard({ dbPath }: Props) {
   return (
     <div className="now-board">
       <style>{`
-        .now-board { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-        @media (max-width: 700px) {
-          .now-board { grid-template-columns: 1fr; }
-        }
-        .now-cabinet { background: #1a1010; border: 1px solid #5e4743; border-radius: 4px; padding: 1rem; }
+        .now-board { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; overflow-x: hidden; max-width: 100%; }
+        .now-cabinet { background: #1a1010; border: 1px solid #5e4743; border-radius: 4px; padding: 1rem; min-width: 0; }
         .now-cabinet-head {
           display: flex; align-items: center; justify-content: space-between;
           cursor: pointer; margin-bottom: 0.75rem;
@@ -216,7 +213,8 @@ export default function NowBoard({ dbPath }: Props) {
         .now-sides { display: flex; gap: 1rem; }
         .now-side { flex: 1; min-width: 0; }
         .now-editors { display: flex; flex-direction: column; gap: 1rem; }
-        .now-side-editor { border: 1px solid #3a2a2e; border-radius: 4px; padding: 0.75rem; }
+        .now-side-editor { border: 1px solid #3a2a2e; border-radius: 4px; padding: 0.75rem; min-width: 0; }
+        .now-side-editor select { font-size: 1.1rem; min-width: 0; max-width: 100%; box-sizing: border-box; }
         .now-team-name { font-weight: bold; color: #fff; margin-bottom: 0.3em; }
         .now-current { color: #ff8080; font-weight: bold; margin-bottom: 0.3em; }
         .now-chara { color: #ccc; font-weight: normal; font-size: 0.85em; }
@@ -229,16 +227,31 @@ export default function NowBoard({ dbPath }: Props) {
           font-size: 0.72rem; padding: 0.2em 0.6em; border-radius: 3px; cursor: pointer;
         }
         .now-clear-btn:hover { background: #3a2a2e; color: #fff; }
-        .now-member-list { margin-top: 0.6em; display: flex; flex-direction: column; gap: 0.4em; }
+        .now-member-list { margin-top: 0.6em; display: flex; flex-direction: column; gap: 0.4em; min-width: 0; }
         .now-member-row {
-          display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 0.8em;
+          display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 0.5em;
           font-size: 0.85em; background: rgba(255,255,255,0.05); padding: 0.4em 0.6em; border-radius: 3px;
+          min-width: 0;
         }
         .now-member-info { display: flex; align-items: baseline; gap: 0.4em; min-width: 0; }
-        .now-member-name { color: #fff; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .now-member-chara { color: #999; white-space: nowrap; }
+        .now-member-name {
+          color: #fff; font-weight: bold; font-size: 1.15em;
+          white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .now-member-chara { color: #999; white-space: nowrap; flex-shrink: 0; }
         .now-radio, .now-checkbox { display: flex; align-items: center; gap: 0.25em; white-space: nowrap; font-weight: normal; margin: 0; }
         .now-radio:has(input:disabled) { color: #666; }
+
+        @media (max-width: 700px) {
+          .now-board { grid-template-columns: 1fr; gap: 0.75rem; }
+          .now-cabinet { padding: 0.6rem; }
+          .now-cabinet-head { margin-bottom: 0.5rem; }
+          .now-sides { gap: 0.6rem; }
+          .now-editors { gap: 0.6rem; }
+          .now-side-editor { padding: 0.5rem; }
+          .now-member-list { margin-top: 0.4em; gap: 0.3em; }
+          .now-member-row { gap: 0.35em; padding: 0.3em 0.4em; }
+        }
       `}</style>
       {CABINETS.map(cabinet => (
         <div key={cabinet} className={`now-cabinet${editing === cabinet ? ' editing' : ''}${onAir === cabinet ? ' is-onair' : ''}`}>
