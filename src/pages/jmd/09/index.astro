@@ -2,8 +2,6 @@
 import Nav from '../../../components/jmd/Nav';
 import EntrySection from '../../../components/jmd/EntrySection';
 import ImageLightbox from '../../../components/jmd/ImageLightbox';
-import BracketBlock from '../../../components/jmd/BracketBlock.astro';
-import { BRACKET_BLOCKS } from '../../../lib/jmd/bracket';
 
 const title = 'Judgement Day 9（ジャッジメント・デイ9） ー ヴァンパイアセイヴァー3on3';
 const description = 'Judgement Day 9（ジャッジメント・デイ9） ― 2026年9月20日（日）eスポフィールドにて開催！ヴァンパイアセイヴァー大規模3on3大会。';
@@ -15,6 +13,7 @@ const finalImages   = [{ src: '/jmd/08/img/result/Final.JPG' }];
 const secondImages  = [{ src: '/jmd/08/img/result/2_1.JPG' }, { src: '/jmd/08/img/result/2_2.JPG' }];
 const playoffImages = [{ src: '/jmd/08/img/result/PlayOff_A.JPG' }, { src: '/jmd/08/img/result/PlayOff_B.JPG' }];
 const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].map(l => ({ src: `/jmd/08/img/result/${l}.JPG` }));
+const groupImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, title: `${l}ブロック` }));
 ---
 
 <!doctype html>
@@ -85,16 +84,6 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
       #archive ul li { display: inline; padding: 0.2em 1em; text-align: left; }
       #archive ul li a { font-size: 1.1em; color: #ccc; white-space: nowrap; }
       #archive ul li a:hover { color: #fff; text-decoration: underline; }
-
-      #bracket .bracket-note { text-align: center; color: #ccc; font-size: 0.9em; margin-top: 0; }
-      #bracket .bracket-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1em;
-      }
-      @media (max-width: 600px) {
-        #bracket .bracket-grid { grid-template-columns: 1fr; }
-      }
 
       #after h4 {
         color: #fff;
@@ -186,12 +175,7 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
         <!-- 組み合わせ・トーナメント表（予選1回戦） -->
         <section id="bracket">
           <h2>組み合わせ・トーナメント表</h2>
-          <p class="bracket-note">勝ち上がったチームは赤色で表示されます。</p>
-          <div class="bracket-grid">
-            {BRACKET_BLOCKS.map(block => (
-              <BracketBlock block={block} />
-            ))}
-          </div>
+          <ImageLightbox images={groupImages} client:only="react" />
         </section>
 
         <!-- 対戦表（大会終了後に更新） -->
@@ -333,7 +317,7 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
             <p class="after-party">
               大会終了後にイベント会場を飲み会モードに転換し、その場で打ち上げを行います。
               選手としてエントリーされる方は、エントリーフォームからそのままお申込みいただけます。
-              <b class="underline">観戦のみで、打ち上げにご参加希望の方</b>向けの受付は締め切りました。
+              <!--<b class="underline">観戦のみで、打ち上げにご参加希望の方</b>向けの受付は締め切りました。-->
             </p>
             <small style="text-decoration: underline;">※ 募集は締め切りました。ありがとうございました！</small>
             <dl class="party-summary">
@@ -357,7 +341,7 @@ const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
               会場の野試合用に設置されるSteam版ファイティングコレクションにて使用するアーケードコントローラーを貸与して下さる方を募集します。
               もしお貸し頂けるのであれば、詳細を下記フォームにてご確認頂き、ご登録をお願い致します。
             </p>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg entry-btn" href="https://forms.gle/Kji7NmjWTbDw5sqP8">ご登録はこちらから</a>
+            <small style="text-decoration: underline;">※ おかげさまで必要数が揃いました。ご協力ありがとうございました！</small>
           </section>
           <section id="after">
             <h3>後夜祭</h3>

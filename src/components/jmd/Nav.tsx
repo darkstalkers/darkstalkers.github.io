@@ -20,7 +20,7 @@ export default function Nav() {
     const container = document.querySelector('.container') as HTMLElement;
     const target = document.querySelector(id) as HTMLElement;
     if (!container || !target) return;
-    const to = target.offsetTop + container.scrollTop - 5;
+    const to = target.offsetTop - 5;
     container.scrollTo({ top: to, behavior: 'smooth' });
     setOpen(false);
   };
@@ -36,7 +36,7 @@ export default function Nav() {
     // { href: '#env',        label: '　当日の対戦環境について' },
     { href: '#party',      label: '　打ち上げについて' },
     // { href: '#volunteers', label: '　運営ボランティア募集' },
-    { href: '#lending',    label: '　アーケードコントローラー貸与のお願い' },
+    // { href: '#lending',    label: '　アーケードコントローラー貸与のお願い' },
     { href: '#after',      label: '　後夜祭' },
     { href: '#archive',    label: '　アーカイブ（過去大会）' },
     { href: '#staff',      label: '公式アカウント・スタッフ一覧' },
