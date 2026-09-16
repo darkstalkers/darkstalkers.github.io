@@ -1,4 +1,4 @@
-export const CABINETS = ['A', 'B', 'C', 'D'] as const;
+export const CABINETS = ['1', '2', '3', '4'] as const;
 export type Cabinet = typeof CABINETS[number];
 
 export interface CabinetSide {
