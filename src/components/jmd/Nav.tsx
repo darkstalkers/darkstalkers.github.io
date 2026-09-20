@@ -31,7 +31,7 @@ export default function Nav() {
     { href: '#stream',     label: '配信' },
     { href: '#bracket',    label: '組み合わせ・トーナメント表' },
     { href: '#timetable',  label: 'タイムテーブル' },
-    { href: '#entry',      label: 'エントリー' },
+    { href: '#entry',      label: 'チーム一覧' },
     { href: '#regulation', label: '大会ルール' },
     { href: '#others',     label: 'その他' },
     // { href: '#env',        label: '　当日の対戦環境について' },
