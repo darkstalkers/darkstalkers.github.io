@@ -11,12 +11,19 @@ const canonicalUrl = 'https://darkstalkers-federation.org/jmd/09/';
 const ogImage = 'https://darkstalkers-federation.org/jmd/09/img/ogp.png';
 
 const BLOCKS = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'];
+const BLOCKS2 = ['O','P','Q','R'];
 const resultDir = path.join(process.cwd(), 'public/jmd/09/img/result');
+const result2Dir = path.join(process.cwd(), 'public/jmd/09/img/result2');
 
 // 1次予選の結果（手書き対戦表の写真。撮影・追加され次第、自動で一覧に反映される）
 const firstImages = BLOCKS
   .filter(l => fs.existsSync(path.join(resultDir, `${l}.jpg`)))
   .map(l => ({ src: `/jmd/09/img/result/${l}.jpg`, title: `${l}ブロック` }));
+
+// 2次予選の結果（同上）
+const secondImages = BLOCKS2
+  .filter(l => fs.existsSync(path.join(result2Dir, `${l}.jpg`)))
+  .map(l => ({ src: `/jmd/09/img/result2/${l}.jpg`, title: `${l}ブロック` }));
 
 const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, title: `${l}ブロック` }));
 ---
@@ -197,14 +204,22 @@ const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, titl
           <ImageLightbox images={groupImages} client:only="react" />
         </section> -->
 
-        <!-- 対戦表（1次予選の結果） -->
-        {firstImages.length > 0 && (
+        <!-- 対戦表（予選の結果） -->
+        {(firstImages.length > 0 || secondImages.length > 0) && (
           <section id="result">
             <h2>リザルト</h2>
-            <section class="archive">
-              <h3>1次予選</h3>
-              <ImageLightbox images={firstImages} client:only="react" />
-            </section>
+            {firstImages.length > 0 && (
+              <section class="archive">
+                <h3>1次予選</h3>
+                <ImageLightbox images={firstImages} client:only="react" />
+              </section>
+            )}
+            {secondImages.length > 0 && (
+              <section class="archive">
+                <h3>2次予選</h3>
+                <ImageLightbox images={secondImages} client:only="react" />
+              </section>
+            )}
           </section>
         )}
 
