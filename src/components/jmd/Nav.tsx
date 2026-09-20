@@ -30,7 +30,7 @@ export default function Nav() {
     { href: '#summary',    label: '大会概要' },
     { href: '#stream',     label: '配信' },
     { href: '#bracket',    label: '組み合わせ・トーナメント表' },
-    { href: '#result',     label: '対戦表・トーナメント表' },
+    { href: '#result',     label: 'リザルト' },
     { href: '#timetable',  label: 'タイムテーブル' },
     { href: '#entry',      label: 'エントリーリスト' },
     { href: '#regulation', label: '大会ルール' },
