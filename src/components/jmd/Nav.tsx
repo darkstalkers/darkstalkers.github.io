@@ -28,6 +28,7 @@ export default function Nav() {
   const links = [
     { href: '#top',        label: 'トップ' },
     { href: '#summary',    label: '大会概要' },
+    { href: '#stream',     label: '配信' },
     { href: '#bracket',    label: '組み合わせ・トーナメント表' },
     { href: '#entry',      label: 'エントリー' },
     { href: '#timetable',  label: 'タイムテーブル' },
