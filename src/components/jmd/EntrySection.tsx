@@ -547,7 +547,7 @@ export default function EntrySection({ dbPath, iconBase, readOnly = false }: Pro
           border-bottom: none;
         }
       `}</style>
-      <h2>チーム一覧</h2>
+      <h2>エントリーリスト</h2>
       <div className="tab-content">
         <div className="tab-pane active" id="home">
           {(readOnly || status === 'closed' || status === 'new_closed') &&
