@@ -201,14 +201,6 @@ const groupImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
           </section>
         </section> -->
 
-        <!-- エントリーリスト（React・フル機能） -->
-        <EntrySection
-          client:only="react"
-          dbPath="09/data"
-          iconBase="/jmd/08/img/icons/"
-          readOnly={false}
-        />
-
         <!-- タイムテーブル -->
         <section id="timetable">
           <h2>タイムテーブル</h2>
@@ -232,6 +224,14 @@ const groupImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
           </dl>
           <small>※ スケジュールは当日の進行状況により、変更となる場合があります。</small>
         </section>
+
+        <!-- エントリーリスト（React・フル機能） -->
+        <EntrySection
+          client:only="react"
+          dbPath="09/data"
+          iconBase="/jmd/08/img/icons/"
+          readOnly={false}
+        />
 
         <section id="regulation">
           <h2>大会ルール</h2>
