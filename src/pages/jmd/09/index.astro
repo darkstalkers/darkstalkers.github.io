@@ -25,6 +25,19 @@ const secondImages = BLOCKS2
   .filter(l => fs.existsSync(path.join(result2Dir, `${l}.jpg`)))
   .map(l => ({ src: `/jmd/09/img/result2/${l}.jpg`, title: `${l}ブロック` }));
 
+// ディレクトリ内のjpgをそのまま一覧化（プレーオフ以降はブロック名が事前に決まらないため）
+function readBlockImages(dirName) {
+  const dir = path.join(process.cwd(), `public/jmd/09/img/${dirName}`);
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir)
+    .filter(f => /\.jpe?g$/i.test(f))
+    .sort()
+    .map(f => ({ src: `/jmd/09/img/${dirName}/${f}`, title: `${path.basename(f, path.extname(f))}ブロック` }));
+}
+
+const playoffAImages = readBlockImages('playoffA');
+const playoffBImages = readBlockImages('playoffB');
+
 const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, title: `${l}ブロック` }));
 ---
 
@@ -204,8 +217,8 @@ const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, titl
           <ImageLightbox images={groupImages} client:only="react" />
         </section> -->
 
-        <!-- 対戦表（予選の結果） -->
-        {(firstImages.length > 0 || secondImages.length > 0) && (
+        <!-- 対戦表（予選・プレーオフの結果） -->
+        {(firstImages.length > 0 || secondImages.length > 0 || playoffAImages.length > 0 || playoffBImages.length > 0) && (
           <section id="result">
             <h2>リザルト</h2>
             {firstImages.length > 0 && (
@@ -218,6 +231,18 @@ const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, titl
               <section class="archive">
                 <h3>2次予選</h3>
                 <ImageLightbox images={secondImages} client:only="react" />
+              </section>
+            )}
+            {playoffBImages.length > 0 && (
+              <section class="archive">
+                <h3>プレーオフB</h3>
+                <ImageLightbox images={playoffBImages} client:only="react" />
+              </section>
+            )}
+            {playoffAImages.length > 0 && (
+              <section class="archive">
+                <h3>プレーオフA</h3>
+                <ImageLightbox images={playoffAImages} client:only="react" />
               </section>
             )}
           </section>
