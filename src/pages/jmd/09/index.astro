@@ -1,4 +1,6 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
 import Nav from '../../../components/jmd/Nav';
 import EntrySection from '../../../components/jmd/EntrySection';
 import ImageLightbox from '../../../components/jmd/ImageLightbox';
@@ -8,12 +10,15 @@ const description = 'Judgement Day 9（ジャッジメント・デイ9） ― 20
 const canonicalUrl = 'https://darkstalkers-federation.org/jmd/09/';
 const ogImage = 'https://darkstalkers-federation.org/jmd/09/img/ogp.png';
 
-// 対戦表画像（08のものを暫定使用。09用画像ができたら差し替え）
-const finalImages   = [{ src: '/jmd/08/img/result/Final.JPG' }];
-const secondImages  = [{ src: '/jmd/08/img/result/2_1.JPG' }, { src: '/jmd/08/img/result/2_2.JPG' }];
-const playoffImages = [{ src: '/jmd/08/img/result/PlayOff_A.JPG' }, { src: '/jmd/08/img/result/PlayOff_B.JPG' }];
-const firstImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].map(l => ({ src: `/jmd/08/img/result/${l}.JPG` }));
-const groupImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, title: `${l}ブロック` }));
+const BLOCKS = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'];
+const resultDir = path.join(process.cwd(), 'public/jmd/09/img/result');
+
+// 1次予選の結果（手書き対戦表の写真。撮影・追加され次第、自動で一覧に反映される）
+const firstImages = BLOCKS
+  .filter(l => fs.existsSync(path.join(resultDir, `${l}.jpg`)))
+  .map(l => ({ src: `/jmd/09/img/result/${l}.jpg`, title: `${l}ブロック` }));
+
+const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, title: `${l}ブロック` }));
 ---
 
 <!doctype html>
@@ -186,20 +191,22 @@ const groupImages   = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'].
           <p><a href="https://www.twitch.tv/gamenewton" target="_blank" rel="noopener noreferrer">Twitch ニュートンチャンネルで視聴する</a></p>
         </section>
 
-        <!-- 組み合わせ・トーナメント表（予選1回戦） -->
+        <!-- 組み合わせ・トーナメント表（1次予選） -->
         <section id="bracket">
           <h2>組み合わせ・トーナメント表</h2>
           <ImageLightbox images={groupImages} client:only="react" />
         </section>
 
-        <!-- 対戦表（大会終了後に更新） -->
-        <!-- <section id="result">
-          <h2>対戦表・トーナメント表</h2>
-          <section class="archive">
-            <h3>決勝トーナメント</h3>
-            <ImageLightbox images={finalImages} client:only="react" />
+        <!-- 対戦表（1次予選の結果） -->
+        {firstImages.length > 0 && (
+          <section id="result">
+            <h2>対戦表・トーナメント表</h2>
+            <section class="archive">
+              <h3>1次予選</h3>
+              <ImageLightbox images={firstImages} client:only="react" />
+            </section>
           </section>
-        </section> -->
+        )}
 
         <!-- タイムテーブル -->
         <section id="timetable">
