@@ -28,11 +28,11 @@ export default function Nav() {
   const links = [
     { href: '#top',        label: 'トップ' },
     { href: '#summary',    label: '大会概要' },
-    { href: '#stream',     label: '配信' },
+    { href: '#stream',     label: '配信アーカイブ' },
     { href: '#result',     label: 'リザルト' },
-    { href: '#timetable',  label: 'タイムテーブル' },
     { href: '#entry',      label: 'エントリーリスト' },
     { href: '#regulation', label: '大会ルール' },
+    { href: '#timetable',  label: 'タイムテーブル' },
     { href: '#others',     label: 'その他' },
     // { href: '#env',        label: '　当日の対戦環境について' },
     { href: '#party',      label: '　打ち上げについて' },

@@ -109,6 +109,9 @@ const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, titl
 #archive ul { display: flex; flex-wrap: wrap; gap: 0 1.5em; padding: 0; }
       #archive ul li { display: inline; padding: 0.2em 1em; text-align: left; }
       #archive ul li a { font-size: 1.1em; color: #ccc; white-space: nowrap; }
+
+      #result :global(.thumb-list.brackets-list) { justify-content: center; }
+      #result .archive .video-link { margin-top: 10px; }
       #archive ul li a:hover { color: #fff; text-decoration: underline; }
 
       #after h4 {
@@ -200,16 +203,18 @@ const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, titl
 
         <!-- 配信 -->
         <section id="stream">
-          <h2>配信</h2>
+          <h2>配信アーカイブ</h2>
           <div class="youtube">
             <iframe
-              src="https://player.twitch.tv/?channel=gamenewton&parent=darkstalkers-federation.org&parent=darkstalkers.github.io&muted=true"
+              src="https://www.youtube.com/embed/MIyXgDFijJ4"
               frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
-              title="Judgement Day 9 ライブ配信"
+              title="Judgement Day 9 配信アーカイブ"
             ></iframe>
           </div>
-          <p><a href="https://www.twitch.tv/gamenewton" target="_blank" rel="noopener noreferrer">Twitch ニュートンチャンネルで視聴する</a></p>
+          <p><a href="https://youtu.be/MIyXgDFijJ4" target="_blank" rel="noopener noreferrer">YouTubeで視聴する</a></p>
         </section>
 
         <!-- 組み合わせ・トーナメント表（1次予選終了のため非表示） -->
@@ -226,58 +231,54 @@ const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, titl
               <section class="archive">
                 <h3>1次予選</h3>
                 <ImageLightbox images={firstImages} client:only="react" />
+                <div class="video-link">
+                  <img src="/jmd/08/img/youtube.png" alt="" class="icon">
+                  <a href="https://youtu.be/uk__zX8815A" target="_blank">1次予選の配信アーカイブ</a>
+                </div>
               </section>
             )}
             {secondImages.length > 0 && (
               <section class="archive">
                 <h3>2次予選</h3>
                 <ImageLightbox images={secondImages} client:only="react" />
+                <div class="video-link">
+                  <img src="/jmd/08/img/youtube.png" alt="" class="icon">
+                  <a href="https://youtu.be/kJmOsF7xwcs" target="_blank">2次予選の配信アーカイブ</a>
+                </div>
               </section>
             )}
             {playoffBImages.length > 0 && (
               <section class="archive">
                 <h3>プレーオフB</h3>
                 <ImageLightbox images={playoffBImages} client:only="react" />
+                <div class="video-link">
+                  <img src="/jmd/08/img/youtube.png" alt="" class="icon">
+                  <a href="https://youtu.be/vYZfNcBTEhs" target="_blank">プレーオフの配信アーカイブ</a>
+                </div>
               </section>
             )}
             {playoffAImages.length > 0 && (
               <section class="archive">
                 <h3>プレーオフA</h3>
                 <ImageLightbox images={playoffAImages} client:only="react" />
+                <div class="video-link">
+                  <img src="/jmd/08/img/youtube.png" alt="" class="icon">
+                  <a href="https://youtu.be/vYZfNcBTEhs" target="_blank">プレーオフの配信アーカイブ</a>
+                </div>
               </section>
             )}
             {finalImages.length > 0 && (
               <section class="archive">
                 <h3>決勝トーナメント</h3>
                 <ImageLightbox images={finalImages} client:only="react" />
+                <div class="video-link">
+                  <img src="/jmd/08/img/youtube.png" alt="" class="icon">
+                  <a href="https://youtu.be/2aYwQwmvPQc" target="_blank">決勝トーナメントの配信アーカイブ</a>
+                </div>
               </section>
             )}
           </section>
         )}
-
-        <!-- タイムテーブル -->
-        <section id="timetable">
-          <h2>タイムテーブル</h2>
-          <dl class="timetable">
-            <dt>10:00</dt><dd>開場、事前エントリー確認</dd>
-            <dt>11:00</dt>
-            <dd>
-              1次予選開始
-              <small style="display: block; margin-top: 0.3em;">
-                1巡目：A・C・D・E<br>
-                2巡目：F・G・H・I<br>
-                3巡目：B・J・K・L<br>
-                4巡目：M・N
-              </small>
-            </dd>
-            <dt>14:40</dt><dd>2次予選開始</dd>
-            <dt>15:50</dt><dd>プレーオフB開始</dd>
-            <dt>16:30</dt><dd>プレーオフA開始</dd>
-            <dt>17:40</dt><dd>決勝トーナメント開始</dd>
-            <dt>19:10</dt><dd>表彰式</dd>
-          </dl>
-          <small>※ スケジュールは当日の進行状況により、変更となる場合があります。</small>
-        </section>
 
         <!-- エントリーリスト（React・フル機能） -->
         <EntrySection
@@ -386,6 +387,30 @@ const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, titl
           </section>
         </section>
 
+        <!-- タイムテーブル -->
+        <section id="timetable">
+          <h2>タイムテーブル</h2>
+          <dl class="timetable">
+            <dt>10:00</dt><dd>開場、事前エントリー確認</dd>
+            <dt>11:00</dt>
+            <dd>
+              1次予選開始
+              <small style="display: block; margin-top: 0.3em;">
+                1巡目：A・C・D・E<br>
+                2巡目：F・G・H・I<br>
+                3巡目：B・J・K・L<br>
+                4巡目：M・N
+              </small>
+            </dd>
+            <dt>14:40</dt><dd>2次予選開始</dd>
+            <dt>15:50</dt><dd>プレーオフB開始</dd>
+            <dt>16:30</dt><dd>プレーオフA開始</dd>
+            <dt>17:40</dt><dd>決勝トーナメント開始</dd>
+            <dt>19:10</dt><dd>表彰式</dd>
+          </dl>
+          <small>※ スケジュールは当日の進行状況により、変更となる場合があります。</small>
+        </section>
+
         <!-- その他 -->
         <section id="others">
           <h2>その他</h2>
@@ -426,17 +451,17 @@ const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, titl
               <li>2026年9月21日（月）</li>
               <li>12:00開店　13:00試合開始</li>
               <li>開催場所：ゲームニュートン大山店</li>
-              <li>形式：2on2形式トーナメント（事実上シングル戦）</li>
+              <li>形式：シングルエリミネーション</li>
               <li>参加費：200円</li>
             </ul>
-            <h4>後夜祭ルール</h4>
+            <!--<h4>後夜祭ルール</h4>
             <ul class="rule-list">
               <li>2on2の形をとった事実上のシングル戦です。形式上のタッグを決め、先鋒・大将でそれぞれ1試合ずつ計2試合を行い、タッグに関わらずその2試合で負けた2名が敗退となります。決定戦はありません。</li>
               <li>参加者全員が順番決めの抽選を行い、その後に順番通りに名札（本人とは限りません）をくじ引きします。その名札を好きな場所に配置することによってトーナメントを形成します。</li>
               <li>引いた参加者の名前が書かれた名札を、トーナメントの組み合わせの空いている中の好きな場所へ、配置していきます。人数が半端な場合のシード、指定された場所への拒否権はありません。</li>
               <li>トーナメント確定後、じゃんけんで1P/2Pを決めてから、組み合わされた2人で先鋒・大将を相手に分からないように決めて着席し、対戦します。</li>
               <li>以上の順番決めから対戦までを繰り返し、最後に残る優勝者を決めます。（景品あり）</li>
-            </ul>
+            </ul>-->
           </section>
           <section id="archive">
             <h3>アーカイブ（過去大会）</h3>
