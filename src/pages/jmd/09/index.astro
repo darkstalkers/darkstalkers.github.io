@@ -26,17 +26,18 @@ const secondImages = BLOCKS2
   .map(l => ({ src: `/jmd/09/img/result2/${l}.jpg`, title: `${l}ブロック` }));
 
 // ディレクトリ内のjpgをそのまま一覧化（プレーオフ以降はブロック名が事前に決まらないため）
-function readBlockImages(dirName) {
+function readBlockImages(dirName, titleSuffix = 'ブロック') {
   const dir = path.join(process.cwd(), `public/jmd/09/img/${dirName}`);
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir)
     .filter(f => /\.jpe?g$/i.test(f))
     .sort()
-    .map(f => ({ src: `/jmd/09/img/${dirName}/${f}`, title: `${path.basename(f, path.extname(f))}ブロック` }));
+    .map(f => ({ src: `/jmd/09/img/${dirName}/${f}`, title: `${path.basename(f, path.extname(f))}${titleSuffix}` }));
 }
 
 const playoffAImages = readBlockImages('playoffA');
 const playoffBImages = readBlockImages('playoffB');
+const finalImages = readBlockImages('final', '');
 
 const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, title: `${l}ブロック` }));
 ---
@@ -218,7 +219,7 @@ const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, titl
         </section> -->
 
         <!-- 対戦表（予選・プレーオフの結果） -->
-        {(firstImages.length > 0 || secondImages.length > 0 || playoffAImages.length > 0 || playoffBImages.length > 0) && (
+        {(firstImages.length > 0 || secondImages.length > 0 || playoffAImages.length > 0 || playoffBImages.length > 0 || finalImages.length > 0) && (
           <section id="result">
             <h2>リザルト</h2>
             {firstImages.length > 0 && (
@@ -243,6 +244,12 @@ const groupImages = BLOCKS.map(l => ({ src: `/jmd/09/img/bracket/${l}.png`, titl
               <section class="archive">
                 <h3>プレーオフA</h3>
                 <ImageLightbox images={playoffAImages} client:only="react" />
+              </section>
+            )}
+            {finalImages.length > 0 && (
+              <section class="archive">
+                <h3>決勝トーナメント</h3>
+                <ImageLightbox images={finalImages} client:only="react" />
               </section>
             )}
           </section>
